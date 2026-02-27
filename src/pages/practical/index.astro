@@ -1,0 +1,804 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import EmailCapture from '../../components/EmailCapture.astro';
+import FAQ from '../../components/FAQ.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Travel Tips', url: '/practical/' },
+];
+
+const pageTitle = 'Italy Travel Tips — Visa, Money, Transport & Safety Guide 2026';
+const pageDescription = 'Everything you need before your first (or tenth) trip to Italy — Schengen visa rules, euros, trains, safety, packing, and cultural etiquette.';
+
+interface TopicSection {
+  id: string;
+  icon: string;
+  title: string;
+  gradient: string;
+  video?: string;
+  items: { label: string; text: string }[];
+}
+
+const topics: TopicSection[] = [
+  {
+    id: 'visa',
+    icon: '🛂',
+    title: 'Visa & Entry Requirements',
+    gradient: 'linear-gradient(135deg, #1565C0 0%, #42A5F5 100%)',
+    video: '/videos/pillar/practical-break-visa.mp4',
+    items: [
+      { label: 'Schengen Visa-Free', text: 'Citizens of the US, UK, Canada, Australia, Japan, and 50+ other countries can enter Italy visa-free for up to 90 days within any 180-day period. Italy is part of the Schengen Area, so your 90 days cover all Schengen countries combined.' },
+      { label: 'ETIAS (Starting 2026)', text: 'The EU\'s new ETIAS travel authorization system requires visa-exempt travelers to register online before arrival. It costs around 7 EUR, is valid for 3 years, and takes minutes to complete. Apply at etias.com before your trip.' },
+      { label: 'Documents to Carry', text: 'Keep your passport on you at all times — Italian law requires foreigners to carry valid ID. Hotels will photocopy your passport at check-in (required by law). Your passport must be valid for at least 3 months beyond your planned departure from the Schengen area.' },
+      { label: 'EU Citizens', text: 'EU/EEA citizens can enter Italy with just a national ID card — no passport needed. There are no time limits on stays for EU nationals. A European Health Insurance Card (EHIC) provides access to state-run healthcare.' },
+      { label: 'Customs & Duty-Free', text: 'Non-EU travelers can bring up to 200 cigarettes and 1 liter of spirits duty-free. Declare anything over 10,000 EUR in cash. Keep receipts for luxury purchases — you can claim a VAT refund (around 12-15%) at the airport on purchases over 154.94 EUR from participating stores.' },
+    ],
+  },
+  {
+    id: 'money',
+    icon: '💰',
+    title: 'Money & ATMs',
+    gradient: 'linear-gradient(135deg, #2E7D32 0%, #66BB6A 100%)',
+    video: '/videos/pillar/practical-break-money.mp4',
+    items: [
+      { label: 'Currency: The Euro', text: 'Italy uses the Euro (EUR/€). Coins come in 1c, 2c, 5c, 10c, 20c, 50c, 1 EUR, and 2 EUR denominations. Bills run from 5 EUR to 500 EUR (though 500s are rarely accepted). As of 2026, 1 USD is roughly 0.92 EUR.' },
+      { label: 'ATM Strategy', text: 'Use bank ATMs (Bancomat) attached to major banks like Intesa Sanpaolo, UniCredit, or Banca Nazionale del Lavoro. Avoid standalone ATMs in tourist areas — they charge 3-5 EUR fees and terrible exchange rates. Always choose "withdraw without conversion" to avoid dynamic currency conversion markups.' },
+      { label: 'Card Payments', text: 'Credit and debit cards are widely accepted in cities, hotels, and restaurants. Visa and Mastercard work everywhere; Amex is less common. Small shops, markets, trattorias, and some taxis may be cash-only — always carry at least 50-100 EUR in cash.' },
+      { label: 'Tipping Norms', text: 'Tipping is not mandatory in Italy. Restaurants include a "coperto" (cover charge) of 1-3 EUR per person — this is NOT a tip. For exceptional service, rounding up or leaving 5-10% is appreciated but not expected. Tip 1-2 EUR for hotel porters. Taxi drivers: round up to the nearest euro.' },
+      { label: 'Daily Budget Ranges', text: 'Budget: 50-80 EUR/day — hostels, pizza al taglio, public transport. Mid-range: 120-200 EUR/day — 3-star hotels, trattorias, museums. Luxury: 300+ EUR/day — boutique hotels, fine dining, private tours.' },
+      { label: 'VAT Refund', text: 'Non-EU residents can claim a VAT refund on purchases over 154.94 EUR from a single store. Ask for a Tax-Free form at checkout, get it stamped at customs before checking luggage, then claim cash or card credit at the airport refund desk.' },
+    ],
+  },
+  {
+    id: 'transport',
+    icon: '🚂',
+    title: 'Getting Around',
+    gradient: 'linear-gradient(135deg, #E65100 0%, #FF9800 100%)',
+    video: '/videos/pillar/practical-break-transport.mp4',
+    items: [
+      { label: 'High-Speed Trains', text: 'Trenitalia\'s Frecciarossa and Italo\'s NTV trains connect Rome, Florence, Milan, Naples, Venice, and Bologna at up to 300 km/h. Rome to Florence is 1.5 hours; Rome to Milan is 3 hours. Book 2-4 weeks ahead for the best fares — tickets start at 19-29 EUR one-way.' },
+      { label: 'Regional Trains', text: 'Trenitalia Regionale trains connect smaller cities and towns at lower cost. They\'re slower but go everywhere — perfect for reaching hill towns and coastal villages. Tickets are cheap (3-15 EUR) and can often be bought same-day. Validate paper tickets before boarding.' },
+      { label: 'Buses', text: 'FlixBus and Marino cover long-distance routes between cities, often cheaper than trains. For rural areas and hill towns (Tuscany, Umbria, Amalfi Coast), local SITA or Cotral buses are essential. The Amalfi Coast bus is an experience in itself — stunning views, terrifying hairpins.' },
+      { label: 'Ferries to Islands', text: 'Ferries connect the mainland to Sicily (from Villa San Giovanni), Sardinia (from Civitavecchia, Genoa, or Livorno), Capri (from Naples/Sorrento), and the Aeolian Islands (from Milazzo). Book ahead in summer — Tirrenia, Moby, GNV, and SNAV are the major operators.' },
+      { label: 'Rental Cars', text: 'Useful for Tuscany, Puglia, Sicily, and the Amalfi Coast — where trains don\'t reach. An international driving permit (IDP) is technically required for non-EU licenses. ZTL zones (limited traffic zones) in city centers will trigger automatic fines if you drive in. Stick to manual transmission — automatics cost significantly more.' },
+      { label: 'City Transport & Taxis', text: 'Rome, Milan, Naples, and Turin have metro systems. Buses and trams serve all major cities. Buy tickets before boarding at tabacchi shops or machines. Licensed taxis are white and metered — always insist the meter is running. Uber exists in Rome and Milan but is limited to licensed vehicles.' },
+    ],
+  },
+  {
+    id: 'connectivity',
+    icon: '📱',
+    title: 'SIM Cards & Connectivity',
+    gradient: 'linear-gradient(135deg, #6A1B9A 0%, #AB47BC 100%)',
+    video: '/videos/pillar/practical-break-connectivity.mp4',
+    items: [
+      { label: 'eSIM & Local SIMs', text: 'The easiest option is an eSIM from Airalo or Holafly — set it up before you land. For physical SIMs, TIM, Vodafone, and WindTre all sell tourist SIM cards at their stores and at airports. Expect to pay 15-30 EUR for 30 days with 50-100 GB of data. Bring your passport — it\'s required for SIM registration.' },
+      { label: 'US Carrier Coverage', text: 'T-Mobile includes free international data (at 2G speeds) and texting. Google Fi works seamlessly abroad with high-speed data. AT&T International Day Pass costs $12/day. If your plan covers Europe, you may not need a local SIM at all.' },
+      { label: 'WiFi Availability', text: 'Free WiFi is available at most hotels, many cafes, and some public spaces. Italian WiFi can be slower than what you\'re used to — 10-30 Mbps is typical. Train stations and airports have free WiFi (often time-limited). Having mobile data as backup is recommended.' },
+      { label: 'Messaging', text: 'WhatsApp is the dominant messaging app in Italy — restaurants, tour operators, and hotels often prefer it. Download it before your trip. FaceTime and iMessage work normally over WiFi or data.' },
+    ],
+  },
+  {
+    id: 'safety',
+    icon: '🏥',
+    title: 'Safety & Health',
+    gradient: 'linear-gradient(135deg, #C62828 0%, #EF5350 100%)',
+    video: '/videos/pillar/practical-break-safety.mp4',
+    items: [
+      { label: 'Travel Insurance', text: 'Get a policy that covers medical expenses and trip cancellation. Italian emergency rooms will treat you regardless of insurance, but a hospital visit without coverage can cost thousands. We use <a href="https://safetywing.com/?referenceID=24858745&utm_source=24858745&utm_medium=Ambassador" target="_blank" rel="noopener sponsored">SafetyWing</a> for every trip — affordable and covers you worldwide.' },
+      { label: 'EHIC / GHIC (EU Citizens)', text: 'EU citizens should carry a European Health Insurance Card (EHIC) or UK Global Health Insurance Card (GHIC). It covers state-provided medical treatment at the same cost as Italian residents — meaning most emergency care is free or very low cost.' },
+      { label: 'Hospitals & Pharmacies', text: 'Italy has excellent hospitals (ospedali) in every major city. In emergencies, call 118 for an ambulance. Pharmacies (farmacie, marked with a green cross) can dispense many medications without a prescription and provide basic medical advice. Rotation schedules ensure at least one pharmacy is open 24/7 in each area.' },
+      { label: 'Tap Water', text: 'Tap water in Italy is safe to drink everywhere. Rome\'s public drinking fountains (nasoni) provide fresh, cold water throughout the city — look for the small metal spouts on street corners. Restaurants may push bottled water (acqua minerale), but you can always ask for "acqua del rubinetto" (tap water).' },
+      { label: 'Pickpocket Awareness', text: 'Pickpocketing is the primary safety concern in Rome, Florence, Naples, Milan, and Venice — especially on public transport, at tourist attractions, and in crowded markets. Use a money belt or front-zip bag. Keep your phone in your front pocket. Watch for distraction techniques: fake petitions, bracelet sellers, groups of children. Stay alert, and you\'ll be fine.' },
+      { label: 'Driving Safety', text: 'Italian drivers are aggressive by Northern European or American standards. Motorways (autostrade) are toll roads — carry cash or a card for tolls. Speed cameras are everywhere and fines follow you home. Avoid driving in major city centers — ZTL cameras will ticket you automatically.' },
+    ],
+  },
+  {
+    id: 'packing',
+    icon: '🎒',
+    title: 'Packing Essentials',
+    gradient: 'linear-gradient(135deg, #78350F 0%, #D97706 100%)',
+    video: '/videos/pillar/practical-break-packing.mp4',
+    items: [
+      { label: 'Church & Museum Dress Code', text: 'Italy\'s major churches (Vatican, Duomo di Milano, St. Mark\'s) enforce strict dress codes: covered shoulders and knees for both men and women. Carry a lightweight scarf or shawl in your day bag — you\'ll be turned away without one. This applies year-round.' },
+      { label: 'Power Adapters', text: 'Italy uses Type L (3 round pins) and Type C (2 round pins) plugs at 230V. Bring a universal adapter or a European plug adapter. Your phone chargers and laptops are dual-voltage and work fine. Hair dryers and curling irons need to be rated 110-240V — check before plugging in.' },
+      { label: 'Comfortable Walking Shoes', text: 'Italian cities are built on cobblestones, hills, and uneven stone paths. Wear proper walking shoes — not flip-flops, not brand-new shoes. Break them in before your trip. You\'ll walk 10-15 km per day easily in Rome, Florence, or Venice.' },
+      { label: 'Sunscreen & Hat', text: 'Southern Italy, Sicily, and Sardinia get intense summer sun. Bring SPF 50+ sunscreen, a hat, and sunglasses. The Mediterranean UV index hits 9-10+ in July and August. Sunburn can ruin beach days along the Amalfi Coast and Puglia.' },
+      { label: 'Layers for Evening', text: 'Even in summer, Italian evenings cool down — especially in hill towns, lake regions, and northern cities. A light jacket or cardigan is essential for outdoor dining. Spring and fall require a proper jacket, especially in Milan, Venice, and the Dolomites.' },
+      { label: 'Day Bag', text: 'Carry a crossbody bag or small backpack for daily exploring — phone, water bottle, sunscreen, adapter, and cash. Anti-theft bags with hidden zippers are worth the investment in Rome and Naples. Leave valuables in the hotel safe.' },
+    ],
+  },
+  {
+    id: 'culture',
+    icon: '🇮🇹',
+    title: 'Language & Cultural Etiquette',
+    gradient: 'linear-gradient(135deg, #0D7377 0%, #14B8A6 100%)',
+    video: '/videos/pillar/practical-break-culture.mp4',
+    items: [
+      { label: 'Basic Italian Phrases', text: '"Buongiorno" (good morning/hello), "Buonasera" (good evening), "Grazie" (thank you), "Per favore" (please), "Scusi" (excuse me), "Mi scusi" (formal excuse me), "Quanto costa?" (how much?), "Il conto, per favore" (the bill, please), "Dov\'e il bagno?" (where\'s the bathroom?). Even a few words earn a warmer welcome.' },
+      { label: 'Greetings & Formality', text: 'Italians greet with "Buongiorno" until early afternoon, then switch to "Buonasera." Use "Lei" (formal you) with strangers and older people. "Ciao" is informal — only use it with people you know or who say it first. A handshake is standard; close acquaintances do the two-cheek kiss (left first).' },
+      { label: 'Dining Etiquette', text: 'Lunch is typically 12:30-2:30 PM, dinner 7:30-10:00 PM. Don\'t ask for butter with bread at dinner. Don\'t order cappuccino after 11 AM (espresso is fine anytime). Pasta is a first course, not a main — ordering only pasta is perfectly acceptable. "Coperto" is a cover charge, not a tip. Ask for "il conto" when ready — it won\'t come automatically.' },
+      { label: 'Coffee Culture', text: 'Coffee at the bar (standing) is cheaper than sitting at a table. Espresso is the default — order "un caffe" and you\'ll get an espresso. Cappuccino is a morning drink only. "Caffe macchiato" is espresso with a dash of milk. Pay at the cassa (register) first in busy bars, then bring the receipt to the barista.' },
+      { label: 'La Passeggiata', text: 'The evening stroll — Italians dress up and walk through town between 5-8 PM. It\'s social, leisurely, and one of the best ways to experience local life. Join in. It\'s the reason Italian towns feel so alive in the evening.' },
+      { label: 'Regional Pride', text: 'Italy is intensely regional. Neapolitans, Romans, Florentines, Milanese, and Sicilians all have distinct identities, dialects, and cuisines. Don\'t compare regions or suggest one is better than another. Each city and region takes immense pride in its own traditions.' },
+    ],
+  },
+];
+---
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  pageType="destination"
+  schemaData={{ title: pageTitle, description: pageDescription }}
+  breadcrumbs={breadcrumbs}
+>
+  <!-- Hero -->
+  <header class="prac-hero">
+    <video class="prac-hero-video" autoplay muted loop playsinline preload="metadata">
+      <source src="/videos/pillar/practical-hero.mp4" type="video/mp4" />
+    </video>
+    <div class="prac-hero-gradient"></div>
+    <div class="prac-hero-noise"></div>
+    <div class="prac-hero-content">
+      <h1 class="prac-hero-title">Italy Travel Essentials</h1>
+      <p class="prac-hero-subtitle">Schengen visa rules, euro strategy, train travel, safety tips, packing lists, and the cultural etiquette that turns a good trip into a great one.</p>
+      <div class="prac-hero-meta">
+        <div class="prac-hero-meta-item">
+          <span class="prac-hero-meta-label">Topics</span>
+          <span class="prac-hero-meta-value">7</span>
+        </div>
+        <div class="prac-hero-meta-item">
+          <span class="prac-hero-meta-label">Updated</span>
+          <span class="prac-hero-meta-value">Feb 2026</span>
+        </div>
+        <div class="prac-hero-meta-item">
+          <span class="prac-hero-meta-label">Trips</span>
+          <span class="prac-hero-meta-value">25+</span>
+        </div>
+      </div>
+    </div>
+    <div class="prac-scroll-hint">Scroll<br />&#8595;</div>
+  </header>
+
+  <!-- Breadcrumb -->
+  <div class="container-content">
+    <Breadcrumb items={breadcrumbs} />
+  </div>
+
+  <!-- Personal intro -->
+  <section class="prac-personal reveal">
+    <div class="container-content">
+      <blockquote class="prac-personal-quote">
+        <p>We've made every mistake in this guide at least once — from getting fined for driving into a ZTL zone in Florence to ordering cappuccino after dinner in Rome (never again). After 25+ trips together, we've figured out the practical side of Italian travel so you don't have to learn the hard way. This is the cheat sheet we wish someone had handed us on our first trip.</p>
+        <cite>— Scott &amp; Scott</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- Quick Nav -->
+  <section class="prac-quicknav reveal">
+    <div class="container-content">
+      <div class="prac-quicknav-grid">
+        {topics.map((t) => (
+          <a href={`#${t.id}`} class="prac-quicknav-chip">
+            <span class="prac-quicknav-icon">{t.icon}</span>
+            <span class="prac-quicknav-label">{t.title.split(' ').slice(0, 2).join(' ')}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Topic Sections -->
+  {topics.map((topic) => (
+    <section class="prac-topic reveal" id={topic.id}>
+      <div class="container-content">
+        <div class="prac-topic-header" style={`background: ${topic.gradient};`}>
+          {topic.video && (
+            <video class="prac-topic-video" autoplay muted loop playsinline preload="none">
+              <source src={topic.video} type="video/mp4" />
+            </video>
+          )}
+          <div class="prac-topic-header-inner">
+            <span class="prac-topic-icon">{topic.icon}</span>
+            <h2 class="prac-topic-title">{topic.title}</h2>
+            <span class="prac-topic-count">{topic.items.length} tips</span>
+          </div>
+        </div>
+
+        <div class="prac-tip-grid">
+          {topic.items.map((item) => (
+            <div class="prac-tip-card">
+              <h3 class="prac-tip-label">{item.label}</h3>
+              <p class="prac-tip-text" set:html={item.text} />
+            </div>
+          ))}
+        </div>
+
+        {topic.id === 'transport' && (
+          <div class="prac-transport-widget">
+            <h3 class="prac-transport-widget-title">Search Routes & Book Transport</h3>
+            <p class="prac-transport-widget-desc">Compare trains, buses, and ferries between Italian destinations.</p>
+            <div class="prac-transport-widget-inner">
+              <p style="font-size: 0.85rem; color: var(--color-slate);">Use <a href="https://www.trenitalia.com" target="_blank" rel="noopener">Trenitalia</a> or <a href="https://www.italotreno.it" target="_blank" rel="noopener">Italo</a> to search and book train routes across Italy.</p>
+            </div>
+          </div>
+        )}
+      </div>
+    </section>
+  ))}
+
+  <!-- Affiliate Disclosure -->
+  <div class="container-content reveal" style="padding-bottom: 0;">
+    <p class="prac-affiliate-disclosure">Some links on this page are affiliate links — we earn a small commission if you purchase through them, at no extra cost to you. We only recommend gear we personally use on our Italy trips. <a href="/legal/affiliate-disclosure/">Full disclosure</a>.</p>
+  </div>
+
+  <!-- Bottom CTA -->
+  <section class="prac-cta-section reveal">
+    <div class="container-content">
+      <div class="prac-cta-card">
+        <h2 class="prac-cta-heading">Plan Your Italy Trip</h2>
+        <p class="prac-cta-text">Tell our AI planner your dates, budget, and interests — it builds a custom day-by-day itinerary with trains, hotels, and activities.</p>
+        <a href="/plan/" class="prac-cta-button">Start Planning &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <FAQ items={[
+    { question: "Do I need a visa to visit Italy?", answer: "Most nationalities (US, UK, Canada, Australia, Japan, and 50+ others) can enter Italy visa-free for up to 90 days within a 180-day period. Italy is part of the Schengen Area, so this covers all Schengen countries combined. Starting in 2026, visa-exempt travelers will also need ETIAS authorization (7 EUR, valid for 3 years). Bring your passport with at least 3 months' validity beyond your departure date." },
+    { question: "Is Italy safe for tourists?", answer: "Italy is very safe for tourists. Violent crime against visitors is extremely rare. The main concern is petty theft — pickpocketing is common in Rome, Florence, Naples, Milan, and Venice, especially on public transport and at tourist hotspots. Use common sense: carry a crossbody bag, keep your phone in a front pocket, be alert in crowds. Avoid walking alone in poorly lit areas at night. Tourist areas are well-policed." },
+    { question: "How much does a trip to Italy cost?", answer: "Budget travelers: 50-80 EUR/day covers hostels, pizza al taglio, and public transport. Mid-range: 120-200 EUR/day for 3-star hotels, trattorias, and museum entry. Luxury: 300+ EUR/day for boutique hotels, fine dining, and private tours. A 7-day mid-range trip for two costs roughly 2,500-4,000 EUR total including accommodation, meals, transport, and activities." },
+    { question: "What is the best way to get around Italy?", answer: "High-speed trains (Trenitalia Frecciarossa, Italo) connect major cities quickly and affordably — Rome to Florence is 1.5 hours, Rome to Naples is 70 minutes. Regional trains reach smaller towns. Rent a car for Tuscany, Puglia, Sicily, and the Amalfi Coast. Ferries connect the mainland to Sicily, Sardinia, Capri, and the Aeolian Islands. In cities, use metro, buses, or walk — most historic centers are compact." },
+    { question: "When is the best time to visit Italy?", answer: "April-June and September-October offer the best combination of warm weather, manageable crowds, and lower prices. July-August is peak season — hot, crowded, and expensive, but perfect for beach destinations and island ferries. Ski season runs December-March in the Dolomites and Alps. Winter in cities like Rome and Florence is mild and uncrowded, with the best hotel deals." },
+    { question: "Do I need to speak Italian?", answer: "English is widely spoken in tourist areas, hotels, and restaurants in major cities. Smaller towns and rural areas may have limited English. Learning basic phrases (Buongiorno, Grazie, Scusi, Per favore) goes a long way and earns genuine appreciation. Younger Italians generally speak some English; older generations may not. Google Translate works well offline if you download the Italian language pack." },
+  ]} />
+
+  <!-- Email Capture -->
+  <div class="container-content reveal" style="padding-bottom: var(--space-6);">
+    <EmailCapture
+      leadMagnet="Get Our Free Italy Travel Essentials Guide"
+      description="A printable PDF covering everything in this guide — plus offline maps, emergency contacts, and a packing checklist."
+      bullets={[
+        'Schengen visa rules and ETIAS registration walkthrough',
+        'ATM strategy and daily budget planner by travel style',
+        'Printable Italian phrase card for restaurants and transport',
+        'Packing checklist with summer, winter, and shoulder-season variants',
+      ]}
+      guideTag="pillar-practical"
+    />
+  </div>
+
+  <!-- Cross-links -->
+  <section class="prac-crosslinks reveal">
+    <div class="container-content">
+      <h3 class="prac-crosslinks-heading">Explore More</h3>
+      <div class="prac-crosslinks-grid">
+        <a href="/destinations/" class="prac-crosslink-card">
+          <span class="prac-crosslink-icon">&#127965;</span>
+          <span class="prac-crosslink-label">All Destinations</span>
+          <span class="prac-crosslink-desc">Every city and region we've explored with honest reviews</span>
+        </a>
+        <a href="/festivals/" class="prac-crosslink-card">
+          <span class="prac-crosslink-icon">&#127914;</span>
+          <span class="prac-crosslink-label">Festival Calendar</span>
+          <span class="prac-crosslink-desc">Italy's best festivals and events, month by month</span>
+        </a>
+        <a href="/cuisine/" class="prac-crosslink-card">
+          <span class="prac-crosslink-icon">&#127860;</span>
+          <span class="prac-crosslink-label">Food & Cuisine</span>
+          <span class="prac-crosslink-desc">Regional Italian dishes with where to find the best version</span>
+        </a>
+        <a href="/history/" class="prac-crosslink-card">
+          <span class="prac-crosslink-icon">&#127963;</span>
+          <span class="prac-crosslink-label">History & Heritage</span>
+          <span class="prac-crosslink-desc">From ancient Rome to the Renaissance and beyond</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<!-- Scroll Reveal Observer -->
+<script>
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+    );
+    document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
+  } else {
+    document.querySelectorAll('.reveal').forEach((el) => el.classList.add('visible'));
+  }
+</script>
+
+<style>
+  /* ================================================================
+     HERO — Practical travel gradient (no video)
+     ================================================================ */
+  .prac-hero {
+    position: relative;
+    min-height: 55vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 5rem var(--space-6) 60px;
+    overflow: hidden;
+  }
+
+  .prac-hero-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+
+  .prac-hero-gradient {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.15) 40%, rgba(0,0,0,0.55) 100%);
+  }
+
+  .prac-hero-noise {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+
+  .prac-hero-content {
+    position: relative;
+    z-index: 3;
+    max-width: 720px;
+  }
+
+  .prac-hero-title {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: var(--weight-bold);
+    color: #fff;
+    line-height: 1.1;
+    margin: 0 0 var(--space-3);
+  }
+
+  .prac-hero-subtitle {
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.6;
+    margin: 0 0 var(--space-5);
+    max-width: 580px;
+  }
+
+  .prac-hero-meta {
+    display: flex;
+    gap: var(--space-5);
+    flex-wrap: wrap;
+  }
+
+  .prac-hero-meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .prac-hero-meta-label {
+    font-size: 0.65rem;
+    font-weight: var(--weight-semibold);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .prac-hero-meta-value {
+    font-size: 1.1rem;
+    font-weight: var(--weight-bold);
+    color: #fff;
+  }
+
+  .prac-scroll-hint {
+    position: absolute;
+    bottom: 16px;
+    right: var(--space-6);
+    z-index: 3;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: rgba(255, 255, 255, 0.35);
+    text-align: center;
+    animation: pracBounce 2s ease-in-out infinite;
+  }
+
+  @keyframes pracBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(6px); }
+  }
+
+  /* ================================================================
+     PERSONAL INTRO
+     ================================================================ */
+  .prac-personal {
+    padding-block: var(--space-8);
+  }
+
+  .prac-personal-quote {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: var(--space-6) var(--space-8);
+    border-left: 4px solid var(--color-ocean-teal);
+    background: var(--color-sky);
+    border-radius: 0 12px 12px 0;
+  }
+
+  .prac-personal-quote p {
+    font-size: var(--text-body);
+    color: var(--color-heading);
+    line-height: var(--leading-body);
+    font-style: italic;
+    margin-bottom: var(--space-3);
+  }
+
+  .prac-personal-quote cite {
+    font-size: var(--text-caption);
+    color: var(--color-ocean-teal);
+    font-weight: var(--weight-semibold);
+    font-style: normal;
+  }
+
+  /* ================================================================
+     QUICK NAV — Jump-to chips
+     ================================================================ */
+  .prac-quicknav {
+    padding: 0 0 var(--space-6);
+  }
+
+  .prac-quicknav-grid {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-2);
+    flex-wrap: wrap;
+  }
+
+  .prac-quicknav-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    background: var(--color-white);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 40px;
+    font-size: 0.8rem;
+    font-weight: var(--weight-medium);
+    color: var(--color-slate);
+    text-decoration: none;
+    transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  }
+
+  .prac-quicknav-chip:hover {
+    background: var(--color-sky);
+    color: var(--color-ocean-teal);
+    transform: translateY(-2px);
+  }
+
+  .prac-quicknav-icon {
+    font-size: 1rem;
+  }
+
+  .prac-quicknav-label {
+    white-space: nowrap;
+  }
+
+  /* ================================================================
+     TOPIC SECTION
+     ================================================================ */
+  .prac-topic {
+    padding: var(--space-4) 0 var(--space-6);
+    scroll-margin-top: 80px;
+  }
+
+  .prac-topic-header {
+    position: relative;
+    border-radius: 20px;
+    padding: var(--space-5) var(--space-6);
+    margin-bottom: var(--space-5);
+    overflow: hidden;
+  }
+
+  .prac-topic-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    opacity: 0.35;
+  }
+
+  .prac-topic-header-inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+  }
+
+  .prac-topic-icon {
+    font-size: 1.6rem;
+  }
+
+  .prac-topic-title {
+    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+    font-weight: var(--weight-bold);
+    color: #fff;
+    margin: 0;
+    line-height: 1.2;
+    flex: 1;
+    min-width: 200px;
+  }
+
+  .prac-topic-count {
+    font-size: 0.7rem;
+    font-weight: var(--weight-semibold);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.55);
+    background: rgba(255, 255, 255, 0.1);
+    padding: 4px 12px;
+    border-radius: 20px;
+  }
+
+  /* ================================================================
+     TIP CARDS
+     ================================================================ */
+  .prac-tip-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+  }
+
+  @media (max-width: 768px) {
+    .prac-tip-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .prac-tip-card {
+    background: var(--color-white);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 14px;
+    padding: var(--space-5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .prac-tip-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  }
+
+  .prac-tip-label {
+    font-size: 0.95rem;
+    font-weight: var(--weight-bold);
+    color: var(--color-deep-night);
+    margin: 0 0 var(--space-2);
+    line-height: 1.3;
+  }
+
+  .prac-tip-text {
+    font-size: 0.85rem;
+    color: var(--color-slate);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  .prac-tip-text :global(a) {
+    color: var(--color-ocean-teal);
+    font-weight: var(--weight-semibold);
+    text-decoration: underline;
+    text-decoration-color: rgba(13, 115, 119, 0.3);
+    text-underline-offset: 2px;
+    transition: text-decoration-color 0.2s ease;
+  }
+
+  .prac-tip-text :global(a:hover) {
+    text-decoration-color: var(--color-ocean-teal);
+  }
+
+  /* ================================================================
+     TRANSPORT WIDGET
+     ================================================================ */
+  .prac-transport-widget {
+    text-align: center;
+    margin-top: var(--space-6);
+    padding: var(--space-6);
+    background: var(--color-sky);
+    border-radius: 16px;
+  }
+
+  .prac-transport-widget-title {
+    font-size: 1.1rem;
+    font-weight: var(--weight-bold);
+    color: var(--color-deep-night);
+    margin: 0 0 var(--space-1);
+  }
+
+  .prac-transport-widget-desc {
+    font-size: 0.85rem;
+    color: var(--color-slate);
+    margin: 0 0 var(--space-4);
+  }
+
+  .prac-transport-widget-inner {
+    display: inline-block;
+    max-width: 400px;
+  }
+
+  /* ================================================================
+     AFFILIATE DISCLOSURE
+     ================================================================ */
+  .prac-affiliate-disclosure {
+    font-size: 0.75rem;
+    color: var(--color-slate);
+    line-height: 1.5;
+    text-align: center;
+    padding: var(--space-4) var(--space-6);
+    background: var(--color-sky);
+    border-radius: 10px;
+    margin-bottom: var(--space-4);
+  }
+
+  .prac-affiliate-disclosure a {
+    color: var(--color-ocean-teal);
+    text-decoration: underline;
+  }
+
+  /* ================================================================
+     BOTTOM CTA
+     ================================================================ */
+  .prac-cta-section {
+    padding: var(--space-6) 0 var(--space-8);
+  }
+
+  .prac-cta-card {
+    background: linear-gradient(135deg, var(--color-deep-night) 0%, #2D3748 100%);
+    border-radius: 20px;
+    padding: var(--space-8) var(--space-6);
+    text-align: center;
+    color: #fff;
+  }
+
+  .prac-cta-heading {
+    font-size: clamp(1.3rem, 3vw, 1.8rem);
+    font-weight: var(--weight-bold);
+    margin: 0 0 var(--space-3);
+    color: #fff;
+  }
+
+  .prac-cta-text {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.75);
+    max-width: 520px;
+    margin: 0 auto var(--space-5);
+    line-height: 1.6;
+  }
+
+  .prac-cta-button {
+    display: inline-block;
+    background: var(--color-warm-coral);
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: var(--weight-semibold);
+    padding: 12px 28px;
+    border-radius: 40px;
+    text-decoration: none;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+
+  .prac-cta-button:hover {
+    background: #d4553b;
+    transform: translateY(-2px);
+  }
+
+  /* ================================================================
+     CROSS-LINKS
+     ================================================================ */
+  .prac-crosslinks {
+    padding: 0 0 var(--space-10);
+  }
+
+  .prac-crosslinks-heading {
+    font-size: 1.1rem;
+    font-weight: var(--weight-bold);
+    color: var(--color-deep-night);
+    text-align: center;
+    margin: 0 0 var(--space-4);
+  }
+
+  .prac-crosslinks-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-4);
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 768px) {
+    .prac-crosslinks-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .prac-crosslinks-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .prac-crosslink-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-5) var(--space-4);
+    background: var(--color-white);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 16px;
+    text-decoration: none;
+    color: inherit;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .prac-crosslink-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  }
+
+  .prac-crosslink-icon {
+    font-size: 1.8rem;
+  }
+
+  .prac-crosslink-label {
+    font-size: 0.95rem;
+    font-weight: var(--weight-bold);
+    color: var(--color-deep-night);
+  }
+
+  .prac-crosslink-desc {
+    font-size: 0.78rem;
+    color: var(--color-slate);
+    line-height: 1.4;
+  }
+
+  /* ================================================================
+     RESPONSIVE
+     ================================================================ */
+  @media (max-width: 640px) {
+    .prac-hero {
+      min-height: 50vh;
+      padding: 0 var(--space-4) 40px;
+    }
+
+    .prac-hero-meta {
+      gap: var(--space-4);
+    }
+
+    .prac-scroll-hint {
+      display: none;
+    }
+
+    .prac-topic-header {
+      padding: var(--space-4) var(--space-4);
+    }
+  }
+</style>

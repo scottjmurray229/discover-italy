@@ -1,0 +1,229 @@
+{
+  "destinations": {
+    "rome": {
+      "title": "Rome",
+      "tagline": "The Eternal City",
+      "region": "central-italy",
+      "bestMonths": ["Apr", "May", "Sep", "Oct"],
+      "budgetPerDay": { "backpacker": 60, "midRange": 150, "luxury": 350 },
+      "gettingThere": "Fly to Fiumicino (FCO) or Ciampino (CIA). Leonardo Express train to Termini station in 32 minutes.",
+      "highlights": ["Colosseum & Roman Forum", "Vatican Museums & Sistine Chapel", "Trastevere neighborhood", "Pantheon", "Trevi Fountain"],
+      "essentials": {
+        "gettingAround": "Metro (3 lines), buses, and walking. 72-hour transit pass costs EUR 18.",
+        "airport": "Fiumicino (FCO)",
+        "trainConnections": ["Florence (1.5 hr)", "Naples (1 hr 10 min)", "Venice (3.5 hr)"],
+        "language": "Italian"
+      }
+    },
+    "florence": {
+      "title": "Florence",
+      "tagline": "Cradle of the Renaissance",
+      "region": "central-italy",
+      "bestMonths": ["Apr", "May", "Sep", "Oct"],
+      "budgetPerDay": { "backpacker": 55, "midRange": 140, "luxury": 300 },
+      "gettingThere": "Fly to Florence Airport (FLR) or take high-speed train from Rome (1.5 hours) or Milan (1 hr 40 min).",
+      "highlights": ["Uffizi Gallery", "Florence Cathedral (Duomo)", "Ponte Vecchio", "Piazzale Michelangelo", "Tuscan wine tasting"],
+      "essentials": {
+        "gettingAround": "Entirely walkable centro storico. No need for transit.",
+        "airport": "Florence (FLR)",
+        "trainConnections": ["Rome (1.5 hr)", "Venice (2 hr)", "Milan (1 hr 40 min)", "Bologna (37 min)"],
+        "language": "Italian"
+      }
+    },
+    "venice": {
+      "title": "Venice",
+      "tagline": "City of Canals and Dreams",
+      "region": "northern-italy",
+      "bestMonths": ["Apr", "May", "Sep", "Oct"],
+      "budgetPerDay": { "backpacker": 65, "midRange": 180, "luxury": 400 },
+      "gettingThere": "Fly to Marco Polo Airport (VCE). Alilaguna water bus or ATVO bus to city center.",
+      "highlights": ["St. Mark's Basilica", "Grand Canal by vaporetto", "Rialto Market", "Murano & Burano islands", "Cicchetti bar crawl"],
+      "essentials": {
+        "gettingAround": "Vaporetti (water buses) and walking. 72-hour pass EUR 40.",
+        "airport": "Marco Polo (VCE)",
+        "trainConnections": ["Florence (2 hr)", "Milan (2.5 hr)", "Verona (1 hr)", "Bologna (1.5 hr)"],
+        "language": "Italian, Venetian dialect"
+      }
+    },
+    "milan": {
+      "title": "Milan",
+      "tagline": "Fashion Capital of Europe",
+      "region": "northern-italy",
+      "bestMonths": ["Apr", "May", "Sep", "Oct"],
+      "budgetPerDay": { "backpacker": 55, "midRange": 140, "luxury": 350 },
+      "gettingThere": "Fly to Malpensa (MXP) or Linate (LIN). Malpensa Express train to Centrale station, 50 min.",
+      "highlights": ["The Last Supper", "Milan Cathedral", "Navigli canal district", "Galleria Vittorio Emanuele II", "Fashion district"],
+      "essentials": {
+        "gettingAround": "Excellent metro system (4 lines). Single ticket EUR 2.20, 24-hour pass EUR 7.60.",
+        "airport": "Malpensa (MXP)",
+        "trainConnections": ["Florence (1 hr 40 min)", "Venice (2.5 hr)", "Lake Como (1 hr)", "Rome (3 hr)"],
+        "language": "Italian"
+      }
+    },
+    "naples": {
+      "title": "Naples",
+      "tagline": "Soul of Southern Italy",
+      "region": "southern-italy",
+      "bestMonths": ["Apr", "May", "Sep", "Oct"],
+      "budgetPerDay": { "backpacker": 40, "midRange": 100, "luxury": 250 },
+      "gettingThere": "Fly to Naples International (NAP). Alibus shuttle to Piazza Garibaldi, 20 min.",
+      "highlights": ["Pizza at Da Michele", "Naples Underground", "Spaccanapoli", "National Archaeological Museum", "Day trip to Pompeii"],
+      "essentials": {
+        "gettingAround": "Metro Line 1, walking, Circumvesuviana train to Pompeii/Sorrento.",
+        "airport": "Naples (NAP)",
+        "trainConnections": ["Rome (1 hr 10 min)", "Pompeii (35 min)", "Sorrento (1 hr)"],
+        "language": "Italian, Neapolitan dialect"
+      }
+    },
+    "amalfi-coast": {
+      "title": "Amalfi Coast",
+      "tagline": "Mediterranean Paradise on Cliffs",
+      "region": "southern-italy",
+      "bestMonths": ["May", "Jun", "Sep", "Oct"],
+      "budgetPerDay": { "backpacker": 70, "midRange": 180, "luxury": 450 },
+      "gettingThere": "Fly to Naples (NAP), then SITA bus or ferry from Salerno. Drive the SS163 coastal road.",
+      "highlights": ["SS163 coastal drive", "Ravello gardens", "Path of the Gods hike", "Amalfi Cathedral", "Limoncello tasting"],
+      "essentials": {
+        "gettingAround": "SITA buses between towns, ferries May-October, or hire a driver.",
+        "airport": "Naples (NAP)",
+        "trainConnections": ["Salerno (from Naples, 35 min)"],
+        "language": "Italian"
+      }
+    },
+    "cinque-terre": {
+      "title": "Cinque Terre",
+      "tagline": "Five Villages, One Masterpiece",
+      "region": "northern-italy",
+      "bestMonths": ["Apr", "May", "Sep", "Oct"],
+      "budgetPerDay": { "backpacker": 55, "midRange": 140, "luxury": 300 },
+      "gettingThere": "Train from La Spezia Centrale. High-speed trains connect La Spezia to Florence, Milan, Rome.",
+      "highlights": ["Blue Trail hike", "Vernazza harbor", "Monterosso beach", "Manarola sunset", "Fresh pesto and focaccia"],
+      "essentials": {
+        "gettingAround": "Cinque Terre Express train (EUR 16/day card). Ferries April-October.",
+        "airport": "Pisa (PSA) or Genoa (GOA)",
+        "trainConnections": ["La Spezia to Florence (2.5 hr)", "La Spezia to Milan (3 hr)"],
+        "language": "Italian, Ligurian dialect"
+      }
+    },
+    "tuscany": {
+      "title": "Tuscany",
+      "tagline": "Rolling Hills and Renaissance Soul",
+      "region": "central-italy",
+      "bestMonths": ["May", "Jun", "Sep", "Oct"],
+      "budgetPerDay": { "backpacker": 50, "midRange": 130, "luxury": 300 },
+      "gettingThere": "Base in Florence or Siena. Rent a car for the best Tuscan experience.",
+      "highlights": ["Siena's Piazza del Campo", "San Gimignano towers", "Val d'Orcia cypress roads", "Chianti wine tasting", "Montepulciano"],
+      "essentials": {
+        "gettingAround": "Rent a car — essential for hilltop towns. Watch for ZTL restricted zones in town centers.",
+        "airport": "Florence (FLR) or Pisa (PSA)",
+        "trainConnections": ["Florence to Siena (1.5 hr by bus)"],
+        "language": "Italian"
+      }
+    },
+    "sicily": {
+      "title": "Sicily",
+      "tagline": "Island of Fire and Ancient Wonders",
+      "region": "islands",
+      "bestMonths": ["May", "Jun", "Sep", "Oct"],
+      "budgetPerDay": { "backpacker": 40, "midRange": 100, "luxury": 250 },
+      "gettingThere": "Fly to Palermo (PMO) or Catania (CTA). Ferries from Naples or mainland also available.",
+      "highlights": ["Mount Etna", "Valley of the Temples", "Palermo street food", "Taormina", "Syracuse & Ortygia"],
+      "essentials": {
+        "gettingAround": "Rent a car — trains are slow and buses infrequent.",
+        "airport": "Palermo (PMO) or Catania (CTA)",
+        "trainConnections": ["Internal rail between Palermo, Catania, Syracuse, Taormina"],
+        "language": "Italian, Sicilian dialect"
+      }
+    },
+    "sardinia": {
+      "title": "Sardinia",
+      "tagline": "Wild Beaches and Ancient Mysteries",
+      "region": "islands",
+      "bestMonths": ["May", "Jun", "Sep", "Oct"],
+      "budgetPerDay": { "backpacker": 50, "midRange": 130, "luxury": 350 },
+      "gettingThere": "Fly to Cagliari (CAG), Olbia (OLB), or Alghero (AHO). Ferries from mainland 5-12 hours.",
+      "highlights": ["La Pelosa Beach", "Costa Smeralda", "Nuraghe Su Nuraxi (UNESCO)", "Neptune's Grotto", "Cala Goloritzé"],
+      "essentials": {
+        "gettingAround": "Rent a car — essential. Public transport very limited.",
+        "airport": "Cagliari (CAG), Olbia (OLB), Alghero (AHO)",
+        "trainConnections": ["Internal Trenitalia between Cagliari, Sassari, Olbia"],
+        "language": "Italian, Sardinian (Sardo)"
+      }
+    },
+    "bologna": {
+      "title": "Bologna",
+      "tagline": "Italy's Culinary Capital",
+      "region": "northern-italy",
+      "bestMonths": ["Apr", "May", "Sep", "Oct"],
+      "budgetPerDay": { "backpacker": 45, "midRange": 120, "luxury": 280 },
+      "gettingThere": "Fly to Bologna Airport (BLQ). Monorail to central station. High-speed trains from all major cities.",
+      "highlights": ["Food tour through Quadrilatero", "Two Towers climb", "Piazza Maggiore", "Archiginnasio", "40 km porticoes"],
+      "essentials": {
+        "gettingAround": "Compact centro storico, all walkable. 40 km of covered porticoes.",
+        "airport": "Bologna (BLQ)",
+        "trainConnections": ["Florence (37 min)", "Milan (1 hr)", "Venice (1.5 hr)", "Rome (2 hr)"],
+        "language": "Italian, Bolognese dialect"
+      }
+    },
+    "lake-como": {
+      "title": "Lake Como",
+      "tagline": "Alpine Elegance on the Water",
+      "region": "northern-italy",
+      "bestMonths": ["May", "Jun", "Sep"],
+      "budgetPerDay": { "backpacker": 55, "midRange": 150, "luxury": 400 },
+      "gettingThere": "Train from Milan Centrale to Como or Varenna (1 hour). Then ferry between lakeside towns.",
+      "highlights": ["Villa del Balbianello", "Bellagio", "Ferry hopping", "Greenway del Lago", "Varenna waterfront"],
+      "essentials": {
+        "gettingAround": "Ferries connect all major towns. Car ferry between Bellagio-Varenna-Menaggio.",
+        "airport": "Milan Malpensa (MXP)",
+        "trainConnections": ["Milan to Varenna (1 hr)", "Milan to Como (1 hr)"],
+        "language": "Italian"
+      }
+    },
+    "pompeii": {
+      "title": "Pompeii",
+      "tagline": "Frozen in Volcanic Time",
+      "region": "southern-italy",
+      "bestMonths": ["Apr", "May", "Sep", "Oct", "Nov"],
+      "budgetPerDay": { "backpacker": 35, "midRange": 90, "luxury": 200 },
+      "gettingThere": "Circumvesuviana train from Naples Garibaldi station (35 min, EUR 3.60).",
+      "highlights": ["Forum & Temple of Jupiter", "Villa of the Mysteries", "Amphitheatre", "Plaster casts", "House of the Faun"],
+      "essentials": {
+        "gettingAround": "The site is 170 acres. Rent audioguide EUR 8 or join a guided tour.",
+        "airport": "Naples (NAP)",
+        "trainConnections": ["Naples (35 min)", "Sorrento (30 min)"],
+        "language": "Italian"
+      }
+    },
+    "positano": {
+      "title": "Positano",
+      "tagline": "Jewel of the Amalfi Coast",
+      "region": "southern-italy",
+      "bestMonths": ["May", "Jun", "Sep", "Oct"],
+      "budgetPerDay": { "backpacker": 80, "midRange": 200, "luxury": 500 },
+      "gettingThere": "SITA bus from Sorrento (40 min) or ferry from Naples, Amalfi, or Capri.",
+      "highlights": ["Spiaggia Grande", "Path of the Gods", "Church of Santa Maria Assunta", "Boutique shopping", "Sunset cocktails"],
+      "essentials": {
+        "gettingAround": "Walking (many stairs). Internal orange bus EUR 1.30 between upper road and beach.",
+        "airport": "Naples (NAP)",
+        "trainConnections": ["Sorrento (then bus, 40 min)"],
+        "language": "Italian"
+      }
+    },
+    "verona": {
+      "title": "Verona",
+      "tagline": "City of Romeo and Shakespeare",
+      "region": "northern-italy",
+      "bestMonths": ["Apr", "May", "Jun", "Sep"],
+      "budgetPerDay": { "backpacker": 45, "midRange": 120, "luxury": 280 },
+      "gettingThere": "High-speed trains from Venice (1 hr), Milan (1.5 hrs), Bologna (1 hr).",
+      "highlights": ["Arena di Verona opera", "Juliet's Balcony", "Piazza delle Erbe", "Castelvecchio", "Day trip to Lake Garda"],
+      "essentials": {
+        "gettingAround": "Compact centro storico, all walkable within 20 min. Bike rental EUR 10/day.",
+        "airport": "Verona Villafranca (VRN)",
+        "trainConnections": ["Venice (1 hr)", "Milan (1.5 hr)", "Bologna (1 hr)"],
+        "language": "Italian, Veronese dialect"
+      }
+    }
+  }
+}

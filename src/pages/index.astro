@@ -1,0 +1,1178 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
+import EmailCapture from '../components/EmailCapture.astro';
+import FTCDisclosure from '../components/FTCDisclosure.astro';
+import { destinationVideoMap } from '../data/destination-videos';
+import scottImg from '../images/scott-murray.jpg';
+
+const destinations = await getCollection('destinations');
+const allDests = destinations;
+
+// Blog posts — latest 3 non-draft
+const allBlogPosts = await getCollection('blog', (entry) => {
+  return !entry.data.draft;
+});
+const latestPosts = allBlogPosts.sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()).slice(0, 3);
+
+// Video map for destination cards — shared data file
+const videoMap = destinationVideoMap;
+
+// Featured destinations — 15 Italian destinations across 4 regions
+const featuredSlugs = ['rome', 'florence', 'venice', 'milan', 'naples', 'amalfi-coast', 'cinque-terre', 'tuscany', 'sicily', 'sardinia', 'bologna', 'lake-como', 'pompeii', 'positano', 'verona'];
+
+// Content pillar links — Italy-specific
+const pillarLinks = [
+  { icon: '🍝', label: 'Regional Cuisine', desc: 'Pasta, pizza & beyond', url: '/cuisine/' },
+  { icon: '🍷', label: 'Wine Regions', desc: 'Chianti, Barolo & more', url: '/wine/' },
+  { icon: '🏛️', label: 'Art & Architecture', desc: 'Renaissance to modern', url: '/art-architecture/' },
+  { icon: '🏖️', label: 'Coastal Escapes', desc: 'Mediterranean coastline', url: '/coastal-escapes/' },
+  { icon: '⏳', label: 'Ancient History', desc: 'Roman ruins & heritage', url: '/history/' },
+  { icon: '🗺️', label: 'AI Trip Planner', desc: 'Build your itinerary', url: '/plan/' },
+];
+---
+<BaseLayout
+  title="Discovering Italy — Travel Guides by Scott Murray"
+  description="Your comprehensive guide to Italy — from the canals of Venice to the ruins of Rome. Honest recommendations, real prices in euros, and first-hand travel experience."
+>
+  <!-- ============================================================
+       HERO — CSS gradient with Italy theme
+       ============================================================ -->
+  <header class="hp-hero">
+    <div class="hp-hero-gradient" />
+    <div class="hp-hero-noise" />
+
+    <div class="hp-hero-content">
+      <h1 class="hp-hero-title">Italy Through My Eyes</h1>
+      <p class="hp-hero-subtitle">I'm Scott Murray — an American traveler with a deep love for Italy. These are the cities I keep returning to, the restaurants where I actually eat, and the prices I actually paid. From the Dolomites to Sicily, this is Italy without the tourist traps.</p>
+      <div class="hp-hero-actions">
+        <a href="#destinations" class="hp-btn hp-btn--primary">Explore Destinations</a>
+        <a href="/plan/" class="hp-btn hp-btn--secondary">Plan Your Trip</a>
+      </div>
+    </div>
+
+    <div class="hp-scroll-hint">Scroll<br />&#8595;</div>
+  </header>
+
+  <!-- ============================================================
+       TRUST BAR — Stats strip
+       ============================================================ -->
+  <section class="hp-trust-bar">
+    <div class="container-content">
+      <div class="hp-trust-stats">
+        <a href="/about/scott/" class="hp-trust-person hp-trust-link">
+          <Image src={scottImg} alt="Scott Murray" class="hp-trust-avatar" width={48} height={48} format="webp" loading="eager" />
+          <div class="hp-trust-person-info">
+            <div class="hp-trust-person-stats">
+              <div class="hp-trust-stat">
+                <span class="hp-trust-number">15+</span>
+                <span class="hp-trust-label">Trips to Italy</span>
+              </div>
+              <div class="hp-trust-stat">
+                <span class="hp-trust-number">4</span>
+                <span class="hp-trust-label">Regions Covered</span>
+              </div>
+              <div class="hp-trust-stat">
+                <span class="hp-trust-number">15</span>
+                <span class="hp-trust-label">Destinations</span>
+              </div>
+            </div>
+            <p class="hp-trust-quote">"Italy is where I learned that travel isn't about checking boxes — it's about slowing down."</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       EXPLORE BY REGION — Region cards (replaces Philippines map)
+       ============================================================ -->
+  <section class="hp-immersive-header">
+    <div class="hp-immersive-gradient" style="background: linear-gradient(160deg, #091e2f 0%, #0c3547 35%, #0D7377 65%, #091e2f 100%);" />
+    <div class="hp-immersive-content">
+      <h2 class="hp-immersive-title">Explore by Region</h2>
+      <p class="hp-immersive-text">From the Alpine lakes of the north to the sun-drenched islands of the south, Italy offers an incredible diversity of landscapes, cultures, and cuisines.</p>
+    </div>
+  </section>
+
+  <section class="hp-regions" id="regions">
+    <div class="container-content">
+      <div class="hp-region-grid">
+        <div class="hp-region-card">
+          <div class="hp-region-card-header"><div class="hp-region-card-name">Northern Italy</div><div class="hp-region-card-count">4 destinations</div></div>
+          <p class="hp-region-card-desc">Alpine lakes, fashion capital Milan, Renaissance art in Venice, and the culinary heart of Bologna. Where Italy feels most European.</p>
+          <div class="hp-region-tags">
+            <a class="hp-dest-chip" href="/destinations/venice/">Venice</a>
+            <a class="hp-dest-chip" href="/destinations/milan/">Milan</a>
+            <a class="hp-dest-chip" href="/destinations/bologna/">Bologna</a>
+            <a class="hp-dest-chip" href="/destinations/lake-como/">Lake Como</a>
+          </div>
+        </div>
+        <div class="hp-region-card">
+          <div class="hp-region-card-header"><div class="hp-region-card-name">Central Italy</div><div class="hp-region-card-count">5 destinations</div></div>
+          <p class="hp-region-card-desc">The Eternal City, Tuscan rolling hills, Renaissance Florence, and colorful Cinque Terre villages clinging to coastal cliffs.</p>
+          <div class="hp-region-tags">
+            <a class="hp-dest-chip" href="/destinations/rome/">Rome</a>
+            <a class="hp-dest-chip" href="/destinations/florence/">Florence</a>
+            <a class="hp-dest-chip" href="/destinations/cinque-terre/">Cinque Terre</a>
+            <a class="hp-dest-chip" href="/destinations/tuscany/">Tuscany</a>
+            <a class="hp-dest-chip" href="/destinations/verona/">Verona</a>
+          </div>
+        </div>
+        <div class="hp-region-card">
+          <div class="hp-region-card-header"><div class="hp-region-card-name">Southern Italy</div><div class="hp-region-card-count">4 destinations</div></div>
+          <p class="hp-region-card-desc">Naples' electric energy, the dramatic Amalfi Coast, pastel-colored Positano, and the haunting ruins of Pompeii. Raw, real, unforgettable.</p>
+          <div class="hp-region-tags">
+            <a class="hp-dest-chip" href="/destinations/naples/">Naples</a>
+            <a class="hp-dest-chip" href="/destinations/amalfi-coast/">Amalfi Coast</a>
+            <a class="hp-dest-chip" href="/destinations/positano/">Positano</a>
+            <a class="hp-dest-chip" href="/destinations/pompeii/">Pompeii</a>
+          </div>
+        </div>
+        <div class="hp-region-card">
+          <div class="hp-region-card-header"><div class="hp-region-card-name">Islands</div><div class="hp-region-card-count">2 destinations</div></div>
+          <p class="hp-region-card-desc">Sicily's ancient Greek temples and street food paradise. Sardinia's turquoise coves and rugged beauty. Two islands, two worlds.</p>
+          <div class="hp-region-tags">
+            <a class="hp-dest-chip" href="/destinations/sicily/">Sicily</a>
+            <a class="hp-dest-chip" href="/destinations/sardinia/">Sardinia</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       IN-DEPTH GUIDES — Destination grid
+       ============================================================ -->
+  <section class="hp-immersive-header" id="destinations">
+    <div class="hp-immersive-gradient" style="background: linear-gradient(160deg, #064E3B 0%, #0D7377 35%, #0E7490 65%, #1A2332 100%);" />
+    <div class="hp-immersive-content">
+      <h2 class="hp-immersive-title">In-Depth Destination Guides</h2>
+      <p class="hp-immersive-text">Every price verified in euros. Every restaurant visited. Every tip from personal experience across 15 Italian destinations.</p>
+    </div>
+  </section>
+
+  <section class="hp-destinations reveal">
+    <div class="container-content">
+      <div class="hp-dest-grid">
+        {featuredSlugs.map((slug) => {
+          const dest = allDests.find(d => d.slug === slug || d.id === slug);
+          if (!dest) return null;
+          const { title, tagline, region, budgetPerDay } = dest.data;
+          const gradientVar = `var(--gradient-${slug}, var(--gradient-homepage))`;
+          const videoSrc = videoMap[slug] || '';
+          const posterSrc = videoSrc ? videoSrc.replace('/destinations/', '/destinations/posters/').replace('.mp4', '.jpg') : '';
+          return (
+            <a href={`/destinations/${dest.slug || dest.id}/`} class="hp-dest-card">
+              <div class="hp-dest-card-bg" style={`background: ${gradientVar};`}>
+                {videoSrc && (
+                  <video class="hp-dest-card-video" muted loop playsinline preload="none" poster={posterSrc} data-src={videoSrc}>
+                  </video>
+                )}
+              </div>
+              <div class="hp-dest-card-body">
+                <span class="hp-dest-card-region">{region}</span>
+                <h3 class="hp-dest-card-title">{title}</h3>
+                {tagline && <p class="hp-dest-card-tagline">{tagline}</p>}
+                {budgetPerDay && (
+                  <p class="hp-dest-card-budget">From &euro;{budgetPerDay.backpacker}/day</p>
+                )}
+              </div>
+            </a>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       LATEST FROM THE BLOG
+       ============================================================ -->
+  {latestPosts.length > 0 && (
+    <section class="hp-immersive-header">
+      <div class="hp-immersive-gradient" style="background: linear-gradient(160deg, #1A2332 0%, #2C5F2D 35%, #0D7377 65%, #1A2332 100%);" />
+      <div class="hp-immersive-content">
+        <h2 class="hp-immersive-title">Latest from the Blog</h2>
+        <p class="hp-immersive-text">Stories, tips, and travel memories from years of exploring Italy.</p>
+      </div>
+    </section>
+
+    <section class="hp-blog reveal">
+      <div class="container-content">
+        <div class="hp-blog-grid">
+          {latestPosts.map((post) => (
+            <a class="hp-blog-card" href={`/blog/${post.slug || post.id}/`}>
+              <div class="hp-blog-card-img" style={`background: var(--gradient-homepage);`}>
+                {post.data.heroVideo && (
+                  <video class="hp-blog-card-video" muted loop playsinline preload="none" data-src={post.data.heroVideo}></video>
+                )}
+                {post.data.heroImage && !post.data.heroVideo && (
+                  <img src={post.data.heroImage} alt={post.data.title} loading="lazy" />
+                )}
+                {post.data.category && (
+                  <span class="hp-blog-card-category">{post.data.category}</span>
+                )}
+              </div>
+              <div class="hp-blog-card-body">
+                <h3 class="hp-blog-card-title">{post.data.title}</h3>
+                <p class="hp-blog-card-desc">{post.data.description}</p>
+                <div class="hp-blog-card-meta">
+                  <span>{post.data.author || 'Scott Murray'}</span>
+                  <span>&middot;</span>
+                  <span>{new Date(post.data.pubDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' })}</span>
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+        <div class="hp-blog-cta">
+          <a href="/blog/" class="hp-blog-cta-link">View All Posts &rarr;</a>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- ============================================================
+       WHAT MAKES THIS DIFFERENT — Proof cards
+       ============================================================ -->
+  <section class="hp-immersive-header">
+    <div class="hp-immersive-gradient" style="background: linear-gradient(160deg, #1A2332 0%, #2d3748 35%, #1a3a3c 65%, #1A2332 100%);" />
+    <div class="hp-immersive-content">
+      <h2 class="hp-immersive-title">What Makes This Different</h2>
+      <p class="hp-immersive-text">No press trips. No sponsored stays. Just years of personal experience across Italy.</p>
+    </div>
+  </section>
+
+  <section class="hp-proof reveal">
+    <div class="container-content">
+      <div class="hp-proof-grid">
+        <div class="hp-proof-card">
+          <h3 class="hp-proof-headline">Real Prices in Euros</h3>
+          <p class="hp-proof-subhead">"Every price is one I paid"</p>
+          <p class="hp-proof-detail">&euro;4 espresso at a Roman piazza. &euro;12 margherita at Da Michele in Naples. &euro;85/night boutique hotel in Florence. I verify every number on-site.</p>
+        </div>
+        <div class="hp-proof-card">
+          <h3 class="hp-proof-headline">Beyond the Tourist Trail</h3>
+          <p class="hp-proof-subhead">"The Italy most visitors never see"</p>
+          <p class="hp-proof-detail">The trattoria with no English menu in Trastevere. The hidden beach in Cinque Terre. The wine bar in Bologna where locals actually drink. This is lived experience, not guidebook research.</p>
+        </div>
+        <div class="hp-proof-card">
+          <h3 class="hp-proof-headline">No Sponsored Content</h3>
+          <p class="hp-proof-subhead">"I don't take press trips"</p>
+          <p class="hp-proof-detail">No hotel comps, no tourism board deals. I pay full price and tell you what I actually think. Every recommendation is something I'd tell a friend.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       YOUR GUIDE — Scott Murray (E-E-A-T)
+       ============================================================ -->
+  <section class="hp-immersive-header">
+    <div class="hp-immersive-gradient" style="background: linear-gradient(160deg, #0E4D5C 0%, #0D7377 40%, #14B8A6 70%, #064E3B 100%);" />
+    <div class="hp-immersive-content">
+      <h2 class="hp-immersive-title">Your Guide</h2>
+      <p class="hp-immersive-text">An American traveler with 15+ trips to Italy and a passion for uncovering the real country behind the postcards.</p>
+    </div>
+  </section>
+
+  <section class="hp-guides reveal">
+    <div class="container-content">
+      <p class="hp-guides-intro">Most Italy travel advice comes from bloggers who visited for a week. I've been exploring Italy for over a decade — from my first nervous attempt at ordering in Italian at a Roman trattoria to navigating the backroads of Sicily by rental car. I focus on real logistics, honest prices, and the kind of practical detail that makes or breaks an Italian adventure.</p>
+      <div class="hp-guides-grid hp-guides-grid--single">
+        <a class="hp-guide-card" href="/about/scott/">
+          <Image src={scottImg} alt="Scott Murray" class="hp-guide-avatar" width={72} height={72} format="webp" loading="lazy" />
+          <h3>Scott Murray</h3>
+          <p class="hp-guide-stat">15+ trips across all regions</p>
+          <p class="hp-guide-role">Logistics, Route Planning & Budget</p>
+          <p class="hp-guide-bio">Train schedules, budget breakdowns, restaurant recommendations, and the practical details that make or break an Italy trip. From Alpine lakes to Mediterranean islands.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       EXPLORE — Content pillar cross-links
+       ============================================================ -->
+  <section class="hp-immersive-header">
+    <div class="hp-immersive-gradient" style="background: linear-gradient(160deg, #1a1035 0%, #4C1D95 35%, #3730A3 65%, #1A2332 100%);" />
+    <div class="hp-immersive-content">
+      <h2 class="hp-immersive-title">Explore by Interest</h2>
+      <p class="hp-immersive-text">Regional cuisine guides, wine region tours, Renaissance art trails, coastal escapes, and ancient Roman history.</p>
+    </div>
+  </section>
+
+  <section class="hp-pillars reveal">
+    <div class="container-content">
+      <div class="hp-pillars-grid">
+        {pillarLinks.map((pillar) => (
+          <a class="hp-pillar-card" href={pillar.url}>
+            <span class="hp-pillar-icon">{pillar.icon}</span>
+            <span class="hp-pillar-label">{pillar.label}</span>
+            <span class="hp-pillar-desc">{pillar.desc}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       EMAIL CAPTURE
+       ============================================================ -->
+  <section class="hp-immersive-header">
+    <div class="hp-immersive-gradient" style="background: linear-gradient(160deg, #78350F 0%, #B45309 35%, #D97706 65%, #1A2332 100%);" />
+    <div class="hp-immersive-content">
+      <h2 class="hp-immersive-title">Start Planning</h2>
+      <p class="hp-immersive-text">Get our free Italy travel checklist — train routes, packing lists, and budget tips I wish I'd had on my first trip.</p>
+    </div>
+  </section>
+
+  <section class="hp-email reveal">
+    <div class="container-content">
+      <EmailCapture leadMagnet="Free Italy Travel Checklist" />
+    </div>
+  </section>
+
+  <!-- FTC Disclosure -->
+  <div class="container-content">
+    <FTCDisclosure placement="inline" />
+  </div>
+</BaseLayout>
+
+<!-- Scroll Reveal Observer -->
+<script>
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+    );
+    document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
+  } else {
+    document.querySelectorAll('.reveal').forEach((el) => el.classList.add('visible'));
+  }
+</script>
+
+<!-- Play video on hover/touch, pause on leave -->
+<script>
+  document.querySelectorAll('.hp-dest-card, .hp-blog-card').forEach((card) => {
+    const video = card.querySelector('.hp-dest-card-video, .hp-blog-card-video') as HTMLVideoElement | null;
+    if (!video) return;
+
+    function startVideo() {
+      if (!video!.getAttribute('src') && video!.dataset.src) {
+        video!.src = video!.dataset.src;
+      }
+      video!.play().catch(() => {});
+    }
+
+    card.addEventListener('mouseenter', startVideo);
+    card.addEventListener('touchstart', startVideo, { passive: true });
+    card.addEventListener('mouseleave', () => { video!.pause(); });
+  });
+</script>
+
+<style>
+  /* ================================================================
+     HERO — Full-viewport with CSS gradient (Italy themed)
+     ================================================================ */
+  .hp-hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0 var(--space-6) 80px;
+    overflow: hidden;
+  }
+
+  .hp-hero-gradient {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background:
+      linear-gradient(160deg,
+        #1A2332 0%,
+        #0c3547 20%,
+        #0D7377 40%,
+        #095456 55%,
+        #E8654A 75%,
+        #D4A574 90%,
+        #F5F0E8 100%
+      );
+  }
+
+  .hp-hero-noise {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+
+  .hp-hero-content {
+    position: relative;
+    z-index: 3;
+    max-width: var(--content-lg);
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .hp-hero-title {
+    font-size: clamp(2.4rem, 6vw, 4rem);
+    font-weight: var(--weight-extrabold);
+    color: white;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+    margin-bottom: var(--space-4);
+    max-width: 700px;
+  }
+
+  .hp-hero-subtitle {
+    font-size: var(--text-body);
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 55ch;
+    line-height: var(--leading-body);
+    margin-bottom: var(--space-8);
+  }
+
+  .hp-hero-actions {
+    display: flex;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+  }
+
+  .hp-btn {
+    padding: var(--space-3) var(--space-6);
+    border-radius: 8px;
+    font-size: var(--text-button);
+    font-weight: var(--weight-semibold);
+    text-decoration: none;
+    min-height: 48px;
+    display: inline-flex;
+    align-items: center;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+  }
+
+  .hp-btn:active { transform: scale(0.97); }
+
+  .hp-btn--primary {
+    background: var(--color-ocean-teal);
+    color: white;
+  }
+
+  .hp-btn--primary:hover {
+    background: var(--color-link-hover);
+    color: white;
+  }
+
+  .hp-btn--secondary {
+    background: rgba(255, 255, 255, 0.12);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+
+  .hp-btn--secondary:hover {
+    background: rgba(255, 255, 255, 0.22);
+    color: white;
+  }
+
+  .hp-scroll-hint {
+    position: absolute;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 0.7rem;
+    font-weight: var(--weight-medium);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1.4;
+    animation: scrollPulse 2s infinite;
+  }
+
+  @keyframes scrollPulse {
+    0%, 100% {
+      opacity: 0.3;
+      transform: translateX(-50%) translateY(0);
+    }
+    50% {
+      opacity: 0.6;
+      transform: translateX(-50%) translateY(4px);
+    }
+  }
+
+  /* ================================================================
+     IMMERSIVE SECTION HEADERS
+     ================================================================ */
+  .hp-immersive-header {
+    position: relative;
+    min-height: 35vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    text-align: center;
+    color: white;
+  }
+
+  .hp-immersive-gradient {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .hp-immersive-content {
+    position: relative;
+    z-index: 1;
+    max-width: 640px;
+    padding: var(--space-8) var(--space-6);
+  }
+
+  .hp-immersive-title {
+    font-size: var(--text-h2);
+    font-weight: var(--weight-bold);
+    color: white;
+    margin-bottom: var(--space-3);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  .hp-immersive-text {
+    font-size: var(--text-body);
+    line-height: var(--leading-body);
+    opacity: 0.9;
+    max-width: 50ch;
+    margin-inline: auto;
+    color: white;
+  }
+
+  /* ================================================================
+     REGION CARDS — Explore by Region section
+     ================================================================ */
+  .hp-regions {
+    padding-block: var(--space-12);
+  }
+
+  .hp-region-grid {
+    display: grid;
+    gap: var(--space-4);
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 640px) {
+    .hp-region-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  .hp-region-card {
+    background: var(--color-white);
+    border-radius: 16px;
+    padding: 20px;
+    border: 2px solid transparent;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hp-region-card:hover {
+    border-color: var(--color-ocean-teal);
+    box-shadow: 0 4px 24px rgba(26, 35, 50, 0.08);
+  }
+
+  .hp-region-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-2);
+  }
+
+  .hp-region-card-name {
+    font-size: 1.1rem;
+    font-weight: var(--weight-bold);
+    color: var(--color-heading);
+  }
+
+  .hp-region-card-count {
+    font-size: 0.7rem;
+    font-weight: var(--weight-semibold);
+    color: var(--color-ocean-teal);
+    background: var(--color-sky);
+    padding: 3px 10px;
+    border-radius: 100px;
+  }
+
+  .hp-region-card-desc {
+    font-size: 0.8rem;
+    color: var(--color-slate);
+    line-height: 1.55;
+    font-weight: 300;
+    margin-bottom: var(--space-3);
+  }
+
+  .hp-region-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .hp-dest-chip {
+    font-size: 0.72rem;
+    font-weight: var(--weight-medium);
+    padding: 4px 10px;
+    border-radius: 100px;
+    background: var(--color-sand);
+    color: var(--color-heading);
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid transparent;
+  }
+
+  .hp-dest-chip:hover {
+    background: var(--color-ocean-teal);
+    color: white;
+  }
+
+  /* ================================================================
+     DESTINATION GRID — Cards with video thumbnails
+     ================================================================ */
+  .hp-destinations {
+    padding-block: var(--space-12);
+  }
+
+  .hp-dest-grid {
+    display: grid;
+    gap: var(--space-4);
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 640px) {
+    .hp-dest-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (min-width: 1024px) {
+    .hp-dest-grid { grid-template-columns: 1fr 1fr 1fr; }
+  }
+
+  .hp-dest-card {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    min-height: 240px;
+    display: flex;
+    align-items: flex-end;
+    text-decoration: none;
+    color: white;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .hp-dest-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    color: white;
+  }
+
+  .hp-dest-card-bg {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+  }
+
+  .hp-dest-card-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .hp-dest-card:hover .hp-dest-card-video {
+    transform: scale(1.06);
+  }
+
+  .hp-dest-card-body {
+    position: relative;
+    z-index: 1;
+    padding: var(--space-5);
+    width: 100%;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.5));
+  }
+
+  .hp-dest-card-region {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    opacity: 0.6;
+    font-weight: var(--weight-semibold);
+  }
+
+  .hp-dest-card-title {
+    font-size: var(--text-h3);
+    font-weight: var(--weight-bold);
+    color: white;
+    margin-bottom: var(--space-1);
+  }
+
+  .hp-dest-card-tagline {
+    font-size: var(--text-caption);
+    opacity: 0.8;
+    max-width: 100%;
+  }
+
+  .hp-dest-card-budget {
+    font-size: 12px;
+    opacity: 0.55;
+    margin-top: var(--space-1);
+  }
+
+  /* ================================================================
+     BLOG — Latest posts grid
+     ================================================================ */
+  .hp-blog {
+    padding-block: var(--space-12);
+  }
+
+  .hp-blog-grid {
+    display: grid;
+    gap: var(--space-6);
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 768px) {
+    .hp-blog-grid { grid-template-columns: 1fr 1fr 1fr; }
+  }
+
+  .hp-blog-card {
+    border-radius: 16px;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06), 0 4px 16px rgba(0, 0, 0, 0.04);
+    text-decoration: none;
+    color: var(--color-heading);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hp-blog-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    color: var(--color-heading);
+  }
+
+  .hp-blog-card-img {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+  }
+
+  .hp-blog-card-img img,
+  .hp-blog-card-img video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+
+  .hp-blog-card:hover .hp-blog-card-img img,
+  .hp-blog-card:hover .hp-blog-card-img video {
+    transform: scale(1.05);
+  }
+
+  .hp-blog-card-category {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    padding: 4px 10px;
+    border-radius: 6px;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(6px);
+    color: white;
+    font-size: 11px;
+    font-weight: var(--weight-semibold);
+    text-transform: capitalize;
+    letter-spacing: 0.03em;
+  }
+
+  .hp-blog-card-body {
+    padding: var(--space-5);
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .hp-blog-card-title {
+    font-size: var(--text-h4);
+    font-weight: var(--weight-bold);
+    color: var(--color-heading);
+    margin-bottom: var(--space-2);
+    line-height: 1.3;
+  }
+
+  .hp-blog-card-desc {
+    font-size: var(--text-caption);
+    color: var(--color-slate);
+    line-height: var(--leading-body);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    flex: 1;
+  }
+
+  .hp-blog-card-meta {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: var(--color-slate);
+    opacity: 0.6;
+    margin-top: var(--space-3);
+  }
+
+  .hp-blog-cta {
+    text-align: center;
+    margin-top: var(--space-8);
+  }
+
+  .hp-blog-cta-link {
+    font-size: var(--text-body);
+    font-weight: var(--weight-semibold);
+    color: var(--color-ocean-teal);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .hp-blog-cta-link:hover {
+    color: var(--color-link-hover);
+  }
+
+  /* ================================================================
+     CONTENT PILLAR CROSS-LINKS
+     ================================================================ */
+  .hp-pillars {
+    padding-block: var(--space-12);
+  }
+
+  .hp-pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: var(--space-4);
+  }
+
+  .hp-pillar-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: var(--space-6) var(--space-4);
+    border-radius: 16px;
+    background: var(--color-white);
+    border: 1px solid var(--color-sand);
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .hp-pillar-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    border-color: var(--color-ocean-teal);
+    color: inherit;
+  }
+
+  .hp-pillar-icon {
+    font-size: 1.5rem;
+    margin-bottom: var(--space-2);
+  }
+
+  .hp-pillar-label {
+    font-weight: var(--weight-semibold);
+    font-size: 0.9rem;
+    color: var(--color-heading);
+    margin-bottom: 2px;
+  }
+
+  .hp-pillar-desc {
+    font-size: 0.78rem;
+    color: var(--color-slate);
+  }
+
+  /* ================================================================
+     YOUR GUIDE — Scott Murray
+     ================================================================ */
+  .hp-guides {
+    padding-block: var(--space-12);
+  }
+
+  .hp-guides-grid {
+    display: grid;
+    gap: var(--space-6);
+  }
+
+  .hp-guides-grid--single {
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  @media (min-width: 640px) {
+    .hp-guides-grid:not(.hp-guides-grid--single) { grid-template-columns: 1fr 1fr; }
+  }
+
+  .hp-guide-card {
+    background: var(--color-white);
+    border-radius: 16px;
+    padding: var(--space-8);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    text-decoration: none;
+    color: inherit;
+    text-align: center;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .hp-guide-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    color: inherit;
+  }
+
+  .hp-guide-avatar {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto var(--space-4);
+  }
+
+  .hp-guide-card h3 {
+    font-size: var(--text-h3);
+    margin-bottom: var(--space-1);
+  }
+
+  .hp-guide-role {
+    font-size: var(--text-caption);
+    color: var(--color-ocean-teal);
+    font-weight: var(--weight-semibold);
+    margin-bottom: var(--space-3);
+  }
+
+  .hp-guide-bio {
+    font-size: var(--text-caption);
+    color: var(--color-slate);
+    line-height: var(--leading-body);
+  }
+
+  /* ================================================================
+     EMAIL SECTION
+     ================================================================ */
+  .hp-email {
+    padding-block: var(--space-12);
+  }
+
+  /* ================================================================
+     TRUST BAR — Stats strip
+     ================================================================ */
+  .hp-trust-bar {
+    background: var(--color-sky);
+    padding: var(--space-6) var(--space-4);
+  }
+
+  .hp-trust-stats {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-8);
+    flex-wrap: wrap;
+  }
+
+  .hp-trust-stat {
+    text-align: center;
+  }
+
+  .hp-trust-person {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+  }
+
+  .hp-trust-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+
+  .hp-trust-person-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .hp-trust-person-stats {
+    display: flex;
+    gap: var(--space-5);
+  }
+
+  .hp-trust-quote {
+    font-size: 0.8rem;
+    font-style: italic;
+    color: var(--color-slate);
+    line-height: 1.4;
+  }
+
+  @media (min-width: 641px) {
+    .hp-trust-person .hp-trust-stat {
+      text-align: left;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .hp-trust-stats {
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-6);
+    }
+
+    .hp-trust-person {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      width: 100%;
+    }
+
+    .hp-trust-person-info {
+      align-items: center;
+    }
+
+    .hp-trust-person .hp-trust-stat {
+      text-align: center;
+    }
+
+    .hp-trust-person-stats {
+      justify-content: center;
+    }
+
+    .hp-trust-quote {
+      text-align: center;
+    }
+
+    .hp-trust-number {
+      font-size: 1.25rem;
+    }
+  }
+
+  .hp-trust-link {
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s ease;
+  }
+
+  .hp-trust-link:hover {
+    transform: translateY(-2px);
+    color: inherit;
+  }
+
+  .hp-trust-link:hover .hp-trust-number {
+    color: var(--color-link-hover);
+  }
+
+  .hp-trust-number {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: var(--weight-extrabold);
+    color: var(--color-ocean-teal);
+    line-height: 1.2;
+    white-space: nowrap;
+  }
+
+  .hp-trust-label {
+    font-size: 0.75rem;
+    color: var(--color-slate);
+    font-weight: var(--weight-medium);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* ================================================================
+     PROOF CARDS — What Makes This Different
+     ================================================================ */
+  .hp-proof {
+    padding-block: var(--space-12);
+  }
+
+  .hp-proof-grid {
+    display: grid;
+    gap: var(--space-6);
+  }
+
+  @media (min-width: 768px) {
+    .hp-proof-grid { grid-template-columns: 1fr 1fr 1fr; }
+  }
+
+  .hp-proof-card {
+    background: var(--color-white);
+    border-radius: 16px;
+    padding: var(--space-8);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border-left: 4px solid var(--color-ocean-teal);
+  }
+
+  .hp-proof-headline {
+    font-size: var(--text-h3);
+    margin-bottom: var(--space-2);
+  }
+
+  .hp-proof-subhead {
+    font-size: var(--text-caption);
+    font-style: italic;
+    color: var(--color-ocean-teal);
+    font-weight: var(--weight-semibold);
+    margin-bottom: var(--space-3);
+  }
+
+  .hp-proof-detail {
+    font-size: var(--text-caption);
+    color: var(--color-slate);
+    line-height: var(--leading-body);
+  }
+
+  /* ================================================================
+     GUIDES — Intro paragraph & stat line
+     ================================================================ */
+  .hp-guides-intro {
+    max-width: 720px;
+    margin: 0 auto var(--space-8);
+    font-size: var(--text-body);
+    color: var(--color-slate);
+    line-height: var(--leading-body);
+    text-align: center;
+  }
+
+  .hp-guide-stat {
+    font-size: 0.75rem;
+    font-weight: var(--weight-semibold);
+    color: var(--color-warm-coral);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--space-2);
+  }
+
+  /* Header CTA button in immersive headers */
+  .hp-btn--header {
+    margin-top: var(--space-4);
+  }
+</style>

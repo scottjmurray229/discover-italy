@@ -1,0 +1,915 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import EmailCapture from '../../components/EmailCapture.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'The Finer Things', url: '/finer-things/' },
+];
+
+const pageTitle = 'The Finer Things — Italian Wine, Aperitivo, Coffee, Nightlife & Spirits Guide 2026';
+const pageDescription = 'Chianti and Barolo by the glass, aperitivo hour in Milan, espresso culture, Roman nightlife, and the best limoncello, grappa, and amaro across Italy.';
+
+interface TopicSection {
+  id: string;
+  icon: string;
+  title: string;
+  gradient: string;
+  items: { label: string; text: string; link?: string }[];
+}
+
+const topics: TopicSection[] = [
+  {
+    id: 'wine',
+    icon: '🍷',
+    title: 'Italian Wine',
+    gradient: 'linear-gradient(135deg, #78350F 0%, #D4A574 100%)',
+    items: [
+      { label: 'Chianti Classico', text: 'The iconic Tuscan red — Sangiovese-based, medium-bodied, with cherry, leather, and earthy notes. A bottle of Chianti Classico DOCG runs <strong>€12–25</strong> at an enoteca (wine shop) and <strong>€6–10 per glass</strong> at a trattoria in Florence or Siena. Look for the black rooster (<em>Gallo Nero</em>) seal — it means it\'s from the original Classico zone between Florence and Siena. The Riserva (aged 24+ months) is worth the extra €5–10 per bottle.' },
+      { label: 'Barolo', text: 'The "King of Wines" from Piedmont — Nebbiolo grapes, full-bodied, tannic, with notes of tar, roses, and dried cherry. A good bottle starts at <strong>€25–40</strong> in the Langhe region and climbs from there. By-the-glass in Alba or Turin, expect <strong>€10–18</strong>. Barolo needs food — pair it with braised beef, truffled tajarin pasta, or aged cheeses. If Barolo is too intense, try <strong>Barbaresco</strong> — same grape, slightly more approachable, often €5–10 less per bottle.' },
+      { label: 'Prosecco', text: 'Italy\'s sparkling wine from the Veneto — light, fresh, with green apple and pear notes. A bottle of Prosecco DOC runs <strong>€6–12</strong> at a shop and <strong>€4–7 per glass</strong> at a bar. The step up is <strong>Prosecco Superiore DOCG</strong> from the Valdobbiadene hills — more complex and worth every cent. It\'s the base for an Aperol Spritz, but don\'t sleep on it straight — cold Prosecco on a terrace overlooking the Venetian canals is one of Italy\'s best simple pleasures.' },
+      { label: 'Amarone della Valpolicella', text: 'A rich, velvety red from Veneto made with partially dried grapes — concentrated flavors of dark cherry, chocolate, and spice. Bottles start at <strong>€25–50</strong> at a shop in Verona. It\'s a special-occasion wine even for Italians. If the price is steep, try <strong>Valpolicella Ripasso</strong> — made using Amarone\'s leftover grape skins, giving it similar richness at <strong>€12–20</strong> per bottle. The locals call it "baby Amarone" and it\'s an outstanding value.' },
+      { label: 'Super Tuscans', text: 'Born in the 1970s when rebellious Tuscan winemakers blended Sangiovese with Cabernet Sauvignon and Merlot — breaking DOC rules to make world-class wine. <strong>Sassicaia</strong>, <strong>Tignanello</strong>, and <strong>Ornellaia</strong> are the legends, running <strong>€80–300+</strong> per bottle. But lesser-known Super Tuscans from Bolgheri and Maremma start at <strong>€15–30</strong> and deliver exceptional quality. Ask any enoteca owner for their favorite — they love this question.' },
+      { label: 'How Italians Actually Drink Wine', text: 'Wine is food in Italy — it accompanies meals, not replaces them. <strong>House wine</strong> (<em>vino della casa</em>) at a trattoria runs <strong>€3–6 per quarter liter</strong> and is almost always good. Italians rarely order by the bottle at casual meals — a <em>quartino</em> or <em>mezzo litro</em> (half liter) is normal. White with fish and seafood, red with meat and pasta — but locals won\'t judge you for breaking the rules. The real sin is ordering a cappuccino after a meal. Wine is the only proper post-dinner drink (or a digestivo).' },
+    ],
+  },
+  {
+    id: 'aperitivo',
+    icon: '🍹',
+    title: 'Aperitivo Culture',
+    gradient: 'linear-gradient(135deg, #E8654A 0%, #FB923C 100%)',
+    items: [
+      { label: 'The Aperol Spritz', text: 'Italy\'s unofficial national drink — Aperol, Prosecco, and a splash of soda over ice with an orange slice. <strong>€4–8</strong> depending on the city and neighborhood. In Venice, the birthplace of the Spritz, you\'ll pay €3–4 standing at a <em>bacaro</em> (wine bar) or €7–10 seated in Piazza San Marco. In Milan\'s Navigli district, the drink comes with a full spread of free snacks. It\'s bitter, it\'s refreshing, and after your third one you\'ll understand why Italy invented the concept of drinking before dinner.' },
+      { label: 'The Negroni', text: 'Equal parts gin, Campari, and sweet vermouth — stirred, not shaken, served on the rocks with an orange peel. Invented in Florence in 1919, allegedly by Count Camillo Negroni. <strong>€7–12</strong> at a good cocktail bar. The <strong>Negroni Sbagliato</strong> swaps gin for Prosecco and is lighter, more effervescent — perfect for a hot afternoon. For the best Negroni in Florence, try <strong>Caffe Rivoire</strong> in Piazza della Signoria or any bar on the Oltrarno side of the Arno.' },
+      { label: 'Campari Soda', text: 'The simplest Italian aperitivo — Campari over ice topped with soda water. <strong>€3–5</strong> almost everywhere. It\'s bitter, bright red, and an acquired taste — but once you acquire it, nothing else scratches the same itch. The iconic single-serve Campari Soda bottles (designed by Fortunato Depero in 1932) are a piece of Italian design history and cost about <strong>€2</strong> at a bar. Order one and you\'ll look like you\'ve been drinking in Italy for years.' },
+      { label: 'Where to Drink Aperitivo', text: '<strong>Milan</strong> takes aperitivo most seriously — bars along the Navigli canals and in Brera offer free buffet-style food spreads with any drink order from 6–9pm. <strong>Venice</strong> has the <em>bacari</em> crawl — hopping between tiny wine bars for <em>cicchetti</em> (small bites) and <em>ombre</em> (small glasses of wine). <strong>Turin</strong> invented the vermouth tradition and still does it best at historic cafes like <strong>Caffe Al Bicerin</strong>. <strong>Rome\'s</strong> Trastevere and Monti neighborhoods have the most character for evening drinks.' },
+      { label: 'Aperitivo Etiquette', text: 'Aperitivo runs from roughly <strong>6pm to 9pm</strong> — it\'s the bridge between work and dinner. Some bars include free snacks with your drink order (especially in Milan), while others charge separately. <strong>Don\'t treat the free food spread as dinner</strong> — Italians consider that poor form, even though the spread is often generous enough to be a meal. One or two drinks is standard. Aperitivo is meant to stimulate your appetite, not replace your meal. Dress smart-casual — Italians notice.' },
+      { label: 'The Cost of Aperitivo', text: 'A typical aperitivo evening: one Spritz or Negroni (<strong>€5–10</strong>) plus a small plate of snacks or free buffet access. Total cost for a great pre-dinner ritual: <strong>€5–15 per person</strong>. Compare that to a cocktail in New York or London and you\'ll understand why aperitivo hour is one of the best values in European travel. In smaller towns and southern Italy, prices drop further — a Spritz for €3 with a view of the Mediterranean is entirely possible.' },
+    ],
+  },
+  {
+    id: 'coffee',
+    icon: '☕',
+    title: 'Italian Coffee Culture',
+    gradient: 'linear-gradient(135deg, #4A3728 0%, #78350F 100%)',
+    items: [
+      { label: 'Espresso Rules', text: 'An espresso (<em>un caffe</em>) at the bar costs <strong>€1–1.50</strong> across most of Italy — it\'s price-regulated in many cities. You drink it standing at the counter (<em>al banco</em>), knock it back in two or three sips, and move on. Sitting at a table costs more — sometimes double. This isn\'t a rip-off; it\'s how Italian bars work. The surcharge is for the table service. If you want to save money and drink like a local, stand at the bar every time.' },
+      { label: 'Cappuccino Etiquette', text: 'Italians drink cappuccino <strong>only in the morning</strong>, typically before 11am. Ordering one after lunch or dinner will mark you as a tourist faster than anything else. The reasoning: milk after a meal disrupts digestion (or so they believe). Nobody will refuse to make you one — but they\'ll notice. A <em>caffe macchiato</em> (espresso "stained" with a drop of milk) is the acceptable afternoon compromise. <strong>€1.50–2.50</strong> for a cappuccino, <strong>€1.20–1.80</strong> for a macchiato.' },
+      { label: 'Best Coffee Roasters & Bars', text: '<strong>Naples</strong> is the coffee capital — try a <em>caffe sospeso</em> ("suspended coffee," where you pay for an extra one left for someone who can\'t afford it) at <strong>Caffe Gambrinus</strong>. <strong>Turin</strong> has <strong>Lavazza</strong>\'s flagship museum and cafe. <strong>Trieste</strong> is home to <strong>Illy</strong> and has the highest per-capita coffee consumption in Italy. In Florence, <strong>Ditta Artigianale</strong> bridges traditional Italian coffee with third-wave specialty roasting. In Rome, <strong>Sant\'Eustachio Il Caffe</strong> near the Pantheon makes arguably the best espresso in the city.' },
+      { label: 'Beyond Espresso', text: 'The Italian coffee menu: <strong>Ristretto</strong> — a more concentrated espresso. <strong>Lungo</strong> — a longer pull, more water. <strong>Caffe corretto</strong> — espresso "corrected" with a shot of grappa, sambuca, or brandy (usually an after-dinner move). <strong>Caffe shakerato</strong> — espresso shaken with ice and sometimes sugar, served in a cocktail glass (perfect for summer). <strong>Marocchino</strong> — espresso, cocoa, and frothed milk in a small glass, popular in Piedmont. Each costs <strong>€1.50–3</strong>.' },
+      { label: 'The Starbucks Question', text: 'Starbucks opened its first Italian location in Milan in 2018 — a Reserve Roastery on Piazza Cordusio. It\'s a beautiful space and worth visiting as a spectacle. But don\'t go there for your daily coffee. Italian bars serve better espresso for a fraction of the price. The Italians who do visit Starbucks go for the novelty and the pastries, not because they think the coffee is better. When in Italy, drink coffee the Italian way — fast, strong, and cheap.' },
+      { label: 'Coffee Prices at a Glance', text: '<strong>Espresso al banco:</strong> €1–1.50. <strong>Espresso seated:</strong> €2–4 (more at tourist spots like Piazza San Marco in Venice — up to €6–8). <strong>Cappuccino:</strong> €1.50–2.50. <strong>Caffe shakerato:</strong> €2.50–4. <strong>Caffe corretto:</strong> €1.50–2.50. The golden rule: the closer you are to a major monument, the more you pay. Walk two blocks from any tourist piazza and prices drop by half.' },
+    ],
+  },
+  {
+    id: 'nightlife',
+    icon: '🌃',
+    title: 'Italian Nightlife',
+    gradient: 'linear-gradient(135deg, #4C1D95 0%, #E8654A 100%)',
+    items: [
+      { label: 'Milan: Navigli & Brera', link: '/destinations/milan/', text: 'Milan\'s aperitivo scene is legendary. The <strong>Navigli</strong> canal district is lined with bars offering generous free food spreads with every drink from 6–9pm — <strong>Mag Cafe</strong>, <strong>Rita</strong>, and <strong>Nottingham Forest</strong> are standouts. For cocktails, <strong>Brera</strong> has upscale speakeasies and wine bars. After midnight, clubs like <strong>Alcatraz</strong> and <strong>Fabrique</strong> run until 5am. Milan dresses up — sneakers and shorts will get you turned away at the door.' },
+      { label: 'Rome: Trastevere & Testaccio', link: '/destinations/rome/', text: '<strong>Trastevere</strong> is the heart of Roman nightlife — cobblestone streets packed with wine bars, live music, and outdoor seating that spills into the piazzas. Start at <strong>Freni e Frizioni</strong> for aperitivo, then wander. <strong>Testaccio</strong> is where Romans go clubbing — <strong>Goa Club</strong> and <strong>Alibi</strong> are the big names. For a more refined evening, the rooftop bar at <strong>Hotel Minerva</strong> overlooking the Pantheon is unforgettable. Expect to spend <strong>€8–15</strong> per cocktail in Rome\'s better bars.' },
+      { label: 'Florence: Oltrarno & Santo Spirito', link: '/destinations/florence/', text: '<strong>Piazza Santo Spirito</strong> in the Oltrarno is Florence\'s living room after dark — locals sit on the church steps with wine while bars buzz around the square. <strong>Volume</strong>, <strong>Rasputin</strong>, and <strong>Mad Souls & Spirits</strong> serve creative cocktails. Florence isn\'t a late-night city — most bars wind down by 1–2am. But the quality of the evening more than makes up for the early bedtime. Pair your drinks with a <em>lampredotto</em> sandwich from a street cart.' },
+      { label: 'Naples: Centro Storico', link: '/destinations/naples/', text: 'Naples comes alive after dark with a raw, authentic energy. The <strong>Centro Storico</strong> (historic center) and <strong>Piazza Bellini</strong> are the hubs — cheap beer, loud conversation, and a student-heavy crowd. <strong>Barril</strong> and <strong>Keste</strong> are local favorites. Naples nightlife is unpretentious and loud — the antithesis of Milan\'s polished scene. Drinks are cheaper here than anywhere in northern Italy: <strong>€3–5</strong> for a beer, <strong>€5–8</strong> for a cocktail.' },
+      { label: 'Venice: Bacaro Crawl', link: '/destinations/venice/', text: 'Venice doesn\'t do clubs — it does <em>bacari</em>. A <strong>bacaro crawl</strong> (Venetian bar hop) is the way to spend an evening: stand at a tiny counter, order an <em>ombra</em> (small glass of wine, <strong>€2–3</strong>) and a couple of <em>cicchetti</em> (small bites, <strong>€1–3 each</strong>), then move to the next one. Start at <strong>Cantina Do Spade</strong> or <strong>Al Merca</strong> near the Rialto. Four or five stops, you\'ve had a full evening of food and wine for under <strong>€25</strong>.' },
+      { label: 'Aperitivo Hour Everywhere', text: 'No matter where you are in Italy, the hours between 6pm and 9pm are sacred. Every town, every city, every village has some version of the pre-dinner drink ritual. In the south, it\'s more casual — a beer on a piazza bench. In the north, it\'s curated spreads and craft cocktails. The universal constant: Italians don\'t eat dinner before 8pm (often 9pm), so aperitivo fills the gap. Embrace the slow pace — rushing through aperitivo defeats the purpose.' },
+    ],
+  },
+  {
+    id: 'spirits',
+    icon: '🥃',
+    title: 'Spirits & Digestivi',
+    gradient: 'linear-gradient(135deg, #1A2332 0%, #4A3728 50%, #D4A574 100%)',
+    items: [
+      { label: 'Limoncello', text: 'The iconic lemon liqueur from the Amalfi Coast and Sorrento — bright yellow, intensely lemony, and best served <strong>ice cold</strong> after dinner. A bottle of quality limoncello runs <strong>€8–15</strong> at a shop in Sorrento or Amalfi. It\'s served everywhere as a complimentary digestivo at the end of a meal. The homemade (<em>fatto in casa</em>) versions at family-run trattorias are usually the best. Avoid the neon-yellow tourist bottles — real limoncello uses <strong>Sorrento lemons</strong> (sfusato amalfitano) and has a deeper, more complex flavor.' },
+      { label: 'Grappa', text: 'Distilled from grape pomace (the skins, seeds, and stems left after winemaking), grappa ranges from harsh firewater to elegant sipping spirit depending on quality. A basic grappa costs <strong>€10–15</strong> per bottle; aged grappas (<em>grappa invecchiata</em> or <em>riserva</em>) from producers like <strong>Nonino</strong>, <strong>Poli</strong>, and <strong>Nardini</strong> run <strong>€25–80+</strong>. In the Veneto and Trentino regions, grappa is an after-dinner institution. Try a <em>grappa di Moscato</em> for something fragrant and approachable, or a <em>grappa di Barolo</em> for depth and complexity.' },
+      { label: 'Amaro', text: 'Italy\'s herbal bitter liqueurs — every region has its own. <strong>Amaro Montenegro</strong> (Bologna) is smooth and balanced. <strong>Averna</strong> (Sicily) is bittersweet with citrus and herbs. <strong>Fernet-Branca</strong> (Milan) is intensely bitter and medicinal — an acquired taste that Italians swear settles the stomach. <strong>Amaro Lucano</strong> (Basilicata) and <strong>Amaro del Capo</strong> (Calabria) are southern favorites. A glass costs <strong>€3–5</strong> after dinner. Collect a few favorites and bring bottles home — they\'re affordable and make excellent gifts.' },
+      { label: 'Sambuca', text: 'An anise-flavored liqueur traditionally served <em>con la mosca</em> — "with the fly," meaning three coffee beans floating on top (representing health, happiness, and prosperity). Light the beans on fire, blow it out, and sip. It\'s theatrical and fun. A shot costs <strong>€3–5</strong>. <strong>Sambuca Molinari</strong> is the classic brand. In Rome and the south, you\'ll find it served after dinner alongside espresso. It\'s sweet and strong — one is usually enough.' },
+      { label: 'Regional Specialties', text: '<strong>Mirto</strong> from Sardinia — a myrtle berry liqueur, red or white, served cold. <strong>Strega</strong> from Benevento — a saffron-yellow herbal liqueur with 70+ botanicals. <strong>Nocino</strong> from Emilia-Romagna — walnut liqueur made from green walnuts harvested on June 24 (St. John\'s Day). <strong>Amaretto di Saronno</strong> — almond-flavored, smooth and sweet, the most internationally famous Italian liqueur. Each region guards its recipe fiercely. Ask your server for the local digestivo — you\'ll often get something you won\'t find outside that town.' },
+      { label: 'The Digestivo Ritual', text: 'After dinner, the waiter will ask <em>"un digestivo?"</em> — and you should say yes. It\'s a limoncello, an amaro, a grappa, or whatever the house specialty is. Often it\'s complimentary (included with dinner), especially at family-run restaurants. If not, it\'s <strong>€3–6</strong>. This is a non-negotiable Italian ritual — dinner isn\'t over until the digestivo is finished. Sip slowly. It\'s the final punctuation mark on a meal, and rushing it is the one thing that will genuinely disappoint your Italian hosts.' },
+    ],
+  },
+];
+---
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  pageType="destination"
+  breadcrumbs={breadcrumbs}
+>
+  <!-- Hero -->
+  <header class="ft-hero">
+    <div class="ft-hero-gradient"></div>
+    <div class="ft-hero-noise"></div>
+    <div class="ft-hero-content">
+      <h1 class="ft-hero-title">The Finer Things</h1>
+      <p class="ft-hero-subtitle">Chianti by the glass in a Tuscan enoteca, Negronis at sunset in Florence, espresso at the bar for a euro, aperitivo spreads in Milan, and the best limoncello, grappa, and amaro across every region.</p>
+      <div class="ft-hero-meta">
+        <div class="ft-hero-meta-item">
+          <span class="ft-hero-meta-label">Topics</span>
+          <span class="ft-hero-meta-value">5</span>
+        </div>
+        <div class="ft-hero-meta-item">
+          <span class="ft-hero-meta-label">Nightlife Cities</span>
+          <span class="ft-hero-meta-value">5</span>
+        </div>
+        <div class="ft-hero-meta-item">
+          <span class="ft-hero-meta-label">Drinks Covered</span>
+          <span class="ft-hero-meta-value">30+</span>
+        </div>
+      </div>
+    </div>
+    <div class="ft-scroll-hint">Scroll<br />&#8595;</div>
+  </header>
+
+  <!-- Breadcrumb -->
+  <div class="container-content">
+    <Breadcrumb items={breadcrumbs} />
+  </div>
+
+  <!-- Personal intro -->
+  <section class="ft-personal ft-reveal">
+    <div class="container-content">
+      <blockquote class="ft-personal-quote">
+        <p>Italian drinking culture is not about getting drunk — it's about slowing down. An espresso standing at the bar in the morning, a glass of house wine with lunch, aperitivo at sunset with a Spritz or Negroni, then a digestivo after dinner. Every drink has its place and its time. I've traveled through wine regions across France, Spain, and California, and nothing matches the everyday accessibility of great wine and spirits in Italy. A €4 glass of Chianti at a random trattoria in Tuscany would cost $15 back home — and it's usually better. The best part? The ritual. Italians don't just drink; they celebrate every glass.</p>
+        <cite>— Scott</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- Quick Facts Strip -->
+  <section class="ft-quickfacts ft-reveal">
+    <div class="container-content">
+      <div class="ft-quickfacts-bar">
+        <div class="ft-quickfact">
+          <span class="ft-quickfact-label">Drinking Age</span>
+          <span class="ft-quickfact-value">18</span>
+        </div>
+        <div class="ft-quickfact-divider"></div>
+        <div class="ft-quickfact">
+          <span class="ft-quickfact-label">Espresso</span>
+          <span class="ft-quickfact-value">€1–1.50</span>
+        </div>
+        <div class="ft-quickfact-divider"></div>
+        <div class="ft-quickfact">
+          <span class="ft-quickfact-label">Aperol Spritz</span>
+          <span class="ft-quickfact-value">€4–8</span>
+        </div>
+        <div class="ft-quickfact-divider"></div>
+        <div class="ft-quickfact">
+          <span class="ft-quickfact-label">House Wine</span>
+          <span class="ft-quickfact-value">€3–6/glass</span>
+        </div>
+        <div class="ft-quickfact-divider"></div>
+        <div class="ft-quickfact">
+          <span class="ft-quickfact-label">Tipping</span>
+          <span class="ft-quickfact-value">Not expected</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Nav -->
+  <section class="ft-quicknav ft-reveal">
+    <div class="container-content">
+      <div class="ft-quicknav-grid">
+        {topics.map((t) => (
+          <a href={`#${t.id}`} class="ft-quicknav-chip">
+            <span class="ft-quicknav-icon">{t.icon}</span>
+            <span class="ft-quicknav-label">{t.title.split(' ').slice(0, 2).join(' ')}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Topic Sections -->
+  {topics.map((topic) => (
+    <section class="ft-topic ft-reveal" id={topic.id}>
+      <div class="container-content">
+        <div class="ft-topic-header" style={`background: ${topic.gradient};`}>
+          <div class="ft-topic-header-inner">
+            <span class="ft-topic-icon">{topic.icon}</span>
+            <h2 class="ft-topic-title">{topic.title}</h2>
+            <span class="ft-topic-count">{topic.items.length} tips</span>
+          </div>
+        </div>
+
+        <div class="ft-tip-grid">
+          {topic.items.map((item) => (
+            <div class="ft-tip-card">
+              <h3 class="ft-tip-label">{item.label}</h3>
+              <p class="ft-tip-text" set:html={item.text} />
+              {item.link && (
+                <a href={item.link} class="ft-tip-link">Explore {item.label.split(':')[0]} &rarr;</a>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <!-- Scott's Pro Tips -->
+  <section class="ft-protips ft-reveal">
+    <div class="container-content">
+      <div class="ft-protips-card">
+        <h2 class="ft-protips-heading">Scott's Pro Tips</h2>
+        <div class="scott-tips">
+          <ul>
+            <li><strong>Happy Hours:</strong> Happy hours are everywhere in the Italy — you buy a beer or drink for a dollar instead of two. Poblacion bars are the best value with cocktails dropping to €200–250 ($3.50–4.40 USD). Some resort bars in Boracay and Siargao do sunset specials too.</li>
+            <li><strong>Beer Buckets:</strong> If you're with a group, go for the beer buckets — it's customary. San Miguel is €35–50 at a store, €65–100 at a local bar, €120–180 at a resort, and €200+ at a beachfront club. Know the markup before you sit down. The best value is always at the neighborhood carinderia with a bucket of Pale Pilsen and a plate of pulutan.</li>
+            <li><strong>Safety at Night:</strong> Always walk on well-lit streets and use Grab — it brings you exactly where you need to go. I've never had an issue in the Italy, although I had a few nerves walking down a dark street in Ermita on my way to the boardwalk one time — you could hear people talking on their stoops but couldn't really see them. Don't flash cash or expensive phones, and Poblacion and BGC are the safest nightlife districts in Manila.</li>
+            <li><strong>Tagay Etiquette:</strong> When someone offers you a pour from the communal glass, accept it. Take a sip, wipe the rim, and pass it back. Refusing is considered rude. If you're done drinking, just say "pass" on your next turn — no one will judge you for that.</li>
+            <li><strong>Lambanog Warning:</strong> Don't drink lambanog from unmarked bottles, home distillers, or random market stalls. Stick to commercial brands like Lakan or Mallari. Methanol contamination from unregulated production is a real risk — hospitalization cases happen every year. This is not a joke.</li>
+            <li><strong>Best Value Night Out:</strong> San Miguel Pale Pilsen + sisig + chicharon at a local carinderia. Total cost: €300–500 ($5.30–8.85 USD) for a full evening. That's the authentic Italian drinking experience — no rooftop needed. Drink in moderation, be merry, and you'll have yourself a blast.</li>
+            <li><strong>Bringing Bottles Home:</strong> Pack your spirits in the center of your checked bag wrapped in clothes. For extra protection, use a <a href="https://www.amazon.com/dp/B00IR0HB3G?tag=discoverphili-20" target="_blank" rel="nofollow sponsored">wine bottle protector sleeve</a> — they absorb impact and seal if a bottle cracks. We've flown dozens of bottles home this way with zero losses.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Affiliate Disclosure -->
+  <div class="container-content ft-reveal" style="padding-bottom: 0;">
+    <p class="ft-affiliate-disclosure">Some links on this page are affiliate links — we earn a small commission if you purchase through them, at no extra cost to you. We only recommend gear we personally use. <a href="/legal/affiliate-disclosure/">Full disclosure</a>.</p>
+  </div>
+
+  <!-- Bottom CTA -->
+  <section class="ft-cta-section ft-reveal">
+    <div class="container-content">
+      <div class="ft-cta-card">
+        <h2 class="ft-cta-heading">Plan Your Night Out</h2>
+        <p class="ft-cta-text">Tell our AI planner your dates and interests — it'll build a custom itinerary with the best bars, nightlife districts, and local experiences.</p>
+        <a href="/plan/" class="ft-cta-button">Start Planning &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Email Capture -->
+  <div class="container-content ft-reveal" style="padding-bottom: var(--space-6);">
+    <EmailCapture
+      leadMagnet="Get Our Free Italian Nightlife Guide"
+      description="Bars, beer, spirits, and nightlife across the Italy — packed into one PDF."
+      bullets={[
+        'Best bars in Manila, Boracay, Cebu, and Siargao',
+        'Complete guide to Italian beer, rum, and spirits',
+        'Customs rules — what you can bring home',
+        'Karaoke etiquette and local drinking customs',
+      ]}
+      guideTag="pillar-finer-things"
+    />
+  </div>
+
+  <!-- Cross-links -->
+  <section class="ft-crosslinks ft-reveal">
+    <div class="container-content">
+      <h3 class="ft-crosslinks-heading">Explore More</h3>
+      <div class="ft-crosslinks-grid">
+        <a href="/cuisine/" class="ft-crosslink-card">
+          <span class="ft-crosslink-icon">&#127860;</span>
+          <span class="ft-crosslink-label">Food & Cuisine</span>
+          <span class="ft-crosslink-desc">35 dishes across 27 destinations, region by region</span>
+        </a>
+        <a href="/festivals/" class="ft-crosslink-card">
+          <span class="ft-crosslink-icon">&#127914;</span>
+          <span class="ft-crosslink-label">Festival Calendar</span>
+          <span class="ft-crosslink-desc">32 festivals across 29 destinations, month by month</span>
+        </a>
+        <a href="/snorkeling-italy/" class="ft-crosslink-card">
+          <span class="ft-crosslink-icon">&#127754;</span>
+          <span class="ft-crosslink-label">Snorkeling Guide</span>
+          <span class="ft-crosslink-desc">14 destinations ranked by underwater experience</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+</BaseLayout>
+
+<!-- Scroll Reveal Observer (uses ft-reveal/ft-visible to avoid Tailwind .visible conflict) -->
+<script>
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const ftRevealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add('ft-visible');
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+    );
+    document.querySelectorAll('.ft-reveal').forEach((el) => ftRevealObserver.observe(el));
+  } else {
+    document.querySelectorAll('.ft-reveal').forEach((el) => el.classList.add('ft-visible'));
+  }
+</script>
+
+<style>
+  /* ================================================================
+     HERO — Warm amber/whiskey gradient
+     ================================================================ */
+  .ft-hero {
+    position: relative;
+    min-height: 55vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 5rem var(--space-6) 60px;
+    overflow: hidden;
+  }
+
+  .ft-hero-gradient {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(135deg, #1A2332 0%, #78350F 40%, #D4A574 100%);
+  }
+
+  .ft-hero-noise {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+
+  .ft-hero-content {
+    position: relative;
+    z-index: 3;
+    max-width: 720px;
+  }
+
+  .ft-hero-title {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: var(--weight-bold);
+    color: #fff;
+    line-height: 1.1;
+    margin: 0 0 var(--space-3);
+  }
+
+  .ft-hero-subtitle {
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.6;
+    margin: 0 0 var(--space-5);
+    max-width: 580px;
+  }
+
+  .ft-hero-meta {
+    display: flex;
+    gap: var(--space-5);
+    flex-wrap: wrap;
+  }
+
+  .ft-hero-meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .ft-hero-meta-label {
+    font-size: 0.65rem;
+    font-weight: var(--weight-semibold);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .ft-hero-meta-value {
+    font-size: 1.1rem;
+    font-weight: var(--weight-bold);
+    color: #fff;
+  }
+
+  .ft-scroll-hint {
+    position: absolute;
+    bottom: 16px;
+    right: var(--space-6);
+    z-index: 3;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: rgba(255, 255, 255, 0.35);
+    text-align: center;
+    animation: ftBounce 2s ease-in-out infinite;
+  }
+
+  @keyframes ftBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(6px); }
+  }
+
+  /* ================================================================
+     PERSONAL INTRO
+     ================================================================ */
+  .ft-personal {
+    padding-block: var(--space-8);
+  }
+
+  .ft-personal-quote {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: var(--space-6) var(--space-8);
+    border-left: 4px solid #D4A574;
+    background: var(--color-sky);
+    border-radius: 0 12px 12px 0;
+  }
+
+  .ft-personal-quote p {
+    font-size: var(--text-body);
+    color: var(--color-heading);
+    line-height: var(--leading-body);
+    font-style: italic;
+    margin-bottom: var(--space-3);
+  }
+
+  .ft-personal-quote cite {
+    font-size: var(--text-caption);
+    color: #78350F;
+    font-weight: var(--weight-semibold);
+    font-style: normal;
+  }
+
+  /* ================================================================
+     QUICK FACTS STRIP
+     ================================================================ */
+  .ft-quickfacts {
+    padding: 0 0 var(--space-4);
+  }
+
+  .ft-quickfacts-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-5);
+    background: var(--color-sky);
+    border-radius: 16px;
+    padding: var(--space-4) var(--space-6);
+    flex-wrap: wrap;
+  }
+
+  .ft-quickfact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    text-align: center;
+  }
+
+  .ft-quickfact-label {
+    font-size: 0.65rem;
+    font-weight: var(--weight-semibold);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-slate);
+  }
+
+  .ft-quickfact-value {
+    font-size: 1.05rem;
+    font-weight: var(--weight-extrabold);
+    color: var(--color-deep-night);
+  }
+
+  .ft-quickfact-divider {
+    width: 1px;
+    height: 28px;
+    background: rgba(0, 0, 0, 0.1);
+  }
+
+  /* ================================================================
+     QUICK NAV — Jump-to chips
+     ================================================================ */
+  .ft-quicknav {
+    padding: 0 0 var(--space-6);
+  }
+
+  .ft-quicknav-grid {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-2);
+    flex-wrap: wrap;
+  }
+
+  .ft-quicknav-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    background: var(--color-white);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 40px;
+    font-size: 0.8rem;
+    font-weight: var(--weight-medium);
+    color: #4A5568;
+    text-decoration: none;
+    transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  }
+
+  .ft-quicknav-chip:hover {
+    background: #FDF8F0;
+    color: #78350F;
+    transform: translateY(-2px);
+  }
+
+  .ft-quicknav-icon {
+    font-size: 1rem;
+  }
+
+  .ft-quicknav-label {
+    white-space: nowrap;
+  }
+
+  /* ================================================================
+     TOPIC SECTION
+     ================================================================ */
+  .ft-topic {
+    padding: var(--space-4) 0 var(--space-6);
+    scroll-margin-top: 80px;
+  }
+
+  .ft-topic-header {
+    position: relative;
+    border-radius: 20px;
+    padding: var(--space-5) var(--space-6);
+    margin-bottom: var(--space-5);
+    overflow: hidden;
+  }
+
+  .ft-topic-header-inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+  }
+
+  .ft-topic-icon {
+    font-size: 1.6rem;
+  }
+
+  .ft-topic-title {
+    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+    font-weight: var(--weight-bold);
+    color: #fff;
+    margin: 0;
+    line-height: 1.2;
+    flex: 1;
+    min-width: 200px;
+  }
+
+  .ft-topic-count {
+    font-size: 0.7rem;
+    font-weight: var(--weight-semibold);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.55);
+    background: rgba(255, 255, 255, 0.1);
+    padding: 4px 12px;
+    border-radius: 20px;
+  }
+
+  /* ================================================================
+     TIP CARDS
+     ================================================================ */
+  .ft-tip-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+  }
+
+  @media (max-width: 768px) {
+    .ft-tip-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .ft-tip-card {
+    background: var(--color-white);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 14px;
+    padding: var(--space-5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .ft-tip-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  }
+
+  .ft-tip-label {
+    font-size: 0.95rem;
+    font-weight: var(--weight-bold);
+    color: var(--color-deep-night);
+    margin: 0 0 var(--space-2);
+    line-height: 1.3;
+  }
+
+  .ft-tip-text {
+    font-size: 0.85rem;
+    color: var(--color-slate);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  .ft-tip-text :global(a) {
+    color: #78350F;
+    font-weight: var(--weight-semibold);
+    text-decoration: underline;
+    text-decoration-color: rgba(120, 53, 15, 0.3);
+    text-underline-offset: 2px;
+    transition: text-decoration-color 0.2s ease;
+  }
+
+  .ft-tip-text :global(a:hover) {
+    text-decoration-color: #78350F;
+  }
+
+  .ft-tip-link {
+    display: inline-block;
+    margin-top: var(--space-3);
+    font-size: 0.8rem;
+    font-weight: var(--weight-semibold);
+    color: #78350F;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .ft-tip-link:hover {
+    color: #D4A574;
+  }
+
+  /* ================================================================
+     SCOTT'S PRO TIPS
+     ================================================================ */
+  .ft-protips {
+    padding: var(--space-4) 0 var(--space-6);
+  }
+
+  .ft-protips-card {
+    background: linear-gradient(135deg, #1A2332 0%, #2D3748 100%);
+    border-radius: 20px;
+    padding: var(--space-6) var(--space-6);
+  }
+
+  .ft-protips-heading {
+    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+    font-weight: var(--weight-bold);
+    color: #D4A574;
+    margin: 0 0 var(--space-4);
+  }
+
+  .ft-protips-card .scott-tips {
+    background: transparent;
+    border-left: none;
+    border-radius: 0;
+    padding: 0;
+    margin: 0;
+  }
+
+  .ft-protips-card .scott-tips ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: var(--space-3);
+  }
+
+  .ft-protips-card .scott-tips li {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.65;
+    padding-left: var(--space-4);
+    position: relative;
+  }
+
+  .ft-protips-card .scott-tips li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #D4A574;
+  }
+
+  .ft-protips-card .scott-tips :global(strong) {
+    color: #D4A574;
+    font-weight: var(--weight-semibold);
+  }
+
+  .ft-protips-card .scott-tips :global(a) {
+    color: #FB923C;
+    font-weight: var(--weight-semibold);
+    text-decoration: underline;
+    text-decoration-color: rgba(251, 146, 60, 0.4);
+    text-underline-offset: 2px;
+    transition: text-decoration-color 0.2s ease;
+  }
+
+  .ft-protips-card .scott-tips :global(a:hover) {
+    text-decoration-color: #FB923C;
+  }
+
+  /* ================================================================
+     AFFILIATE DISCLOSURE
+     ================================================================ */
+  .ft-affiliate-disclosure {
+    font-size: 0.75rem;
+    color: #4A5568;
+    line-height: 1.5;
+    text-align: center;
+    padding: var(--space-4) var(--space-6);
+    background: var(--color-sky);
+    border-radius: 10px;
+    margin-bottom: var(--space-4);
+  }
+
+  .ft-affiliate-disclosure a {
+    color: var(--color-ocean-teal);
+    text-decoration: underline;
+  }
+
+  /* ================================================================
+     BOTTOM CTA
+     ================================================================ */
+  .ft-cta-section {
+    padding: var(--space-6) 0 var(--space-8);
+  }
+
+  .ft-cta-card {
+    background: linear-gradient(135deg, #78350F 0%, #D4A574 100%);
+    border-radius: 20px;
+    padding: var(--space-8) var(--space-6);
+    text-align: center;
+    color: #fff;
+  }
+
+  .ft-cta-heading {
+    font-size: clamp(1.3rem, 3vw, 1.8rem);
+    font-weight: var(--weight-bold);
+    margin: 0 0 var(--space-3);
+    color: #fff;
+  }
+
+  .ft-cta-text {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 520px;
+    margin: 0 auto var(--space-5);
+    line-height: 1.6;
+  }
+
+  .ft-cta-button {
+    display: inline-block;
+    background: var(--color-deep-night);
+    color: #D4A574;
+    font-size: 0.9rem;
+    font-weight: var(--weight-semibold);
+    padding: 12px 28px;
+    border-radius: 40px;
+    text-decoration: none;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+
+  .ft-cta-button:hover {
+    background: #0D1117;
+    transform: translateY(-2px);
+  }
+
+  /* ================================================================
+     CROSS-LINKS
+     ================================================================ */
+  .ft-crosslinks {
+    padding: 0 0 var(--space-10);
+  }
+
+  .ft-crosslinks-heading {
+    font-size: 1.1rem;
+    font-weight: var(--weight-bold);
+    color: var(--color-deep-night);
+    text-align: center;
+    margin: 0 0 var(--space-4);
+  }
+
+  .ft-crosslinks-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-4);
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 640px) {
+    .ft-crosslinks-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .ft-crosslink-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-5) var(--space-4);
+    background: var(--color-white);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 16px;
+    text-decoration: none;
+    color: inherit;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .ft-crosslink-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  }
+
+  .ft-crosslink-icon {
+    font-size: 1.8rem;
+  }
+
+  .ft-crosslink-label {
+    font-size: 0.95rem;
+    font-weight: var(--weight-bold);
+    color: #1A2332;
+  }
+
+  .ft-crosslink-desc {
+    font-size: 0.78rem;
+    color: #4A5568;
+    line-height: 1.4;
+  }
+
+  /* ================================================================
+     SCROLL REVEAL (page-specific, avoids Tailwind .visible conflict)
+     ================================================================ */
+  .ft-reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .ft-reveal.ft-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @keyframes ftRevealFallback {
+    to { opacity: 1; transform: none; }
+  }
+
+  .ft-reveal {
+    animation: ftRevealFallback 0s 3s forwards;
+  }
+
+  /* ================================================================
+     RESPONSIVE
+     ================================================================ */
+  @media (max-width: 640px) {
+    .ft-hero {
+      min-height: 50vh;
+      padding: 0 var(--space-4) 40px;
+    }
+
+    .ft-hero-meta {
+      gap: var(--space-4);
+    }
+
+    .ft-scroll-hint {
+      display: none;
+    }
+
+    .ft-topic-header {
+      padding: var(--space-4) var(--space-4);
+    }
+
+    .ft-quickfacts-bar {
+      gap: var(--space-3);
+      padding: var(--space-3) var(--space-4);
+    }
+
+    .ft-quickfact-divider {
+      display: none;
+    }
+
+    .ft-quickfact {
+      min-width: 80px;
+    }
+
+    .ft-personal-quote {
+      padding: var(--space-4) var(--space-5);
+    }
+
+    .ft-protips-card {
+      padding: var(--space-5) var(--space-4);
+    }
+  }
+</style>

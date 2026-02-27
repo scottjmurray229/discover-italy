@@ -1,0 +1,524 @@
+{
+  "name": "Italian Highlights",
+  "subtitle": "Rome to Florence to Venice",
+  "dates": "May 10, 2026 - May 17, 2026",
+  "days": [
+    {
+      "day": 1,
+      "date": "Sun, May 10",
+      "title": "Arrive in Rome",
+      "location": "Rome, Italy",
+      "items": [
+        {
+          "id": "d1-1",
+          "time": "10:00 AM",
+          "icon": "plane",
+          "type": "transport",
+          "title": "Arrive at Fiumicino Airport (FCO)",
+          "detail": "Take Leonardo Express to Roma Termini (32 min).",
+          "directions": "Follow signs to Leonardo Express.",
+          "status": "confirmed",
+          "lat": 41.8003,
+          "lng": 12.2389
+        },
+        {
+          "id": "d1-2",
+          "time": "12:00 PM",
+          "icon": "hotel",
+          "type": "hotel",
+          "title": "Check in - Hotel Raphael",
+          "detail": "Boutique hotel behind Piazza Navona.",
+          "directions": "Largo Febo 2, near Piazza Navona.",
+          "status": "confirmed",
+          "lat": 41.8992,
+          "lng": 12.4731
+        },
+        {
+          "id": "d1-3",
+          "time": "2:00 PM",
+          "icon": "museum",
+          "type": "activity",
+          "title": "Pantheon and Piazza Navona",
+          "detail": "Free entry to the Pantheon. 2,000-year-old dome.",
+          "directions": "Piazza della Rotonda.",
+          "status": "confirmed",
+          "lat": 41.8986,
+          "lng": 12.4769
+        },
+        {
+          "id": "d1-4",
+          "time": "7:30 PM",
+          "icon": "food",
+          "type": "food",
+          "title": "Dinner at Da Enzo al 29",
+          "detail": "Best cacio e pepe in Rome.",
+          "directions": "Via dei Vascellari 29, Trastevere.",
+          "status": "confirmed",
+          "lat": 41.8878,
+          "lng": 12.4722
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "date": "Mon, May 11",
+      "title": "Ancient Rome",
+      "location": "Rome, Italy",
+      "items": [
+        {
+          "id": "d2-1",
+          "time": "8:30 AM",
+          "icon": "museum",
+          "type": "activity",
+          "title": "Colosseum and Roman Forum",
+          "detail": "Timed-entry. Allow 3+ hours.",
+          "directions": "Metro Line B to Colosseo.",
+          "status": "confirmed",
+          "lat": 41.8902,
+          "lng": 12.4922
+        },
+        {
+          "id": "d2-2",
+          "time": "1:00 PM",
+          "icon": "food",
+          "type": "food",
+          "title": "Lunch at Pizzarium",
+          "detail": "Gabriele Bonci pizza al taglio.",
+          "directions": "Via della Meloria 43.",
+          "status": "confirmed",
+          "lat": 41.9073,
+          "lng": 12.4474
+        },
+        {
+          "id": "d2-3",
+          "time": "3:00 PM",
+          "icon": "museum",
+          "type": "activity",
+          "title": "Vatican Museums and Sistine Chapel",
+          "detail": "Pre-booked timed entry.",
+          "directions": "Viale Vaticano.",
+          "status": "confirmed",
+          "lat": 41.9065,
+          "lng": 12.4536
+        },
+        {
+          "id": "d2-4",
+          "time": "8:00 PM",
+          "icon": "food",
+          "type": "food",
+          "title": "Aperitivo in Trastevere",
+          "detail": "Evening stroll and Spritz.",
+          "directions": "Piazza di Santa Maria.",
+          "status": "confirmed",
+          "lat": 41.8893,
+          "lng": 12.4695
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "date": "Tue, May 12",
+      "title": "Rome to Florence",
+      "location": "Florence, Italy",
+      "items": [
+        {
+          "id": "d3-1",
+          "time": "9:00 AM",
+          "icon": "train",
+          "type": "transport",
+          "title": "High-Speed Train to Florence",
+          "detail": "Frecciarossa, 1.5 hrs.",
+          "directions": "Roma Termini station.",
+          "status": "confirmed",
+          "lat": 41.9009,
+          "lng": 12.5016
+        },
+        {
+          "id": "d3-2",
+          "time": "11:00 AM",
+          "icon": "hotel",
+          "type": "hotel",
+          "title": "Check in - Hotel Davanzati",
+          "detail": "Palazzo in historic center.",
+          "directions": "Via Porta Rossa 5.",
+          "status": "confirmed",
+          "lat": 43.7696,
+          "lng": 11.253
+        },
+        {
+          "id": "d3-3",
+          "time": "1:00 PM",
+          "icon": "museum",
+          "type": "activity",
+          "title": "Uffizi Gallery",
+          "detail": "Botticelli, Leonardo, Raphael.",
+          "directions": "Piazzale degli Uffizi 6.",
+          "status": "confirmed",
+          "lat": 43.7677,
+          "lng": 11.2553
+        },
+        {
+          "id": "d3-4",
+          "time": "7:00 PM",
+          "icon": "food",
+          "type": "food",
+          "title": "Dinner at Trattoria Mario",
+          "detail": "Cash only, shared tables.",
+          "directions": "Via Rosina 2, San Lorenzo.",
+          "status": "confirmed",
+          "lat": 43.7753,
+          "lng": 11.2535
+        }
+      ]
+    },
+    {
+      "day": 4,
+      "date": "Wed, May 13",
+      "title": "Florence Full Day",
+      "location": "Florence, Italy",
+      "items": [
+        {
+          "id": "d4-1",
+          "time": "8:30 AM",
+          "icon": "museum",
+          "type": "activity",
+          "title": "Climb the Duomo",
+          "detail": "463 steps to the top.",
+          "directions": "Piazza del Duomo.",
+          "status": "confirmed",
+          "lat": 43.7731,
+          "lng": 11.256
+        },
+        {
+          "id": "d4-2",
+          "time": "12:00 PM",
+          "icon": "food",
+          "type": "food",
+          "title": "All Antico Vinaio",
+          "detail": "Schiacciata sandwiches.",
+          "directions": "Via dei Neri 74.",
+          "status": "confirmed",
+          "lat": 43.7681,
+          "lng": 11.258
+        },
+        {
+          "id": "d4-3",
+          "time": "6:30 PM",
+          "icon": "sunset",
+          "type": "activity",
+          "title": "Sunset at Piazzale Michelangelo",
+          "detail": "Best viewpoint in Florence.",
+          "directions": "Bus 12 or 20-min walk.",
+          "status": "confirmed",
+          "lat": 43.7629,
+          "lng": 11.265
+        }
+      ]
+    },
+    {
+      "day": 5,
+      "date": "Thu, May 14",
+      "title": "Florence to Venice",
+      "location": "Venice, Italy",
+      "items": [
+        {
+          "id": "d5-1",
+          "time": "9:30 AM",
+          "icon": "train",
+          "type": "transport",
+          "title": "Train to Venice",
+          "detail": "Frecciarossa, 2 hours.",
+          "directions": "Firenze SMN station.",
+          "status": "confirmed",
+          "lat": 43.7764,
+          "lng": 11.2479
+        },
+        {
+          "id": "d5-2",
+          "time": "12:00 PM",
+          "icon": "boat",
+          "type": "transport",
+          "title": "Vaporetto Line 1",
+          "detail": "Grand Canal to San Marco.",
+          "directions": "Outside Santa Lucia station.",
+          "status": "confirmed",
+          "lat": 45.4408,
+          "lng": 12.3208
+        },
+        {
+          "id": "d5-3",
+          "time": "2:00 PM",
+          "icon": "museum",
+          "type": "activity",
+          "title": "St. Marks Basilica",
+          "detail": "Byzantine gold mosaics.",
+          "directions": "Piazza San Marco.",
+          "status": "confirmed",
+          "lat": 45.4345,
+          "lng": 12.3397
+        },
+        {
+          "id": "d5-4",
+          "time": "7:00 PM",
+          "icon": "food",
+          "type": "food",
+          "title": "Cicchetti Crawl",
+          "detail": "Venetian tapas bars.",
+          "directions": "San Polo side of Rialto.",
+          "status": "confirmed",
+          "lat": 45.4385,
+          "lng": 12.3353
+        }
+      ]
+    },
+    {
+      "day": 6,
+      "date": "Fri, May 15",
+      "title": "Venice Islands",
+      "location": "Venice, Italy",
+      "items": [
+        {
+          "id": "d6-1",
+          "time": "9:00 AM",
+          "icon": "boat",
+          "type": "transport",
+          "title": "Vaporetto to Murano",
+          "detail": "Free glass-blowing demos.",
+          "directions": "Fondamente Nove stop.",
+          "status": "confirmed",
+          "lat": 45.4583,
+          "lng": 12.3532
+        },
+        {
+          "id": "d6-2",
+          "time": "12:00 PM",
+          "icon": "boat",
+          "type": "transport",
+          "title": "Ferry to Burano",
+          "detail": "Candy-colored houses.",
+          "directions": "Line 12 from Murano.",
+          "status": "confirmed",
+          "lat": 45.4853,
+          "lng": 12.417
+        },
+        {
+          "id": "d6-3",
+          "time": "7:30 PM",
+          "icon": "food",
+          "type": "food",
+          "title": "Trattoria alla Madonna",
+          "detail": "Classic Venetian seafood.",
+          "directions": "Calle della Madonna 594.",
+          "status": "confirmed",
+          "lat": 45.4377,
+          "lng": 12.3345
+        }
+      ]
+    },
+    {
+      "day": 7,
+      "date": "Sat, May 16",
+      "title": "Final Venice Day",
+      "location": "Venice, Italy",
+      "items": [
+        {
+          "id": "d7-1",
+          "time": "9:00 AM",
+          "icon": "museum",
+          "type": "activity",
+          "title": "Gallerie dell Accademia",
+          "detail": "Venice premier art museum.",
+          "directions": "Campo della Carita, Dorsoduro.",
+          "status": "confirmed",
+          "lat": 45.4315,
+          "lng": 12.3283
+        },
+        {
+          "id": "d7-2",
+          "time": "3:00 PM",
+          "icon": "walk",
+          "type": "activity",
+          "title": "Get Lost in Venice",
+          "detail": "Put away the map. Wander.",
+          "directions": "Start at Campo Santa Margherita.",
+          "status": "confirmed",
+          "lat": 45.4339,
+          "lng": 12.3252
+        },
+        {
+          "id": "d7-3",
+          "time": "7:00 PM",
+          "icon": "food",
+          "type": "food",
+          "title": "Final Dinner",
+          "detail": "Last evening in Venice.",
+          "directions": "Campo Santi Giovanni e Paolo.",
+          "status": "confirmed",
+          "lat": 45.4396,
+          "lng": 12.3427
+        }
+      ]
+    },
+    {
+      "day": 8,
+      "date": "Sun, May 17",
+      "title": "Departure",
+      "location": "Venice, Italy",
+      "items": [
+        {
+          "id": "d8-1",
+          "time": "10:00 AM",
+          "icon": "plane",
+          "type": "transport",
+          "title": "Depart Venice (VCE)",
+          "detail": "8 days, 3 cities, countless memories.",
+          "directions": "Marco Polo Airport (VCE).",
+          "status": "confirmed",
+          "lat": 45.5053,
+          "lng": 12.3519
+        }
+      ]
+    }
+  ],
+  "weather": [
+    {
+      "day": "Sun",
+      "icon": "sunny",
+      "high": 24,
+      "low": 14,
+      "rain": 10
+    },
+    {
+      "day": "Mon",
+      "icon": "sunny",
+      "high": 25,
+      "low": 15,
+      "rain": 5
+    },
+    {
+      "day": "Tue",
+      "icon": "cloudy",
+      "high": 23,
+      "low": 14,
+      "rain": 20
+    },
+    {
+      "day": "Wed",
+      "icon": "sunny",
+      "high": 26,
+      "low": 15,
+      "rain": 5
+    },
+    {
+      "day": "Thu",
+      "icon": "sunny",
+      "high": 24,
+      "low": 13,
+      "rain": 10
+    },
+    {
+      "day": "Fri",
+      "icon": "cloudy",
+      "high": 22,
+      "low": 13,
+      "rain": 25
+    },
+    {
+      "day": "Sat",
+      "icon": "sunny",
+      "high": 25,
+      "low": 14,
+      "rain": 5
+    },
+    {
+      "day": "Sun",
+      "icon": "sunny",
+      "high": 24,
+      "low": 14,
+      "rain": 10
+    }
+  ],
+  "contacts": [
+    {
+      "icon": "emergency",
+      "name": "European Emergency",
+      "role": "Emergency Services",
+      "phone": "112"
+    },
+    {
+      "icon": "hospital",
+      "name": "Policlinico Gemelli",
+      "role": "Rome Hospital",
+      "phone": "+39-06-3015-1"
+    },
+    {
+      "icon": "hospital",
+      "name": "Ospedale SS Giovanni e Paolo",
+      "role": "Venice Hospital",
+      "phone": "+39-041-529-4111"
+    },
+    {
+      "icon": "train",
+      "name": "Trenitalia",
+      "role": "Train service",
+      "phone": "+39-06-6847-5475"
+    }
+  ],
+  "group": [
+    {
+      "id": "scott",
+      "name": "Scott",
+      "avatar": "S",
+      "role": "host",
+      "color": "#0D7377"
+    }
+  ],
+  "notifications": [
+    {
+      "id": 1,
+      "type": "weather",
+      "text": "Clear skies expected. Pack a light jacket for Venice evenings.",
+      "time": "1 day ago",
+      "read": false
+    },
+    {
+      "id": 2,
+      "type": "change",
+      "by": "scott",
+      "text": "Booked Vatican Museums timed entry for Monday 3 PM",
+      "time": "3 days ago",
+      "read": true
+    },
+    {
+      "id": 3,
+      "type": "currency",
+      "text": "USD/EUR rate updated. Budget tracker refreshed.",
+      "time": "Yesterday",
+      "read": true
+    }
+  ],
+  "changeLog": [
+    {
+      "id": 1,
+      "type": "added",
+      "by": "scott",
+      "time": "3 days ago",
+      "title": "Piazzale Michelangelo sunset",
+      "detail": "Added sunset visit on Day 4",
+      "day": 4,
+      "synced": true
+    },
+    {
+      "id": 2,
+      "type": "swapped",
+      "by": "scott",
+      "time": "5 days ago",
+      "title": "Venice approach",
+      "from": "Bus from airport",
+      "to": "Vaporetto Line 1 down Grand Canal",
+      "reason": "Best first impression of Venice",
+      "day": 5,
+      "synced": true
+    }
+  ]
+}
