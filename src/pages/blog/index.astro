@@ -6,8 +6,8 @@ import FTCDisclosure from '../../components/FTCDisclosure.astro';
 import { getCollection } from 'astro:content';
 
 const allPosts = await getCollection('blog', (entry) => {
-  // Exclude translated files (tl/ subdirectory) from English listing, and exclude drafts
-  return !entry.id.startsWith('tl/') && !entry.data.draft;
+  // Exclude translated files (it/ subdirectory) from English listing, and exclude drafts
+  return !entry.id.startsWith('it/') && !entry.data.draft;
 });
 const posts = allPosts.sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime());
 
@@ -20,7 +20,7 @@ const breadcrumbs = [
 ---
 <BaseLayout
   title="Blog — Italy Travel Stories & Guides"
-  description="Travel stories, practical guides, food adventures, and festival coverage from 20+ trips across the Italian islands."
+  description="Travel stories, practical guides, food adventures, and festival coverage from our trips across every region of Italy."
   breadcrumbs={breadcrumbs}
 >
   <!-- Hero -->
@@ -31,8 +31,8 @@ const breadcrumbs = [
     <div class="blog-hero-gradient" />
     <div class="blog-hero-overlay" />
     <div class="blog-hero-content">
-      <h1 class="blog-hero-title">Stories from the Islands</h1>
-      <p class="blog-hero-subtitle">Travel stories, practical guides, and food adventures from 20+ trips across the Italian archipelago.</p>
+      <h1 class="blog-hero-title">Stories from Italy</h1>
+      <p class="blog-hero-subtitle">Travel stories, practical guides, and food adventures from our trips across every region of Italy.</p>
     </div>
   </header>
 
@@ -44,7 +44,7 @@ const breadcrumbs = [
   <!-- Personal caption -->
   <section class="blog-caption reveal">
     <div class="container-content">
-      <p class="blog-caption-text">These are our stories to you — from the places we've been, the food we've eaten, and the people who've shaped every trip. We'll keep them fresh, like the mangoes in the Italy.</p>
+      <p class="blog-caption-text">These are our stories to you — from the places we've been, the food we've eaten, and the people who've shaped every trip. We'll keep them fresh, like the espresso in Italy.</p>
     </div>
   </section>
 

@@ -31,324 +31,309 @@ interface MenuSection {
 
 const menu: MenuSection[] = [
   {
-    region: 'Luzon',
-    tagline: 'From Ilocos heirloom recipes to Manila street food empires',
+    region: 'Northern Italy',
+    tagline: 'Rich risottos, creamy polenta, and the refined flavors of the Alps to the Po Valley',
     gradient: 'linear-gradient(135deg, #BF360C 0%, #E8654A 100%)',
     dishes: [
       {
-        name: 'Vigan Longganisa',
-        image: '/images/cuisine/vigan-longganisa.jpg',
-        destination: 'Vigan',
-        slug: 'vigan',
-        price: '€60–120 / $1–2 USD',
-        description: 'Garlicky, vinegary pork sausage served at breakfast with sinangag rice and a fried egg. Every household in Vigan has their own recipe.',
+        name: 'Risotto alla Milanese',
+        image: '/images/cuisine/risotto-milanese.jpg',
+        destination: 'Milan',
+        slug: 'milan',
+        price: '12-20 EUR / $13-22 USD',
+        description: 'Creamy Arborio rice infused with saffron and Parmigiano-Reggiano, finished with butter. Milan\'s golden signature dish, often served alongside ossobuco.',
+        tag: 'Iconic',
+      },
+      {
+        name: 'Pesto alla Genovese',
+        image: '/images/cuisine/pesto-genovese.jpg',
+        destination: 'Genoa',
+        slug: 'genoa',
+        price: '10-16 EUR / $11-17 USD',
+        description: 'Fresh basil, pine nuts, garlic, Pecorino, and Parmigiano pounded with olive oil — the real thing bears no resemblance to jarred pesto. Best on trofie or trenette pasta.',
         tag: 'Heritage',
       },
       {
-        name: 'Bagnet',
-        image: '/images/cuisine/bagnet.jpg',
-        destination: 'Laoag',
-        slug: 'laoag',
-        price: '€150–300 / $3–5 USD',
-        description: 'Deep-fried pork belly boiled then fried until the skin shatters like glass. Ilocos Norte\'s answer to lechon kawali — crunchier, fattier, unapologetic.',
+        name: 'Cotoletta alla Milanese',
+        image: '/images/cuisine/cotoletta-milanese.jpg',
+        destination: 'Milan',
+        slug: 'milan',
+        price: '15-25 EUR / $16-27 USD',
+        description: 'Bone-in veal cutlet, breaded and fried in butter until golden. Milan\'s answer to the Wiener schnitzel — except Milanese insist theirs came first.',
         tag: 'Must-Try',
       },
       {
-        name: 'Empanada Ilocana',
-        image: '/images/cuisine/empanada-ilocana.jpg',
-        destination: 'Laoag',
-        slug: 'laoag',
-        price: '€30–50 / $0.50–1 USD',
-        description: 'Orange rice-flour crust stuffed with green papaya, egg, and longganisa bits — fried on the spot at Laoag\'s empanada stands.',
+        name: 'Polenta e Osei',
+        image: '/images/cuisine/polenta.jpg',
+        destination: 'Bergamo',
+        slug: 'bergamo',
+        price: '8-14 EUR / $9-15 USD',
+        description: 'Creamy cornmeal polenta served with braised meats, sausage, or wild game. A staple of the Alpine foothills — comfort food at its finest during cold months.',
       },
       {
-        name: 'Sisig',
-        image: '/images/cuisine/sisig.jpg',
-        destination: 'Clark (Pampanga)',
-        slug: 'clark',
-        price: '€150–250 / $3–5 USD',
-        description: 'Sizzling chopped pig face and ears on a hot plate, topped with a raw egg and calamansi. Invented on the railroad tracks of Angeles City — now a national obsession.',
+        name: 'Bigoli in Salsa',
+        image: '/images/cuisine/bigoli.jpg',
+        destination: 'Venice',
+        slug: 'venice',
+        price: '12-18 EUR / $13-20 USD',
+        description: 'Thick hand-extruded spaghetti tossed with slow-cooked onions and salt-cured sardines. Venice\'s most underrated pasta — simple, ancient, and deeply savory.',
+        tag: 'Heritage',
+      },
+      {
+        name: 'Tortellini in Brodo',
+        image: '/images/cuisine/tortellini-brodo.jpg',
+        destination: 'Bologna',
+        slug: 'bologna',
+        price: '10-16 EUR / $11-17 USD',
+        description: 'Tiny hand-folded pasta parcels filled with pork and Parmigiano, served in a clear capon broth. Bologna\'s most sacred dish — locals will argue about the filling for hours.',
         tag: 'Iconic',
       },
       {
-        name: 'Kare-Kare',
-        image: '/images/cuisine/kare-kare.jpg',
-        destination: 'Manila',
-        slug: 'manila',
-        price: '€250–450 / $5–8 USD',
-        description: 'Rich peanut stew with oxtail, tripe, and vegetables served with fermented shrimp paste. A Manila celebration dish that rewards patience — the best versions simmer for hours.',
-      },
-      {
-        name: 'Adobo (Manila-Style)',
-        image: '/images/cuisine/adobo.jpg',
-        destination: 'Manila',
-        slug: 'manila',
-        price: '€120–200 / $2–4 USD',
-        description: 'The unofficial national dish — pork or chicken braised in soy, vinegar, garlic, and bay leaves. Manila\'s version runs dark and saucy.',
-        tag: 'National Dish',
-      },
-      {
-        name: 'Crocodile Sisig',
-        image: '/images/cuisine/crocodile-sisig.jpg',
-        destination: 'Puerto Princesa',
-        slug: 'puerto-princesa',
-        price: '€200–350 / $4–6 USD',
-        description: 'Palawan\'s exotic twist on sisig — farm-raised crocodile meat chopped and sizzled with the same onion-chili-calamansi treatment. Leaner than pork, surprisingly tender.',
-      },
-      {
-        name: 'Chowking-Style Halo-Halo',
-        image: '/images/cuisine/halo-halo.jpg',
-        destination: 'Subic',
-        slug: 'subic',
-        price: '€80–150 / $1.50–3 USD',
-        description: 'Shaved ice layered with sweet beans, jellies, leche flan, ube ice cream, and evaporated milk. Every beach town has a version — Subic\'s boardwalk stalls pile it high.',
-      },
-      {
-        name: 'Suman at Latik',
-        image: '/images/cuisine/suman-at-latik.jpg',
-        destination: 'Bataan',
-        slug: 'bataan',
-        price: '€30–60 / $0.50–1 USD',
-        description: 'Sticky rice wrapped in banana leaves, topped with sweet coconut caramel (latik). A Bataeño morning staple found at every public market and roadside stall on the peninsula.',
-      },
-      {
-        name: 'Ivatan Coconut Crab (Tatus)',
-        image: '/images/cuisine/coconut-crab.jpg',
-        destination: 'Batanes',
-        slug: 'batanes',
-        price: '€500–800 / $9–14 USD',
-        description: 'Giant coconut crabs steamed or grilled — a Batanes delicacy found nowhere else in the Italy. Rich, sweet meat eaten with your hands at family-run eateries.',
-        tag: 'Rare',
-      },
-      {
-        name: 'Fresh Lumpia',
-        image: '/images/cuisine/fresh-lumpia.jpg',
-        destination: 'El Nido',
-        slug: 'el-nido',
-        price: '€40–80 / $0.70–1.50 USD',
-        description: 'Soft crepe wrapper filled with heart of palm, green beans, carrots, and shrimp — lighter than the fried version and perfect for El Nido\'s beach-side snacking.',
-      },
-      {
-        name: 'Pinikpikan',
-        image: '/images/cuisine/pinikpikan.jpg',
-        destination: 'Sagada',
-        slug: 'sagada',
-        price: '€150–250 / $3–5 USD',
-        description: 'Traditional Igorot dish — torched chicken with smoked pork (etag) and vegetables in a rich broth. A deeply cultural Cordilleran preparation you won\'t find outside the mountains.',
-        tag: 'Heritage',
-      },
-      {
-        name: 'Strawberry Taho',
-        image: '/images/cuisine/strawberry-taho.jpg',
-        destination: 'Baguio',
-        slug: 'baguio',
-        price: '€25–40 / $0.45–0.70 USD',
-        description: 'Baguio\'s twist on the national street snack — silken tofu with strawberry syrup and sago pearls instead of the usual brown sugar arnibal. Sold by vendors along Session Road and at the public market.',
-      },
-      {
-        name: 'Dinengdeng',
-        image: '/images/cuisine/dinengdeng.jpg',
-        destination: 'La Union',
-        slug: 'la-union',
-        price: '€80–150 / $1.50–3 USD',
-        description: 'Traditional Ilocano vegetable stew with bagoong monamon (fish paste), moringa leaves, and whatever\'s fresh from the garden. A defining dish of the Ilocos region, served at surf-town carinderias.',
-        tag: 'Heritage',
-      },
-      {
-        name: 'Buko Pie',
-        image: '/images/cuisine/buko-pie.jpg',
-        destination: 'Laguna',
-        slug: 'laguna',
-        price: '€60–120 / $1–2 USD per slice',
-        description: 'Fresh young coconut meat baked in a flaky pastry crust — Laguna is the undisputed buko pie capital of the Italy. Best bought warm from roadside bakeries in Los Baños.',
+        name: 'Ragu alla Bolognese',
+        image: '/images/cuisine/ragu-bolognese.jpg',
+        destination: 'Bologna',
+        slug: 'bologna',
+        price: '11-18 EUR / $12-20 USD',
+        description: 'The real Bolognese is nothing like what you know — slow-simmered beef and pork ragu served on tagliatelle, never spaghetti. Rich, meaty, and worth the 4-hour cook time.',
         tag: 'Must-Try',
       },
       {
-        name: 'Bulalo',
-        image: '/images/cuisine/bulalo.jpg',
-        destination: 'Batangas',
-        slug: 'batangas',
-        price: '€250–450 / $5–8 USD',
-        description: 'Slow-cooked beef shank in clear broth with bone marrow, corn, and cabbage. Batangas is "bulalo country" — the marrow melts into the soup and nothing else comes close.',
-        tag: 'Iconic',
-      },
-      {
-        name: 'Bicol Express',
-        image: '/images/cuisine/bicol-express.jpg',
-        destination: 'Legazpi',
-        slug: 'legazpi',
-        price: '€120–200 / $2–4 USD',
-        description: 'Pork simmered in coconut milk with a fierce amount of chili — the signature dish of the Bicol region. Named after the Manila-to-Naga train line, it\'s best eaten beneath Mayon Volcano where the coconuts grow.',
-        tag: 'Iconic',
+        name: 'Frico con Polenta',
+        image: '/images/cuisine/frico.jpg',
+        destination: 'Udine (Friuli)',
+        slug: 'udine',
+        price: '8-12 EUR / $9-13 USD',
+        description: 'Crispy cheese wafer made from aged Montasio, served alongside creamy polenta. Friuli\'s beloved bar snack and mountain comfort food.',
       },
     ],
   },
   {
-    region: 'Visayas',
-    tagline: 'Cebu lechon, Boracay seafood, and the sweet tooth of the central islands',
+    region: 'Central Italy',
+    tagline: 'Roman pastas, Florentine steaks, and the heart of Italian cooking tradition',
     gradient: 'linear-gradient(135deg, #0D7377 0%, #4DB6AC 100%)',
     dishes: [
       {
-        name: 'Lechon Cebu',
-        image: '/images/cuisine/lechon-cebu.jpg',
-        destination: 'Cebu',
-        slug: 'cebu',
-        price: '€200–400 / $4–7 USD per plate',
-        description: 'Whole pig stuffed with lemongrass, garlic, and star anise, roasted over charcoal for hours. The skin crackles, the meat stays juicy. Anthony Bourdain called it "the best pig ever."',
-        tag: 'Legendary',
-      },
-      {
-        name: 'Chicken Inasal',
-        image: '/images/cuisine/chicken-inasal.jpg',
-        destination: 'Bacolod',
-        slug: 'bacolod',
-        price: '€120–200 / $2–4 USD',
-        description: 'Bacolod\'s signature dish — chicken marinated in annatto, lemongrass, and calamansi, grilled over coconut husk charcoal. Best at Manokan Country, where dozens of stalls compete for the title.',
+        name: 'Cacio e Pepe',
+        image: '/images/cuisine/cacio-e-pepe.jpg',
+        destination: 'Rome',
+        slug: 'rome',
+        price: '10-16 EUR / $11-17 USD',
+        description: 'Tonnarelli pasta tossed with Pecorino Romano and black pepper — three ingredients, infinite technique. Rome\'s most deceptively simple masterpiece.',
         tag: 'Iconic',
       },
       {
-        name: 'Seafood Kinilaw',
-        image: '/images/cuisine/seafood-kinilaw.jpg',
-        destination: 'Boracay',
-        slug: 'boracay',
-        price: '€180–350 / $3–6 USD',
-        description: 'Raw tuna or tanigue cured in vinegar, calamansi, ginger, and chili — the Italian ceviche. Best eaten at sunset with an ice-cold San Miguel.',
-        tag: 'Fresh Catch',
-      },
-      {
-        name: 'Calamay',
-        image: '/images/cuisine/calamay.jpg',
-        destination: 'Bohol',
-        slug: 'bohol',
-        price: '€80–150 / $1.50–3 USD',
-        description: 'Sticky sweet coconut-milk confection served in polished coconut shell halves. Bohol\'s signature pasalubong — glutinous rice, peanuts, and brown sugar cooked until thick.',
-        tag: 'Pasalubong',
-      },
-      {
-        name: 'Peanut Kisses',
-        image: '/images/cuisine/peanut-kisses.jpg',
-        destination: 'Bohol',
-        slug: 'bohol',
-        price: '€100–180 / $2–3 USD per box',
-        description: 'Bite-sized peanut meringue cookies shaped like the Chocolate Hills. Bohol\'s most famous souvenir — light, crunchy, and impossible to eat just one.',
-      },
-      {
-        name: 'Silvanas',
-        image: '/images/cuisine/silvanas.jpg',
-        destination: 'Dumaguete',
-        slug: 'dumaguete',
-        price: '€250–450 / $5–8 USD per box',
-        description: 'Frozen buttercream sandwiched between cashew-meringue wafers, rolled in cookie crumbs. Dumaguete\'s Sans Rival Bistro made them famous — now they\'re a nationwide obsession.',
+        name: 'Pasta alla Carbonara',
+        image: '/images/cuisine/carbonara.jpg',
+        destination: 'Rome',
+        slug: 'rome',
+        price: '11-18 EUR / $12-20 USD',
+        description: 'Rigatoni or spaghetti with guanciale, egg yolks, Pecorino, and black pepper — no cream, ever. Rome\'s most debated and imitated dish. Roscioli and Da Enzo are legendary spots.',
         tag: 'Must-Try',
       },
       {
-        name: 'Budbud Kabog',
-        image: '/images/cuisine/budbud-kabog.jpg',
-        destination: 'Camiguin',
-        slug: 'camiguin',
-        price: '€20–40 / $0.35–0.70 USD',
-        description: 'Steamed millet rice cake wrapped in banana leaves — Camiguin\'s humble but beloved breakfast staple, paired with sikwate (hot chocolate) made from local cacao.',
+        name: 'Amatriciana',
+        image: '/images/cuisine/amatriciana.jpg',
+        destination: 'Rome',
+        slug: 'rome',
+        price: '10-16 EUR / $11-17 USD',
+        description: 'Bucatini with a sauce of guanciale, San Marzano tomatoes, Pecorino Romano, and a touch of chili. Named after the town of Amatrice — one of Rome\'s holy trinity of pastas.',
       },
       {
-        name: 'Lato (Sea Grapes)',
-        image: '/images/cuisine/lato.jpg',
-        destination: 'Siquijor',
-        slug: 'siquijor',
-        price: '€80–150 / $1.50–3 USD',
-        description: 'Tiny green seaweed clusters that pop like caviar in your mouth, dressed with vinegar, tomatoes, and onions. Eaten fresh at beachside carinderias across Siquijor.',
-      },
-      {
-        name: 'Sizzling Kansi',
-        image: '/images/cuisine/sizzling-kansi.jpg',
-        destination: 'Bacolod',
-        slug: 'bacolod',
-        price: '€200–350 / $4–6 USD',
-        description: 'Bacolod\'s original sour beef shank soup — slow-cooked with batuan fruit for a tart, savory broth that rivals bulalo. A City of Smiles signature you won\'t find outside Negros.',
-      },
-      {
-        name: 'La Paz Batchoy',
-        image: '/images/cuisine/la-paz-batchoy.jpg',
-        destination: 'Iloilo',
-        slug: 'iloilo',
-        price: '€60–120 / $1–2 USD',
-        description: 'Iloilo\'s iconic noodle soup — egg noodles in a rich pork bone broth topped with crushed chicharon, garlic, and a raw egg. Named after the La Paz district where it originated. Ted\'s Oldtimer La Paz Batchoy is the most famous spot.',
+        name: 'Bistecca alla Fiorentina',
+        image: '/images/cuisine/bistecca-fiorentina.jpg',
+        destination: 'Florence',
+        slug: 'florence',
+        price: '40-70 EUR / $44-76 USD',
+        description: 'Massive T-bone from Chianina cattle, grilled over oak, served rare with nothing but salt, pepper, and olive oil. Priced by the kilo — share with a partner. Trattoria Mario is the classic spot.',
         tag: 'Iconic',
       },
       {
-        name: 'Binagol',
-        image: '/images/cuisine/binagol.jpg',
-        destination: 'Tacloban',
-        slug: 'tacloban',
-        price: '€40–80 / $0.70–1.50 USD',
-        description: 'Taro root custard with coconut milk, baked inside a coconut shell half — a Leyte specialty you won\'t find anywhere else in the Italy. The best ones come from Tacloban\'s public market.',
-        tag: 'Rare',
+        name: 'Pici all\'Aglione',
+        image: '/images/cuisine/pici.jpg',
+        destination: 'Siena (Tuscany)',
+        slug: 'tuscany',
+        price: '10-15 EUR / $11-16 USD',
+        description: 'Hand-rolled thick spaghetti with a garlic and tomato sauce — Tuscan comfort food from the hills south of Siena. Each strand is imperfect, rustic, and wonderful.',
+        tag: 'Heritage',
       },
       {
-        name: 'Guimaras Mango',
-        image: '/images/cuisine/guimaras-mango.jpg',
-        destination: 'Guimaras',
-        slug: 'guimaras',
-        price: '€100–200 / $2–4 USD per kilo',
-        description: 'The sweetest mangoes in the Italy grow on this tiny island between Panay and Negros. Eaten fresh, as pizza topping, in shakes, or dried — Guimaras mangoes are a class apart.',
+        name: 'Porchetta',
+        image: '/images/cuisine/porchetta.jpg',
+        destination: 'Ariccia (near Rome)',
+        slug: 'rome',
+        price: '5-10 EUR / $5-11 USD per sandwich',
+        description: 'Whole roasted pig stuffed with rosemary, garlic, fennel pollen, and black pepper. Sliced onto crusty bread at roadside stalls. Ariccia invented it; Romans perfected the sandwich.',
         tag: 'Must-Try',
+      },
+      {
+        name: 'Supplì al Telefono',
+        image: '/images/cuisine/suppli.jpg',
+        destination: 'Rome',
+        slug: 'rome',
+        price: '2-4 EUR / $2-4 USD each',
+        description: 'Deep-fried rice croquettes filled with mozzarella that stretches like telephone wire when you pull them apart. Rome\'s favorite street snack — eaten standing at the counter.',
+      },
+      {
+        name: 'Ribollita',
+        image: '/images/cuisine/ribollita.jpg',
+        destination: 'Florence',
+        slug: 'florence',
+        price: '8-14 EUR / $9-15 USD',
+        description: 'Tuscan bread soup with cannellini beans, cavolo nero (black kale), and vegetables — "reboiled" and thickened overnight. Peasant food elevated to restaurant status.',
+        tag: 'Heritage',
       },
     ],
   },
   {
-    region: 'Mindanao',
-    tagline: 'Durian, tuna capital, and the bold flavors of the southern islands',
+    region: 'Southern Italy',
+    tagline: 'Neapolitan pizza, Amalfi seafood, and the sun-drenched flavors of the Mezzogiorno',
     gradient: 'linear-gradient(135deg, #1A2332 0%, #6A1B9A 50%, #D4A853 100%)',
     dishes: [
       {
-        name: 'Durian',
-        image: '/images/cuisine/durian.jpg',
-        destination: 'Davao',
-        slug: 'davao',
-        price: '€80–200 / $1.50–4 USD per kilo',
-        description: 'Love it or run from it — Davao is the durian capital. Puyat, Arancillo, and native varieties sold from roadside stalls. The Magsaysay fruit vendors will pick a ripe one and crack it open for you.',
+        name: 'Pizza Margherita',
+        image: '/images/cuisine/pizza-margherita.jpg',
+        destination: 'Naples',
+        slug: 'naples',
+        price: '5-10 EUR / $5-11 USD',
+        description: 'San Marzano tomatoes, fior di latte mozzarella, basil, and olive oil on a blistered, chewy crust. Naples invented pizza — L\'Antica Pizzeria da Michele has been making them since 1870.',
         tag: 'Iconic',
       },
       {
-        name: 'Grilled Tuna Belly (Panga)',
-        image: '/images/cuisine/grilled-tuna-belly.jpg',
-        destination: 'Davao',
-        slug: 'davao',
-        price: '€250–500 / $5–9 USD',
-        description: 'Thick tuna jaw grilled over coconut husks until the fat renders and the edges char. Davao sits next to General Santos — the tuna capital — so the fish is absurdly fresh.',
+        name: 'Spaghetti alle Vongole',
+        image: '/images/cuisine/vongole.jpg',
+        destination: 'Naples',
+        slug: 'naples',
+        price: '12-20 EUR / $13-22 USD',
+        description: 'Spaghetti with fresh clams, garlic, white wine, chili, and parsley — the bianco (white) version is the Neapolitan standard. Best when the clams are from the Gulf.',
         tag: 'Must-Try',
       },
       {
-        name: 'Kinilaw na Isda',
-        image: '/images/cuisine/kinilaw-na-isda.jpg',
-        destination: 'Siargao',
-        slug: 'siargao',
-        price: '€150–280 / $3–5 USD',
-        description: 'Ultra-fresh raw fish cured in coconut vinegar with ginger, chili, and red onion. Siargao\'s surf-town version uses whatever the fishermen bring in that morning.',
-        tag: 'Fresh Catch',
+        name: 'Orecchiette con Cime di Rapa',
+        image: '/images/cuisine/orecchiette.jpg',
+        destination: 'Bari (Puglia)',
+        slug: 'puglia',
+        price: '8-14 EUR / $9-15 USD',
+        description: 'Ear-shaped pasta with broccoli rabe, garlic, anchovies, and chili — Puglia\'s iconic dish. The nonnas of Bari Vecchia still hand-shape orecchiette on tables in the old town alleys.',
+        tag: 'Heritage',
       },
       {
-        name: 'Uni (Sea Urchin)',
-        image: '/images/cuisine/uni.jpg',
-        destination: 'Siargao',
-        slug: 'siargao',
-        price: '€50–100 / $1–2 USD each',
-        description: 'Freshly cracked sea urchin eaten straight from the shell with a squeeze of calamansi. Island-hoppers around Daku and Naked Island sell them from their boats.',
+        name: 'Parmigiana di Melanzane',
+        image: '/images/cuisine/parmigiana.jpg',
+        destination: 'Naples',
+        slug: 'naples',
+        price: '8-14 EUR / $9-15 USD',
+        description: 'Layers of fried eggplant, tomato sauce, mozzarella, and Parmigiano baked until bubbling. Naples, Sicily, and Campania all claim it — the debate is eternal.',
       },
       {
-        name: 'Lamaw (Coconut Smoothie)',
-        image: '/images/cuisine/lamaw.jpg',
-        destination: 'Camiguin',
-        slug: 'camiguin',
-        price: '€30–60 / $0.50–1 USD',
-        description: 'Young coconut meat blended with its own water and a scoop of vanilla ice cream — Camiguin\'s refreshing roadside drink, best after a White Island morning.',
+        name: 'Burrata with Tomatoes',
+        image: '/images/cuisine/burrata.jpg',
+        destination: 'Puglia',
+        slug: 'puglia',
+        price: '10-16 EUR / $11-17 USD',
+        description: 'Fresh burrata — mozzarella shell filled with stracciatella cream — served with vine tomatoes and olive oil. Puglia makes the best burrata in the world, and it doesn\'t travel well. Eat it here.',
+        tag: 'Must-Try',
       },
       {
-        name: 'Sinuglaw',
-        image: '/images/cuisine/sinuglaw.jpg',
-        destination: 'Coron',
-        slug: 'coron',
-        price: '€180–300 / $3–5 USD',
-        description: 'Grilled pork belly meets raw fish kinilaw in one bowl — the best of both worlds. A Visayan invention that Coron\'s seafood joints have made their own.',
+        name: 'Sfogliatella',
+        image: '/images/cuisine/sfogliatella.jpg',
+        destination: 'Naples',
+        slug: 'naples',
+        price: '2-4 EUR / $2-4 USD each',
+        description: 'Crispy, shell-shaped pastry filled with sweet ricotta, semolina, and candied citrus. Two styles: riccia (ridged, flaky) and frolla (smooth). Eaten warm for breakfast with an espresso.',
+      },
+      {
+        name: 'Limoncello',
+        image: '/images/cuisine/limoncello.jpg',
+        destination: 'Amalfi Coast',
+        slug: 'amalfi-coast',
+        price: '3-6 EUR / $3-7 USD per glass',
+        description: 'Ice-cold lemon liqueur made from giant Amalfi lemons — served as a digestivo after every meal along the coast. The homemade versions at family restaurants put the bottled stuff to shame.',
+      },
+      {
+        name: 'Bombette Pugliesi',
+        image: '/images/cuisine/bombette.jpg',
+        destination: 'Martina Franca (Puglia)',
+        slug: 'puglia',
+        price: '8-14 EUR / $9-15 USD',
+        description: 'Thin slices of pork or veal rolled around cheese and herbs, then grilled over charcoal. Puglia\'s street-food favorite — best at the macellerie (butcher shops) that grill to order.',
+        tag: 'Heritage',
+      },
+    ],
+  },
+  {
+    region: 'Islands',
+    tagline: 'Sicilian street food, Sardinian roasts, and the bold flavors of the Mediterranean islands',
+    gradient: 'linear-gradient(135deg, #E65100 0%, #FF9800 100%)',
+    dishes: [
+      {
+        name: 'Arancini',
+        image: '/images/cuisine/arancini.jpg',
+        destination: 'Palermo (Sicily)',
+        slug: 'sicily',
+        price: '2-5 EUR / $2-5 USD each',
+        description: 'Golden fried rice balls stuffed with ragu, mozzarella, and peas — Sicily\'s most beloved street food. Palermo calls them arancine (feminine); Catania says arancini (masculine). Don\'t pick sides.',
+        tag: 'Iconic',
+      },
+      {
+        name: 'Pasta alla Norma',
+        image: '/images/cuisine/pasta-norma.jpg',
+        destination: 'Catania (Sicily)',
+        slug: 'sicily',
+        price: '9-15 EUR / $10-16 USD',
+        description: 'Rigatoni with fried eggplant, tomato sauce, and salted ricotta — named after Bellini\'s opera because it\'s "a masterpiece." Catania\'s proudest culinary creation.',
+        tag: 'Must-Try',
+      },
+      {
+        name: 'Granita con Brioche',
+        image: '/images/cuisine/granita.jpg',
+        destination: 'Sicily',
+        slug: 'sicily',
+        price: '3-6 EUR / $3-7 USD',
+        description: 'Frozen granita (almond, pistachio, lemon, or mulberry) scooped into a warm brioche bun — Sicily\'s breakfast of champions. Eaten every morning from June through September.',
+        tag: 'Must-Try',
+      },
+      {
+        name: 'Cannolo Siciliano',
+        image: '/images/cuisine/cannoli.jpg',
+        destination: 'Palermo (Sicily)',
+        slug: 'sicily',
+        price: '3-5 EUR / $3-5 USD each',
+        description: 'Crispy fried pastry tube filled to order with sweet sheep\'s-milk ricotta, pistachios, and candied fruit. Never pre-filled — the shell must shatter when you bite. Sicily\'s definitive dessert.',
+        tag: 'Iconic',
+      },
+      {
+        name: 'Pane Cunzato',
+        image: '/images/cuisine/pane-cunzato.jpg',
+        destination: 'Scopello (Sicily)',
+        slug: 'sicily',
+        price: '5-10 EUR / $5-11 USD',
+        description: 'Crusty Sicilian bread split and loaded with tomatoes, anchovies, capers, olive oil, and oregano. The ultimate Sicilian beach sandwich — best at Bar Nettuno in Scopello.',
+      },
+      {
+        name: 'Bottarga',
+        image: '/images/cuisine/bottarga.jpg',
+        destination: 'Sardinia',
+        slug: 'sardinia',
+        price: '14-22 EUR / $15-24 USD',
+        description: 'Cured mullet roe, grated over spaghetti with olive oil and garlic — Sardinia\'s "Mediterranean caviar." Intensely briny and savory. Cabras on the west coast produces the best.',
+        tag: 'Heritage',
+      },
+      {
+        name: 'Porceddu (Roast Suckling Pig)',
+        image: '/images/cuisine/porceddu.jpg',
+        destination: 'Sardinia',
+        slug: 'sardinia',
+        price: '18-30 EUR / $20-33 USD',
+        description: 'Whole suckling pig slow-roasted over myrtle and juniper wood until the skin crackles. Sardinia\'s celebratory centerpiece — served at agriturismi (farm stays) across the island.',
+        tag: 'Iconic',
+      },
+      {
+        name: 'Seadas',
+        image: '/images/cuisine/seadas.jpg',
+        destination: 'Sardinia',
+        slug: 'sardinia',
+        price: '6-10 EUR / $7-11 USD',
+        description: 'Large fried pastry filled with fresh pecorino cheese and drizzled with warm honey. Sardinia\'s signature dessert — the contrast of salty cheese and sweet honey is extraordinary.',
       },
     ],
   },
@@ -370,19 +355,19 @@ const menu: MenuSection[] = [
     <div class="menu-hero-noise"></div>
     <div class="menu-hero-content">
       <h1 class="menu-hero-title">The Italian Menu</h1>
-      <p class="menu-hero-subtitle">Sizzling sisig, whole roast lechon, durian you can smell from a block away — eat your way across three island regions and discover the dishes that define each destination.</p>
+      <p class="menu-hero-subtitle">Creamy carbonara in Rome, perfect pizza in Naples, golden arancini in Palermo — eat your way across four regions and discover the dishes that define each destination.</p>
       <div class="menu-hero-meta">
         <div class="menu-hero-meta-item">
           <span class="menu-hero-meta-label">Dishes</span>
-          <span class="menu-hero-meta-value">35</span>
+          <span class="menu-hero-meta-value">32</span>
         </div>
         <div class="menu-hero-meta-item">
           <span class="menu-hero-meta-label">Regions</span>
-          <span class="menu-hero-meta-value">3</span>
+          <span class="menu-hero-meta-value">4</span>
         </div>
         <div class="menu-hero-meta-item">
           <span class="menu-hero-meta-label">Destinations</span>
-          <span class="menu-hero-meta-value">27</span>
+          <span class="menu-hero-meta-value">15</span>
         </div>
       </div>
     </div>
@@ -398,8 +383,8 @@ const menu: MenuSection[] = [
   <section class="menu-personal reveal">
     <div class="container-content">
       <blockquote class="menu-personal-quote">
-        <p>I'd never had Italian food before my first trip in 2003. I started with the staples — adobo, sinigang, lumpia, caldereta, menudo — and fell in love immediately. But it was Scott who pushed me past the comfort zone. Kinilaw on the beach in Puerto Princesa. Watermelon sinigang at Manam in Manila. Dishes I never would have ordered on my own, in places I never would have found. Every trip now, the food is half the reason we go.</p>
-        <cite>— Scott</cite>
+        <p>Italian food changed everything for us. Our first trip, we stuck to tourist restaurants near the Colosseum and wondered what the fuss was about. Then we found a tiny trattoria in Trastevere where the nonna made cacio e pepe tableside — three ingredients, absolute perfection. That was the moment. Now the food is half the reason we go back, and we plan entire trips around regional dishes we haven't tried yet.</p>
+        <cite>— Scott &amp; Scott</cite>
       </blockquote>
     </div>
   </section>
@@ -408,14 +393,11 @@ const menu: MenuSection[] = [
   <section class="menu-intro reveal">
     <div class="container-content">
       <div class="menu-intro-card">
-        <p class="menu-intro-text">Think of this as your tasting menu for the Italy. We've organized the country's essential dishes by region — <strong>Luzon</strong> in the north, the <strong>Visayas</strong> in the center, and <strong>Mindanao</strong> in the south. Click any dish to explore the destination where it's famous.</p>
+        <p class="menu-intro-text">Think of this as your tasting menu for Italy. We've organized the country's essential dishes by region — <strong>Northern Italy</strong>, <strong>Central Italy</strong>, <strong>Southern Italy</strong>, and the <strong>Islands</strong>. Click any dish to explore the destination where it's famous.</p>
         <div class="menu-intro-legend">
           <span class="menu-tag menu-tag--heritage">Heritage</span>
           <span class="menu-tag menu-tag--musttry">Must-Try</span>
           <span class="menu-tag menu-tag--iconic">Iconic</span>
-          <span class="menu-tag menu-tag--fresh">Fresh Catch</span>
-          <span class="menu-tag menu-tag--rare">Rare</span>
-          <span class="menu-tag menu-tag--pasalubong">Pasalubong</span>
         </div>
       </div>
     </div>
@@ -478,12 +460,12 @@ const menu: MenuSection[] = [
 
   <!-- FAQ -->
   <FAQ items={[
-    { question: "What is the national dish of the Italy?", answer: "Adobo is widely considered the national dish — chicken or pork braised in vinegar, soy sauce, garlic, and black peppercorns. Every family has their own version. Lechon (whole roasted pig) is the centerpiece of celebrations. Both reflect the Italian approach to food: bold flavors, communal eating, and recipes passed through generations." },
-    { question: "Is Italian food spicy?", answer: "Most Italian dishes are savory, sour, or sweet rather than spicy. Vinegar and soy sauce are more common than chili. The exception is Bicol cuisine from the Bicol region — dishes like Bicol Express and laing use coconut milk with bird's eye chili (siling labuyo). In general, chili is served as a condiment on the side, not cooked into the food." },
-    { question: "What are the must-try street foods in the Italy?", answer: "Isaw (grilled chicken intestines on a stick), kwek-kwek (deep-fried quail eggs in orange batter), fishball with sweet or spicy sauce, and banana cue (caramelized banana on a stick). Balut (fertilized duck egg) is the famous dare food — most Italians eat it as a regular snack. Street food costs €10-50 ($0.20-$1) per item." },
-    { question: "How much does a meal cost in the Italy?", answer: "Street food: €20-100 ($0.40-$2). Local carinderias (turo-turo eateries): €80-150 ($1.50-$3) for rice plus two viands. Mid-range restaurants: €200-500 ($4-$9). Upscale dining: €800-2,000 ($14-$36). A daily food budget of €500-1,000 ($9-$18) covers three meals comfortably outside Manila." },
-    { question: "Is it safe to eat street food in the Italy?", answer: "Street food is generally safe if you follow basic rules: eat from busy stalls with high turnover (food is fresher), choose items cooked in front of you rather than pre-made, and avoid anything that's been sitting uncovered. Italians eat street food daily — the busier the stall, the safer the food. Bring antacids if you have a sensitive stomach." },
-    { question: "What is the most famous Italian dessert?", answer: "Halo-halo is the iconic Italian dessert — shaved ice layered with sweet beans, jellies, leche flan, ube (purple yam) ice cream, and evaporated milk. It's served everywhere from street carts to restaurants. Other favorites include leche flan (caramel custard), bibingka (rice cake baked in banana leaves), and turon (fried banana spring rolls)." },
+    { question: "What is Italy's most famous dish?", answer: "It depends on who you ask — and which region they're from. Pizza Margherita from Naples, pasta alla carbonara from Rome, and risotto alla Milanese from Milan are all strong contenders. Italy doesn't have a single 'national dish' because each region fiercely guards its own culinary identity. That said, pasta in some form appears on every table across the country." },
+    { question: "Is Italian food the same across the country?", answer: "Not at all — Italian cuisine is intensely regional. Northern Italy favors butter, rice, polenta, and cream. Central Italy (Rome, Tuscany) uses olive oil, cured pork (guanciale), and Pecorino cheese. Southern Italy and the islands emphasize tomatoes, seafood, eggplant, and fresh mozzarella. What you eat in Milan will be completely different from what you eat in Naples." },
+    { question: "What are the must-try street foods in Italy?", answer: "Pizza al taglio (pizza by the slice) in Rome, arancini (fried rice balls) in Sicily, supplì (rice croquettes) in Rome, piadina (flatbread wraps) in Emilia-Romagna, lampredotto (tripe sandwich) in Florence, and sfogliatella (shell-shaped pastry) in Naples. Street food in Italy is exceptional and costs 2-6 EUR per item." },
+    { question: "How much does a meal cost in Italy?", answer: "Street food and pizza al taglio: 3-8 EUR. A pasta dish at a casual trattoria: 8-15 EUR. A full restaurant meal (primo, secondo, contorno): 25-50 EUR per person. Fine dining: 80-150+ EUR per person. A daily food budget of 40-70 EUR covers three meals comfortably, including coffee and a glass of wine." },
+    { question: "What should I know about dining etiquette in Italy?", answer: "Lunch is typically 12:30-2:30 PM and dinner is 7:30-10:00 PM — arriving outside these hours means closed kitchens. Cappuccino is a morning drink only (order espresso after 11 AM). Don't ask for Parmesan on seafood pasta. Bread is for mopping sauce, not for butter. The 'coperto' on your bill (1-3 EUR) is a cover charge, not a tip. Ask for 'il conto' when you're ready — the check won't come automatically." },
+    { question: "What is the most famous Italian dessert?", answer: "Tiramisu is Italy's most internationally known dessert — layers of espresso-soaked savoiardi biscuits with mascarpone cream and cocoa. But regionally, Sicilian cannoli (crispy tubes filled with sweet ricotta) and Neapolitan sfogliatella (shell pastry with ricotta filling) are equally iconic. Gelato is in a class of its own — the best gelaterie use seasonal ingredients and make everything fresh daily." },
   ]} />
 
   <!-- Email Capture -->
@@ -492,10 +474,10 @@ const menu: MenuSection[] = [
       leadMagnet="Get Our Free Italian Food Guide"
       description="A region-by-region PDF guide to Italian cuisine — with the best restaurants, street food stalls, and dishes you can't miss."
       bullets={[
-        'All 35 dishes with where to find the best version',
-        'Price guide — from €30 street food to €500 restaurant plates',
-        'Food safety tips and dietary considerations',
-        'Printable food phrase card (Tagalog, Bisaya, Ilocano)',
+        'All 32 dishes with where to find the best version',
+        'Price guide — from 2 EUR street food to 70 EUR restaurant plates',
+        'Dining etiquette tips and ordering advice',
+        'Printable Italian food phrase card for restaurants and markets',
       ]}
       guideTag="pillar-cuisine"
     />
@@ -509,17 +491,17 @@ const menu: MenuSection[] = [
         <a href="/festivals/" class="menu-crosslink-card">
           <span class="menu-crosslink-icon">&#127914;</span>
           <span class="menu-crosslink-label">Festival Calendar</span>
-          <span class="menu-crosslink-desc">32 festivals across 29 destinations, month by month</span>
+          <span class="menu-crosslink-desc">Italy's best festivals and events, month by month</span>
         </a>
-        <a href="/snorkeling-italy/" class="menu-crosslink-card">
-          <span class="menu-crosslink-icon">&#127754;</span>
-          <span class="menu-crosslink-label">Snorkeling Guide</span>
-          <span class="menu-crosslink-desc">14 destinations ranked by what you'll see in the water</span>
+        <a href="/practical/" class="menu-crosslink-card">
+          <span class="menu-crosslink-icon">&#127890;</span>
+          <span class="menu-crosslink-label">Travel Tips</span>
+          <span class="menu-crosslink-desc">Visa, money, transport, and cultural etiquette</span>
         </a>
         <a href="/destinations/" class="menu-crosslink-card">
           <span class="menu-crosslink-icon">&#127965;</span>
           <span class="menu-crosslink-label">All Destinations</span>
-          <span class="menu-crosslink-desc">Every island we've explored with honest reviews</span>
+          <span class="menu-crosslink-desc">Every city and region we've explored with honest reviews</span>
         </a>
       </div>
     </div>

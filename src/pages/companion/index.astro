@@ -4,16 +4,15 @@ import { Image } from 'astro:assets';
 import FAQ from '../../components/FAQ.astro';
 import '../../styles/companion.css';
 import scottImg from '../../images/scott-murray.jpg';
-import scottImg from '../../images/scott-murray.jpg';
 
 const faqItems = [
   {
     question: 'What exactly is the Trip Companion?',
-    answer: 'It\'s an offline-capable web app built from your specific itinerary. We enrich every destination with real directions (not just Google Maps pins), local phrases, emergency contacts, budget tracking, and insider tips from our 20+ trips to the Italy.',
+    answer: 'It\'s an offline-capable web app built from your specific itinerary. We enrich every destination with real directions (not just Google Maps pins), local phrases, emergency contacts, budget tracking, and insider tips from our travels across every region of Italy.',
   },
   {
     question: 'How does it work offline?',
-    answer: 'After purchase, the companion downloads all content to your phone\'s browser cache. No app store needed — just add it to your home screen. Everything works without internet: directions, phrases, contacts, budget tracker. Perfect for ferries, remote islands, and areas with spotty signal.',
+    answer: 'After purchase, the companion downloads all content to your phone\'s browser cache. No app store needed — just add it to your home screen. Everything works without internet: directions, phrases, contacts, budget tracker. Perfect for trains through the countryside, hilltop towns, and areas with spotty signal.',
   },
   {
     question: 'Can I share it with my travel group?',
@@ -29,20 +28,20 @@ const faqItems = [
   },
   {
     question: 'What destinations do you cover?',
-    answer: 'We currently cover 20+ destinations across the Italy including Cebu, Bohol, Siquijor, Palawan (El Nido & Coron), Siargao, Boracay, Dumaguete, Manila, Clark, and more. Each destination has real directions, local restaurant picks, and insider tips from our personal trips.',
+    answer: 'We currently cover 20+ destinations across Italy including Rome, Florence, Venice, Milan, Naples, the Amalfi Coast, Cinque Terre, Tuscany, Sicily, and more. Each destination has real directions, local restaurant picks, and insider tips from our personal trips.',
   },
 ];
 
 const features = [
-  { icon: '🧭', title: 'Real Directions', description: 'Not Google Maps pins — actual "take the Ceres bus, tell the conductor Panagsama" directions from every destination.' },
+  { icon: '🧭', title: 'Real Directions', description: 'Not Google Maps pins — actual "take the regionale train to platform 3, exit at Vernazza" directions from every destination.' },
   { icon: '🌅', title: 'Sunrise & Sunset', description: 'Golden hour times with best viewpoints matched to your daily locations. Never miss a sunset.' },
   { icon: '💰', title: 'Budget Tracker', description: 'Log expenses in EUR or USD, see typical costs for your destinations, and convert currency — all offline.' },
-  { icon: '💬', title: 'Local Phrases', description: 'Cebuano and Tagalog phrases tuned to your specific destinations, with pronunciation guides.' },
+  { icon: '💬', title: 'Local Phrases', description: 'Italian phrases tuned to your specific destinations, with pronunciation guides and regional dialect tips.' },
   { icon: '👥', title: 'Group Sharing', description: 'One purchase, up to 8 travelers. Everyone gets the full companion with real-time sync.' },
   { icon: '💵', title: 'Expense Splitter', description: 'Track shared costs, split bills, and settle up at the end of the trip. No more spreadsheets.' },
-  { icon: '🎒', title: 'Smart Packing List', description: 'Auto-generated from your activities — canyoneering adds water shoes, snorkeling adds reef-safe sunscreen.' },
+  { icon: '🎒', title: 'Smart Packing List', description: 'Auto-generated from your activities — hiking the Cinque Terre adds trail shoes, cooking classes add an apron.' },
   { icon: '📞', title: 'Emergency Contacts', description: 'Hospitals, police, trusted local drivers and guides for your specific route. One tap to call.' },
-  { icon: '📶', title: 'Works Offline', description: 'Everything cached to your phone. No signal on the ferry? No problem. No app store needed.' },
+  { icon: '📶', title: 'Works Offline', description: 'Everything cached to your phone. No signal in a hilltop village or on the train? No problem. No app store needed.' },
   { icon: '🛡️', title: 'Travel Insurance', description: 'We use SafetyWing for every trip. Get covered for medical, evacuation, and trip issues — sign up even after you\'ve left home.' },
 ];
 
@@ -54,19 +53,19 @@ const steps = [
 
 const testimonials = [
   {
-    quote: 'We had zero signal on the ferry to Siquijor and the app had everything — directions, restaurant picks, even the right phrases. Felt like traveling with a local friend.',
+    quote: 'We had spotty signal in the hilltop towns of Tuscany and the app had everything — directions, restaurant picks, even the right Italian phrases. Felt like traveling with a local friend.',
     author: 'Sarah & Mike',
-    trip: '7-day Visayas trip',
+    trip: '10-day Tuscany & Umbria trip',
   },
   {
-    quote: 'The real directions are a game changer. Instead of staring at a map pin, I knew exactly which bus to take and what to tell the driver. Saved us hours.',
+    quote: 'The real directions are a game changer. Instead of staring at a map pin, I knew exactly which train to take and which platform. Saved us hours.',
     author: 'James',
-    trip: '5-day Cebu & Bohol',
+    trip: '7-day Rome, Florence & Venice',
   },
   {
     quote: 'Shared the companion with our whole group of 6. Everyone had the same info, we tracked expenses together, and the packing list was spot on.',
     author: 'Rachel & David',
-    trip: '10-day Palawan adventure',
+    trip: '14-day Southern Italy adventure',
   },
 ];
 
@@ -89,7 +88,7 @@ const testimonials = [
             <Image src={scottImg} alt="Scott — co-founder" width={52} height={52} format="webp" />
           </div>
           <div class="cp-founder-bubble">
-            <p class="cp-founder-quote">"An offline app for those remote destinations, planes and ferries — brilliant!"</p>
+            <p class="cp-founder-quote">"An offline app for mountain villages and coastal towns — brilliant!"</p>
             <p class="cp-founder-name">— Scott, <a href="/about/scott/">co-founder</a></p>
           </div>
         </div>
@@ -108,7 +107,7 @@ const testimonials = [
         <p class="cp-hero-label">Discovering Italy</p>
         <h1 class="cp-hero-title">Your Trip. Your Companion.<br />Works Offline.</h1>
         <p class="cp-hero-subtitle">
-          Turn any Italy itinerary into an offline trip companion with local directions, budget tracking, and insider tips from 20+ real trips.
+          Turn any Italy itinerary into an offline trip companion with local directions, budget tracking, and insider tips from our travels across every region of Italy.
         </p>
         <div class="cp-hero-ctas">
           <a href="/companion/start/" class="cp-btn cp-btn--primary">Start Planning</a>
@@ -119,29 +118,29 @@ const testimonials = [
         <div class="cp-phone-frame">
           <div class="cp-phone-screen">
             <div class="cp-phone-header">
-              <span class="cp-phone-label">DISCOVER PHILIPPINES</span>
-              <span class="cp-phone-title">Central Visayas Explorer</span>
+              <span class="cp-phone-label">DISCOVERING ITALY</span>
+              <span class="cp-phone-title">Tuscany & Umbria Explorer</span>
               <span class="cp-phone-meta">7 days · 3 destinations · 14 activities</span>
             </div>
             <div class="cp-phone-items">
               <div class="cp-phone-item">
                 <span class="cp-phone-item-icon">✈️</span>
                 <div>
-                  <span class="cp-phone-item-title">Arrive Mactan-Cebu</span>
+                  <span class="cp-phone-item-title">Arrive Florence (FLR)</span>
                   <span class="cp-phone-item-tag">Directions included</span>
                 </div>
               </div>
               <div class="cp-phone-item">
-                <span class="cp-phone-item-icon">🐟</span>
+                <span class="cp-phone-item-icon">🏛️</span>
                 <div>
-                  <span class="cp-phone-item-title">Sardine Run Snorkeling</span>
+                  <span class="cp-phone-item-title">Uffizi Gallery Visit</span>
                   <span class="cp-phone-item-tag">Directions + local tips</span>
                 </div>
               </div>
               <div class="cp-phone-item">
                 <span class="cp-phone-item-icon">🍽️</span>
                 <div>
-                  <span class="cp-phone-item-title">Dinner at Pleasure Point</span>
+                  <span class="cp-phone-item-title">Dinner at Trattoria Mario</span>
                   <span class="cp-phone-item-tag">Local pick by Scott</span>
                 </div>
               </div>
@@ -169,9 +168,9 @@ const testimonials = [
                 <span class="cp-mockup-icons">📶 🔋</span>
               </div>
               <div class="cp-mockup-header" style="background: var(--gradient-companion-hero);">
-                <span class="cp-mockup-label">DISCOVER PHILIPPINES</span>
-                <span class="cp-mockup-title">Central Visayas</span>
-                <span class="cp-mockup-sub">Day 1 of 7 · Cebu City</span>
+                <span class="cp-mockup-label">DISCOVERING ITALY</span>
+                <span class="cp-mockup-title">Tuscany Explorer</span>
+                <span class="cp-mockup-sub">Day 1 of 7 · Florence</span>
               </div>
               <div class="cp-mockup-body">
                 <div class="cp-mockup-item">
@@ -179,7 +178,7 @@ const testimonials = [
                   <div class="cp-mockup-row">
                     <span class="cp-mockup-emoji">✈️</span>
                     <div>
-                      <span class="cp-mockup-name">Arrive Mactan-Cebu</span>
+                      <span class="cp-mockup-name">Arrive Florence (FLR)</span>
                       <span class="cp-mockup-tag">Directions included</span>
                     </div>
                   </div>
@@ -189,17 +188,17 @@ const testimonials = [
                   <div class="cp-mockup-row">
                     <span class="cp-mockup-emoji">🏨</span>
                     <div>
-                      <span class="cp-mockup-name">Check in · Quest Hotel</span>
-                      <span class="cp-mockup-tag">€2,800/night</span>
+                      <span class="cp-mockup-name">Check in · Hotel Lungarno</span>
+                      <span class="cp-mockup-tag">€180/night</span>
                     </div>
                   </div>
                 </div>
                 <div class="cp-mockup-item">
                   <span class="cp-mockup-time">12:00 PM</span>
                   <div class="cp-mockup-row">
-                    <span class="cp-mockup-emoji">🍜</span>
+                    <span class="cp-mockup-emoji">🍝</span>
                     <div>
-                      <span class="cp-mockup-name">Lunch · Larsian BBQ</span>
+                      <span class="cp-mockup-name">Lunch · Trattoria Mario</span>
                       <span class="cp-mockup-tag">Scott's pick</span>
                     </div>
                   </div>
@@ -207,9 +206,9 @@ const testimonials = [
                 <div class="cp-mockup-item">
                   <span class="cp-mockup-time">2:00 PM</span>
                   <div class="cp-mockup-row">
-                    <span class="cp-mockup-emoji">⛪</span>
+                    <span class="cp-mockup-emoji">🏛️</span>
                     <div>
-                      <span class="cp-mockup-name">Basilica del Santo Niño</span>
+                      <span class="cp-mockup-name">Uffizi Gallery</span>
                       <span class="cp-mockup-tag">Directions + tips</span>
                     </div>
                   </div>
@@ -219,8 +218,8 @@ const testimonials = [
                   <div class="cp-mockup-row">
                     <span class="cp-mockup-emoji">🍽️</span>
                     <div>
-                      <span class="cp-mockup-name">Dinner · Casa Verde</span>
-                      <span class="cp-mockup-tag">€350/person</span>
+                      <span class="cp-mockup-name">Dinner · Buca Mario</span>
+                      <span class="cp-mockup-tag">€25/person</span>
                     </div>
                   </div>
                 </div>
@@ -247,34 +246,34 @@ const testimonials = [
               </div>
               <div class="cp-mockup-header cp-mockup-header--teal">
                 <span class="cp-mockup-label">GETTING TO</span>
-                <span class="cp-mockup-title">Moalboal Beach</span>
-                <span class="cp-mockup-sub">From Cebu City · 3 hours</span>
+                <span class="cp-mockup-title">Cinque Terre</span>
+                <span class="cp-mockup-sub">From Florence · 2.5 hours</span>
               </div>
               <div class="cp-mockup-body">
                 <div class="cp-mockup-direction">
                   <div class="cp-mockup-step-circle">1</div>
                   <div>
-                    <span class="cp-mockup-dir-title">South Bus Terminal</span>
-                    <span class="cp-mockup-dir-detail">Take a taxi or Grab to Cebu South Bus Terminal (€150-200). Tell the driver "South Bus."</span>
+                    <span class="cp-mockup-dir-title">Florence Santa Maria Novella</span>
+                    <span class="cp-mockup-dir-detail">Walk or taxi to SMN station. Buy a Trenitalia regionale ticket to La Spezia Centrale. €12, ~2.5 hrs.</span>
                   </div>
                 </div>
                 <div class="cp-mockup-direction">
                   <div class="cp-mockup-step-circle">2</div>
                   <div>
-                    <span class="cp-mockup-dir-title">Ceres Bus to Moalboal</span>
-                    <span class="cp-mockup-dir-detail">Look for the Ceres bus with "Bato via Barili" sign. Tell the conductor "Moalboal." €155, ~3 hrs.</span>
+                    <span class="cp-mockup-dir-title">Local Train to Vernazza</span>
+                    <span class="cp-mockup-dir-detail">At La Spezia, switch to the Cinque Terre Express. Buy a Cinque Terre Card (€16/day) for unlimited trains + trail access.</span>
                   </div>
                 </div>
                 <div class="cp-mockup-direction">
                   <div class="cp-mockup-step-circle">3</div>
                   <div>
-                    <span class="cp-mockup-dir-title">Tricycle to Panagsama</span>
-                    <span class="cp-mockup-dir-detail">At Moalboal town, take a tricycle to Panagsama Beach. €50 per person, 10 minutes.</span>
+                    <span class="cp-mockup-dir-title">Arrive Vernazza</span>
+                    <span class="cp-mockup-dir-detail">Exit the station and walk downhill to the harbor. Your hotel is a 5-minute walk along the main street.</span>
                   </div>
                 </div>
                 <div class="cp-mockup-tip">
                   <span class="cp-mockup-tip-icon">💡</span>
-                  <span class="cp-mockup-tip-text">Leave before 7 AM to avoid traffic through Naga.</span>
+                  <span class="cp-mockup-tip-text">Book train tickets on the Trenitalia app for the best prices and e-tickets.</span>
                 </div>
               </div>
               <div class="cp-mockup-tabs">
@@ -286,7 +285,7 @@ const testimonials = [
             </div>
           </div>
           <h3 class="cp-carousel-title">Real Directions</h3>
-          <p class="cp-carousel-desc">Step-by-step directions that actually work — bus names, landmarks, what to tell the driver.</p>
+          <p class="cp-carousel-desc">Step-by-step directions that actually work — train platforms, landmarks, and walking routes.</p>
         </div>
 
         <!-- 3. Budget Tracker -->
@@ -299,8 +298,8 @@ const testimonials = [
               </div>
               <div class="cp-mockup-header cp-mockup-header--gold">
                 <span class="cp-mockup-label">BUDGET TRACKER</span>
-                <span class="cp-mockup-title">Day 3 · Moalboal</span>
-                <span class="cp-mockup-sub">€4,250 spent · $76 USD</span>
+                <span class="cp-mockup-title">Day 3 · Siena</span>
+                <span class="cp-mockup-sub">€142 spent · $155 USD</span>
               </div>
               <div class="cp-mockup-body">
                 <div class="cp-mockup-budget-bar">
@@ -310,34 +309,34 @@ const testimonials = [
                 <div class="cp-mockup-expense">
                   <span class="cp-mockup-emoji">🏨</span>
                   <div>
-                    <span class="cp-mockup-name">Chief Mau Resort</span>
+                    <span class="cp-mockup-name">Hotel Alma Domus</span>
                     <span class="cp-mockup-tag">Accommodation</span>
                   </div>
-                  <span class="cp-mockup-amount">€1,800</span>
+                  <span class="cp-mockup-amount">€85</span>
                 </div>
                 <div class="cp-mockup-expense">
-                  <span class="cp-mockup-emoji">🐟</span>
+                  <span class="cp-mockup-emoji">🏛️</span>
                   <div>
-                    <span class="cp-mockup-name">Sardine Run Tour</span>
+                    <span class="cp-mockup-name">Duomo di Siena</span>
                     <span class="cp-mockup-tag">Activity</span>
                   </div>
-                  <span class="cp-mockup-amount">€1,500</span>
+                  <span class="cp-mockup-amount">€15</span>
                 </div>
                 <div class="cp-mockup-expense">
-                  <span class="cp-mockup-emoji">🍜</span>
+                  <span class="cp-mockup-emoji">🍝</span>
                   <div>
-                    <span class="cp-mockup-name">Lunch · Pleasure Point</span>
+                    <span class="cp-mockup-name">Lunch · Osteria Le Logge</span>
                     <span class="cp-mockup-tag">Food</span>
                   </div>
-                  <span class="cp-mockup-amount">€650</span>
+                  <span class="cp-mockup-amount">€28</span>
                 </div>
                 <div class="cp-mockup-expense">
-                  <span class="cp-mockup-emoji">🛺</span>
+                  <span class="cp-mockup-emoji">🚌</span>
                   <div>
-                    <span class="cp-mockup-name">Tricycle rides (×3)</span>
+                    <span class="cp-mockup-name">Bus from Florence</span>
                     <span class="cp-mockup-tag">Transport</span>
                   </div>
-                  <span class="cp-mockup-amount">€300</span>
+                  <span class="cp-mockup-amount">€14</span>
                 </div>
               </div>
               <div class="cp-mockup-tabs">
@@ -362,29 +361,29 @@ const testimonials = [
               </div>
               <div class="cp-mockup-header cp-mockup-header--coral">
                 <span class="cp-mockup-label">LOCAL PHRASES</span>
-                <span class="cp-mockup-title">Cebuano (Bisaya)</span>
-                <span class="cp-mockup-sub">For your Visayas destinations</span>
+                <span class="cp-mockup-title">Italian Essentials</span>
+                <span class="cp-mockup-sub">For your Italy destinations</span>
               </div>
               <div class="cp-mockup-body">
                 <div class="cp-mockup-phrase">
-                  <div class="cp-mockup-phrase-local">Maayong buntag!</div>
+                  <div class="cp-mockup-phrase-local">Buongiorno!</div>
                   <div class="cp-mockup-phrase-eng">Good morning!</div>
-                  <div class="cp-mockup-phrase-say">ma-AH-yong boon-TAG</div>
+                  <div class="cp-mockup-phrase-say">bwon-JOOR-no</div>
                 </div>
                 <div class="cp-mockup-phrase">
-                  <div class="cp-mockup-phrase-local">Pila ni?</div>
+                  <div class="cp-mockup-phrase-local">Quanto costa?</div>
                   <div class="cp-mockup-phrase-eng">How much is this?</div>
-                  <div class="cp-mockup-phrase-say">PEE-la nee</div>
+                  <div class="cp-mockup-phrase-say">KWAN-toh KOS-tah</div>
                 </div>
                 <div class="cp-mockup-phrase">
-                  <div class="cp-mockup-phrase-local">Asa ang Panagsama?</div>
-                  <div class="cp-mockup-phrase-eng">Where is Panagsama?</div>
-                  <div class="cp-mockup-phrase-say">AH-sa ang pa-nag-SA-ma</div>
+                  <div class="cp-mockup-phrase-local">Dov'e la stazione?</div>
+                  <div class="cp-mockup-phrase-eng">Where is the station?</div>
+                  <div class="cp-mockup-phrase-say">doh-VEH lah stah-TSYO-neh</div>
                 </div>
                 <div class="cp-mockup-phrase">
-                  <div class="cp-mockup-phrase-local">Salamat kaayo!</div>
+                  <div class="cp-mockup-phrase-local">Grazie mille!</div>
                   <div class="cp-mockup-phrase-eng">Thank you very much!</div>
-                  <div class="cp-mockup-phrase-say">sa-LA-mat ka-AH-yo</div>
+                  <div class="cp-mockup-phrase-say">GRAH-tsyeh MEEL-leh</div>
                 </div>
               </div>
               <div class="cp-mockup-tabs">
@@ -396,7 +395,7 @@ const testimonials = [
             </div>
           </div>
           <h3 class="cp-carousel-title">Local Phrases</h3>
-          <p class="cp-carousel-desc">Cebuano & Tagalog phrases matched to your destinations with pronunciation.</p>
+          <p class="cp-carousel-desc">Italian phrases matched to your destinations with pronunciation guides.</p>
         </div>
 
         <!-- 5. Group Sharing -->
@@ -409,7 +408,7 @@ const testimonials = [
               </div>
               <div class="cp-mockup-header cp-mockup-header--purple">
                 <span class="cp-mockup-label">GROUP TRIP</span>
-                <span class="cp-mockup-title">Visayas Adventure</span>
+                <span class="cp-mockup-title">Tuscany Adventure</span>
                 <span class="cp-mockup-sub">6 travelers · Synced</span>
               </div>
               <div class="cp-mockup-body">

@@ -236,9 +236,9 @@ export default function IntakeFlow() {
         <div style={{
           position: 'absolute', top: -20, right: -20, fontSize: 100, opacity: 0.08,
           transform: 'rotate(-15deg)',
-        }}>🇵🇭</div>
+        }}>🇮🇹</div>
         <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: 2, textTransform: 'uppercase' as const, opacity: 0.6, marginBottom: 8 }}>
-          DISCOVER PHILIPPINES
+          DISCOVERING ITALY
         </div>
         <div style={{ fontSize: 26, fontWeight: 800, lineHeight: 1.2, marginBottom: 8 }}>
           Your Trip.<br />Your Companion.
@@ -299,7 +299,7 @@ export default function IntakeFlow() {
         icon="📋"
         iconBg="#F0E8FF"
         title="Start from Template"
-        desc="Popular routes you can customize — Visayas, Palawan, Siargao & more"
+        desc="Popular routes you can customize — Rome, Florence, Venice & more"
         style={{ marginBottom: 20 }}
       />
 
@@ -325,10 +325,10 @@ export default function IntakeFlow() {
         border: `1px solid ${COLORS.sandDark}`,
       }}>
         <div style={{ fontSize: 13, color: COLORS.deepNight, lineHeight: 1.6, fontStyle: 'italic' }}>
-          "We had zero signal on the ferry to Siquijor and the app had everything — directions, restaurant picks, even the right phrases. Felt like traveling with a local friend."
+          "We had zero signal in the Tuscan hills and the app had everything — directions, restaurant picks, even the right phrases. Felt like traveling with a local friend."
         </div>
         <div style={{ fontSize: 12, fontWeight: 700, color: COLORS.oceanTeal, marginTop: 8 }}>
-          — Sarah & Mike, 7-day Visayas trip
+          — Sarah & Mike, 7-day Tuscany trip
         </div>
       </div>
     </>
@@ -422,7 +422,7 @@ export default function IntakeFlow() {
         <textarea
           value={pasteText}
           onChange={(e) => setPasteText(e.target.value)}
-          placeholder={"Paste your itinerary here, or describe your trip...\n\nExamples:\n• Copy/paste from an email\n• \"5 days in Cebu and Bohol, want to snorkel and see Chocolate Hills\"\n• Day-by-day breakdown from a travel blog"}
+          placeholder={"Paste your itinerary here, or describe your trip...\n\nExamples:\n• Copy/paste from an email\n• \"5 days in Rome and Florence, want to see the Colosseum and Uffizi\"\n• Day-by-day breakdown from a travel blog"}
           style={{
             width: '100%', minHeight: 200, padding: 16, borderRadius: 16,
             border: `1.5px solid ${pasteText ? COLORS.oceanTeal : '#E8E8EC'}`,
@@ -466,9 +466,9 @@ export default function IntakeFlow() {
     const filtered = filter === 'all'
       ? templates
       : templates.filter((t) => {
-          if (filter === 'visayas') return t.route.match(/Cebu|Bohol|Siquijor|Dumaguete/i);
-          if (filter === 'palawan') return t.route.match(/Palawan|El Nido|Coron|Puerto Princesa/i);
-          if (filter === 'mindanao') return t.route.match(/Siargao|Davao/i);
+          if (filter === 'northern') return t.route.match(/Milan|Venice|Verona|Lake Como|Cinque Terre|Bologna/i);
+          if (filter === 'central') return t.route.match(/Rome|Florence|Tuscany|Siena/i);
+          if (filter === 'southern') return t.route.match(/Naples|Amalfi|Positano|Sicily|Sardinia|Pompeii/i);
           return true;
         });
 
@@ -480,7 +480,7 @@ export default function IntakeFlow() {
         </div>
 
         <div style={{ display: 'flex', gap: 8, marginBottom: 16, overflowX: 'auto' as const }}>
-          {['all', 'visayas', 'palawan', 'mindanao'].map((f) => (
+          {['all', 'northern', 'central', 'southern'].map((f) => (
             <Pill key={f} active={filter === f} onClick={() => setFilter(f)}>
               {f.charAt(0).toUpperCase() + f.slice(1)}
             </Pill>
@@ -840,15 +840,14 @@ export default function IntakeFlow() {
         <>
           <div style={{ fontSize: 14, fontWeight: 800, color: COLORS.deepNight, marginBottom: 10 }}>Everything included:</div>
           {[
-            { icon: '🧭', title: 'Real Directions', desc: "Not Google Maps pins — actual 'take the Ceres bus, tell the conductor Panagsama' directions" },
+            { icon: '🧭', title: 'Real Directions', desc: "Not Google Maps pins — actual 'take the regionale train to platform 3' directions" },
             { icon: '🌅', title: 'Sunrise/Sunset', desc: 'Golden hour times with best viewpoints matched to your daily locations' },
-            { icon: '💬', title: 'Local Phrases', desc: 'Cebuano & Tagalog phrases tuned to your destinations with pronunciation' },
-            { icon: '📞', title: 'Key Contacts', desc: 'Emergency numbers, hospitals, trusted local drivers & guides for your specific route' },
-            { icon: '🎒', title: 'Smart Packing', desc: 'Checklist auto-generated from your activities — canyoneering adds water shoes' },
+            { icon: '💬', title: 'Local Phrases', desc: 'Italian phrases tuned to your destinations with pronunciation guides' },
+            { icon: '📞', title: 'Key Contacts', desc: 'Emergency numbers, hospitals, trusted local guides for your specific route' },
+            { icon: '🎒', title: 'Smart Packing', desc: 'Checklist auto-generated from your activities — hiking Cinque Terre adds trail shoes' },
             { icon: '💰', title: 'Budget Tracker', desc: 'Log expenses, see typical costs, convert currency — all offline' },
-            { icon: '💵', title: 'Tipping Guide', desc: 'What to tip in every Italy situation, from trike drivers to dive masters' },
-            { icon: '🌅', title: 'Sunrise/Sunset', desc: 'Golden hour times with best viewpoints matched to your daily locations' },
-            { icon: '📶', title: 'Works Offline', desc: 'Everything cached to your phone. No signal on the ferry? No problem' },
+            { icon: '💵', title: 'Tipping Guide', desc: 'What to tip in every Italian situation, from restaurants to tour guides' },
+            { icon: '📶', title: 'Works Offline', desc: 'Everything cached to your phone. No signal in the countryside? No problem' },
           ].map((f, i) => (
             <div key={i} style={{
               display: 'flex', alignItems: 'flex-start', gap: 12, padding: '8px 0',

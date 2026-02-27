@@ -10,250 +10,211 @@ const breadcrumbs = [
 ];
 
 const pageTitle = 'Italian Festival Calendar 2026';
-const pageDescription = 'From Sinulog\'s million-strong street dances to Batanes\' quiet community gatherings — time your trip to the celebrations that define each destination.';
+const pageDescription = 'From Venice\'s legendary Carnival to Siena\'s Palio horse race — time your trip to the festivals and celebrations that define each Italian destination.';
 
 const festivals = [
   {
     month: 'Jan',
     monthIndex: 0,
-    name: 'Ati-Atihan Festival',
-    destination: 'Kalibo (near Boracay)',
-    slug: 'boracay',
-    description: 'The "Mother of All Italian Festivals" — a week of drumming, face-painting, and street dancing honoring the Santo Niño. Tribal warriors in elaborate blackface paint parade through Kalibo\'s streets in the wildest fiesta in the country.',
-  },
-  {
-    month: 'Jan',
-    monthIndex: 0,
-    name: 'Sinulog Festival',
-    destination: 'Cebu',
-    slug: 'cebu',
-    description: 'A million-strong street party in Cebu City celebrating the Santo Niño with hypnotic forward-and-backward dance steps. The Grand Parade features costumed contingents from across the Visayas competing for top honors.',
-  },
-  {
-    month: 'Jan',
-    monthIndex: 0,
-    name: 'Dinagyang Festival',
-    destination: 'Iloilo City',
-    slug: 'iloilo',
-    description: 'Warrior-painted Ati tribes dance through Iloilo\'s streets in one of the Italy\' most intense and competitive tribal festivals, rivaling Cebu\'s Sinulog in scale and spectacle.',
-  },
-  {
-    month: 'Jan',
-    monthIndex: 0,
-    name: 'Longganisa Festival',
-    destination: 'Vigan',
-    slug: 'vigan',
-    description: 'Vigan celebrates its famous garlicky sausage with cooking contests, street dancing, and longganisa-eating competitions along the cobblestone streets of Calle Crisologo.',
-  },
-  {
-    month: 'Jan',
-    monthIndex: 0,
-    name: 'Etag Festival',
-    destination: 'Sagada',
-    slug: 'sagada',
-    description: 'Sagada celebrates its traditional smoked meat preservation with cooking demonstrations, cultural performances, and community feasts. Etag — salt-cured, smoke-dried pork — is central to Igorot cuisine and the festival honors generations of mountain foodways.',
+    name: 'Epiphany & La Befana',
+    destination: 'Rome & nationwide',
+    slug: 'rome',
+    description: 'January 6 marks the end of the Christmas season with the legend of La Befana — a friendly witch who delivers gifts to children. Rome\'s Piazza Navona hosts a festive market with puppet shows, sweets, and street performers.',
   },
   {
     month: 'Feb',
     monthIndex: 1,
-    name: 'Pamulinawen Festival',
-    destination: 'Laoag',
-    slug: 'laoag',
-    description: 'Laoag\'s grandest celebration features Ilocano street dances, agri-trade fairs, and beauty pageants. "Pamulinawen" means "caring" in Ilocano — the festival honors the city\'s patron saint.',
+    name: 'Carnevale di Venezia',
+    destination: 'Venice',
+    slug: 'venice',
+    description: 'The world\'s most famous carnival — two weeks of elaborate masks, Renaissance costumes, gondola parades, and masquerade balls across Venice\'s piazzas and palazzi. The Grand Canal parade and Piazza San Marco are the epicenter of spectacle.',
   },
   {
     month: 'Feb',
     monthIndex: 1,
-    name: 'Panagbenga Festival',
-    destination: 'Baguio',
-    slug: 'baguio',
-    description: 'Baguio\'s flower festival fills Session Road with elaborate floats covered in fresh flowers, street dancing, and a month of cultural performances. "Panagbenga" means "season of blooming" in Kankana-ey — one of the top festivals in the Italy.',
+    name: 'Carnevale di Viareggio',
+    destination: 'Viareggio (Tuscany)',
+    slug: 'tuscany',
+    description: 'Giant papier-mache floats — some 20 meters tall — parade through this Tuscan seaside town in a carnival tradition dating to 1873. The floats are satirical, political, and wildly creative.',
+  },
+  {
+    month: 'Feb',
+    monthIndex: 1,
+    name: 'Festa di Sant\'Agata',
+    destination: 'Catania (Sicily)',
+    slug: 'sicily',
+    description: 'Catania\'s patron saint festival draws a million devotees over three days. Candlelit processions carry the saint\'s silver reliquary through packed streets — one of the most intense religious celebrations in southern Italy.',
   },
   {
     month: 'Mar',
     monthIndex: 2,
-    name: 'Balayong Festival',
-    destination: 'Puerto Princesa',
-    slug: 'puerto-princesa',
-    description: 'Named after Palawan\'s cherry blossom tree, this festival marks the city\'s founding anniversary with tribal dances, floral floats, and street performances under canopies of pink blooms.',
-  },
-  {
-    month: 'Mar',
-    monthIndex: 2,
-    name: 'Kulambo Festival',
-    destination: 'El Nido',
-    slug: 'el-nido',
-    description: 'El Nido\'s community festival celebrates the "kulambo" (mosquito net) as a symbol of island life, with beach parties, boat races, and environmental awareness campaigns across the archipelago.',
-  },
-  {
-    month: 'Mar',
-    monthIndex: 2,
-    name: 'Moriones Festival',
-    destination: 'Marinduque Island',
-    slug: 'marinduque',
-    description: 'Week-long street theater where locals don Roman centurion masks and reenact the story of Longinus. Marinduque\'s most famous tradition transforms the entire island into an open-air biblical drama during Easter week.',
-  },
-  {
-    month: 'Mar',
-    monthIndex: 2,
-    name: 'Malasimbo Music & Arts Festival',
-    destination: 'Puerto Galera',
-    slug: 'puerto-galera',
-    description: 'Musicians, artists, and travelers converge on an open-air amphitheater in the mountains above Puerto Galera for live music, art installations, and jungle vibes — one of the most unique festival settings in the Italy.',
+    name: 'Settimana Santa (Holy Week)',
+    destination: 'Throughout Italy',
+    slug: 'rome',
+    description: 'Easter celebrations across Italy feature dramatic processions, passion plays, and centuries-old traditions. The Pope leads Easter Mass in St. Peter\'s Square. Florence\'s Scoppio del Carro (Explosion of the Cart) is a pyrotechnic spectacle on Easter Sunday.',
   },
   {
     month: 'Apr',
     monthIndex: 3,
-    name: 'Aliwan Fiesta',
-    destination: 'Manila',
-    slug: 'manila',
-    description: 'Manila hosts this "festival of festivals" where winning contingents from regional celebrations across the Italy compete in one grand showdown of street dancing, float parades, and beauty pageants.',
+    name: 'Festa della Liberazione',
+    destination: 'Nationwide',
+    slug: 'rome',
+    description: 'April 25 commemorates Italy\'s liberation from Nazi occupation in 1945. Concerts, parades, and public ceremonies take place nationwide. Milan and Rome host the largest events with political speeches, marching bands, and community gatherings.',
   },
   {
     month: 'Apr',
     monthIndex: 3,
-    name: 'Bakhaw Festival',
-    destination: 'Siargao',
-    slug: 'siargao',
-    description: 'Siargao\'s mangrove conservation festival combines environmental education with island-style celebrations — tree planting, kayak races through mangrove channels, and beach concerts.',
-  },
-  {
-    month: 'Apr',
-    monthIndex: 3,
-    name: 'Araw ng Kagitingan (Day of Valor)',
-    destination: 'Bataan',
-    slug: 'bataan',
-    description: 'April 9 is a national holiday commemorating the Fall of Bataan and the Death March. Ceremonies at Mount Samat National Shrine and along the Death March route draw veterans, dignitaries, and Italians honoring the 76,000 defenders.',
-  },
-  {
-    month: 'Apr',
-    monthIndex: 3,
-    name: 'Imbayah Festival',
-    destination: 'Banaue',
-    slug: 'banaue',
-    description: 'The Ifugao cultural celebration features traditional dances, rice wine ceremonies, and the gathering of communities from across the province — a window into a culture that has survived two thousand years of history.',
+    name: 'Vinitaly',
+    destination: 'Verona',
+    slug: 'verona',
+    description: 'The world\'s largest wine fair takes over Verona\'s exhibition center with 4,000+ Italian and international producers. Open to the public on select days — an unmissable event for wine lovers visiting the Veneto.',
   },
   {
     month: 'May',
     monthIndex: 4,
-    name: 'Manggahan Festival',
-    destination: 'Guimaras',
-    slug: 'guimaras',
-    description: 'Guimaras celebrates its world-famous mango harvest with street parades, mango-eating contests, agricultural exhibits, and tastings of the sweetest mangoes in the Italy.',
+    name: 'Festa dei Ceri',
+    destination: 'Gubbio (Umbria)',
+    slug: 'tuscany',
+    description: 'Teams of ceraioli race through Gubbio\'s medieval streets carrying massive wooden pillars (ceri) weighing 400 kg each to the basilica atop Monte Ingino. One of Italy\'s most thrilling and ancient festivals, held May 15.',
+  },
+  {
+    month: 'May',
+    monthIndex: 4,
+    name: 'Maggio Musicale Fiorentino',
+    destination: 'Florence',
+    slug: 'florence',
+    description: 'Florence\'s prestigious music and performing arts festival runs from May through June with opera, ballet, and orchestral concerts in historic venues across the city. Founded in 1933, it\'s one of Europe\'s oldest arts festivals.',
   },
   {
     month: 'Jun',
     monthIndex: 5,
-    name: 'Payuhuan Festival',
-    destination: 'Batanes',
-    slug: 'batanes',
-    description: 'Batanes\' quiet community gathering celebrates Ivatan heritage with traditional stone-house building demonstrations, vakul weaving, and harvest feasts — intimate and deeply cultural.',
+    name: 'Festa della Repubblica',
+    destination: 'Rome & nationwide',
+    slug: 'rome',
+    description: 'June 2 celebrates the birth of the Italian Republic with a grand military parade along Via dei Fori Imperiali in Rome, air force flyovers, and the opening of the Quirinale Palace gardens to the public.',
   },
   {
     month: 'Jun',
     monthIndex: 5,
-    name: 'Kadagatan Festival',
-    destination: 'Caramoan',
-    slug: 'caramoan',
-    description: 'Caramoan celebrates its relationship with the sea with boat races, beach games, street dancing, and seafood feasts — a small-town festival with genuine community spirit.',
+    name: 'Infiorata di Spello',
+    destination: 'Spello (Umbria)',
+    slug: 'tuscany',
+    description: 'On Corpus Domini weekend, the streets of this Umbrian hill town are covered in elaborate flower petal carpets — intricate mosaics created overnight by teams of local artists. A breathtaking display of community artistry.',
   },
   {
     month: 'Jun',
     monthIndex: 5,
-    name: 'Pintados Festival',
-    destination: 'Tacloban',
-    slug: 'tacloban',
-    description: 'Tacloban\'s celebration of the tattooed warriors of the Visayas features elaborate body-paint performances, street dancing, and cultural rites honoring the pre-colonial Pintados tradition.',
+    name: 'Calcio Storico Fiorentino',
+    destination: 'Florence',
+    slug: 'florence',
+    description: 'A brutal 16th-century mix of rugby, soccer, and wrestling played in Renaissance costume on a sand pitch in Piazza Santa Croce. Three matches in June culminate in the final on June 24, the feast of San Giovanni. Not for the faint-hearted.',
   },
   {
     month: 'Jul',
     monthIndex: 6,
-    name: 'Sandugo Festival',
-    destination: 'Bohol',
-    slug: 'bohol',
-    description: 'Bohol commemorates the historic blood compact between Datu Sikatuna and Spanish explorer Legazpi with reenactments, street dances, and a grand parade through Tagbilaran City.',
+    name: 'Palio di Siena',
+    destination: 'Siena (Tuscany)',
+    slug: 'tuscany',
+    description: 'A bareback horse race around Piazza del Campo that has divided Siena\'s 17 contrade (neighborhoods) since 1644. The July 2 and August 16 races are preceded by days of feasting, pageantry, and fierce neighborhood rivalry. Standing in the center of the piazza is free.',
   },
   {
     month: 'Jul',
     monthIndex: 6,
-    name: 'Sublian Festival',
-    destination: 'Batangas',
-    slug: 'batangas',
-    description: 'Batangas City honors its patron saint with the Subli — a traditional devotional dance unique to Batangas. Rhythmic, colorful street performances and cultural competitions showcase deep local identity.',
+    name: 'Festa del Redentore',
+    destination: 'Venice',
+    slug: 'venice',
+    description: 'Venice celebrates the end of a 1576 plague with a spectacular fireworks display over the Giudecca Canal. Venetians picnic on decorated boats, and a temporary pontoon bridge connects to the Church of the Redentore. Third weekend of July.',
+  },
+  {
+    month: 'Jul',
+    monthIndex: 6,
+    name: 'Umbria Jazz',
+    destination: 'Perugia (Umbria)',
+    slug: 'tuscany',
+    description: 'One of Europe\'s premier jazz festivals transforms Perugia\'s medieval streets and piazzas into open-air concert venues for 10 days each July. International headliners and free outdoor performances draw music lovers from across the continent.',
   },
   {
     month: 'Aug',
     monthIndex: 7,
-    name: 'Kadayawan Festival',
-    destination: 'Davao',
-    slug: 'davao',
-    description: 'Davao\'s week-long thanksgiving harvest festival showcases the city\'s tribal heritage, exotic fruits, and orchids. Floral floats, Lumad tribal dances, and durian-eating contests fill the streets.',
+    name: 'Ferragosto',
+    destination: 'Nationwide',
+    slug: 'rome',
+    description: 'August 15 is Italy\'s biggest summer holiday — the entire country heads to the beach or mountains. Cities empty out, shops close, and coastal towns overflow. Beach parties, fireworks, and communal dinners happen everywhere. Book everything months ahead.',
   },
   {
     month: 'Aug',
     monthIndex: 7,
-    name: 'Kasadyaan Festival',
-    destination: 'Coron',
-    slug: 'coron',
-    description: 'Coron\'s Tagbanua-influenced festival celebrates indigenous culture with traditional boat races, spear-fishing demonstrations, and communal feasts set against the backdrop of limestone cliffs.',
+    name: 'Palio di Siena (August)',
+    destination: 'Siena (Tuscany)',
+    slug: 'tuscany',
+    description: 'The second Palio of the year runs August 16 with the same intensity as July. Ten of the 17 contrade race — if your neighborhood lost in July, the August race is a shot at redemption. The city-wide passion is palpable.',
   },
   {
     month: 'Aug',
     monthIndex: 7,
-    name: 'Bañamos Festival',
-    destination: 'Laguna',
-    slug: 'laguna',
-    description: 'Calamba celebrates Laguna\'s famous hot springs with street dancing, float parades, and cultural performances — a tribute to the volcanic waters that define the province.',
+    name: 'La Notte della Taranta',
+    destination: 'Melpignano (Puglia)',
+    slug: 'puglia',
+    description: 'The largest music festival in Southern Italy celebrates the pizzica — a frenzied folk dance from Salento. Over 100,000 people gather in Melpignano\'s piazza for an all-night concert blending traditional tarantella with world music.',
   },
   {
-    month: 'Aug',
-    monthIndex: 7,
-    name: 'Ibalong Festival',
-    destination: 'Legazpi',
-    slug: 'legazpi',
-    description: 'This non-religious festival honors the Bicolano epic Ibalong with colorful street dances and mythological reenactments beneath Mayon Volcano — one of the most visually dramatic festivals in the Italy.',
+    month: 'Sep',
+    monthIndex: 8,
+    name: 'Regata Storica',
+    destination: 'Venice',
+    slug: 'venice',
+    description: 'A spectacular procession of 16th-century boats along the Grand Canal, followed by competitive gondola races. Venetians in Renaissance costume row decorated bissone while crowds cheer from the banks. First Sunday of September.',
+  },
+  {
+    month: 'Sep',
+    monthIndex: 8,
+    name: 'Festa di San Gennaro',
+    destination: 'Naples',
+    slug: 'naples',
+    description: 'Naples holds its breath on September 19 as the blood of San Gennaro is displayed in the cathedral — if it liquefies, the city is blessed for the coming year. If not, Neapolitans brace for disaster. A spectacle of devotion and superstition.',
   },
   {
     month: 'Oct',
     monthIndex: 9,
-    name: 'Lanzones Festival',
-    destination: 'Camiguin',
-    slug: 'camiguin',
-    description: 'Camiguin\'s sweetest celebration honors the lanzones fruit harvest with dancers wearing lanzones-cluster costumes, fruit-picking contests, and street parades around the volcanic island.',
+    name: 'Eurochocolate',
+    destination: 'Perugia (Umbria)',
+    slug: 'tuscany',
+    description: 'Europe\'s largest chocolate festival fills Perugia\'s historic center with tastings, workshops, sculptures made of chocolate, and stands from Italy\'s and Europe\'s finest chocolatiers. Ten days in mid-October.',
   },
   {
     month: 'Oct',
     monthIndex: 9,
-    name: 'Siargao Surfing Cup',
-    destination: 'Siargao',
-    slug: 'siargao',
-    description: 'International and local surfers converge on Cloud 9 for one of Asia\'s premier surfing competitions. Beach parties, live music, and surf culture take over General Luna for a week.',
-  },
-  {
-    month: 'Oct',
-    monthIndex: 9,
-    name: 'Masskara Festival',
-    destination: 'Bacolod',
-    slug: 'bacolod',
-    description: 'The City of Smiles\' biggest celebration — elaborate smiling masks, street dancing competitions, and a citywide party born from defiance during economic hardship. One of the most visually spectacular festivals in the Italy.',
+    name: 'Alba White Truffle Fair',
+    destination: 'Alba (Piedmont)',
+    slug: 'piedmont',
+    description: 'The world\'s most prestigious truffle market — dealers auction prized tartufo bianco for thousands of euros per kilo while visitors taste truffle dishes, attend cooking demos, and enjoy a donkey palio. October through November.',
   },
   {
     month: 'Nov',
     monthIndex: 10,
-    name: 'Buglasan Festival',
-    destination: 'Dumaguete',
-    slug: 'dumaguete',
-    description: 'Negros Oriental\'s "festival of festivals" brings together the best performers from across the province. Street dancing, agricultural fairs, and cultural shows enliven the City of Gentle People.',
+    name: 'Festa della Salute',
+    destination: 'Venice',
+    slug: 'venice',
+    description: 'November 21 marks Venice\'s thanksgiving for deliverance from plague. Venetians cross a temporary pontoon bridge to the Basilica della Salute. A deeply local celebration with candle processions and traditional castradina (lamb stew).',
   },
   {
     month: 'Dec',
     monthIndex: 11,
-    name: 'Giant Lantern Festival',
-    destination: 'San Fernando, Pampanga',
-    slug: 'clark',
-    description: 'The "Christmas Capital of the Italy" lights up with massive parol (lanterns) up to 6 meters wide, featuring thousands of spinning lights in kaleidoscopic patterns. A truly dazzling spectacle.',
+    name: 'Christmas Markets',
+    destination: 'Bolzano, Trento & Northern Italy',
+    slug: 'dolomites',
+    description: 'The Dolomites and Alto Adige region host some of the most charming Christmas markets in Europe — Germanic-influenced wooden chalets selling handcrafts, mulled wine (Gluhwein), and roasted chestnuts. Bolzano, Merano, and Trento are the most atmospheric.',
+  },
+  {
+    month: 'Dec',
+    monthIndex: 11,
+    name: 'Presepe Vivente (Living Nativity)',
+    destination: 'Matera & Southern Italy',
+    slug: 'puglia',
+    description: 'Matera\'s ancient cave dwellings (Sassi) become the setting for a living nativity scene with costumed performers, livestock, and artisan workshops recreating biblical-era life. Similar events happen across Sicily and Calabria throughout December.',
   },
 ];
+
 
 const months = [
   'January', 'February', 'March', 'April', 'May', 'June',
@@ -283,35 +244,16 @@ const monthColors = [
 
 // Geo coordinates for festival map markers
 const geoLookup: Record<string, { lat: number; lng: number; label: string }> = {
-  boracay: { lat: 11.9674, lng: 121.9248, label: 'Boracay' },
-  cebu: { lat: 10.3157, lng: 123.8854, label: 'Cebu' },
-  iloilo: { lat: 10.692, lng: 122.5706, label: 'Iloilo' },
-  vigan: { lat: 17.5747, lng: 120.3869, label: 'Vigan' },
-  sagada: { lat: 17.0833, lng: 120.9, label: 'Sagada' },
-  laoag: { lat: 18.198, lng: 120.5936, label: 'Laoag' },
-  baguio: { lat: 16.4023, lng: 120.596, label: 'Baguio' },
-  'puerto-princesa': { lat: 9.7392, lng: 118.7353, label: 'P. Princesa' },
-  'el-nido': { lat: 11.1784, lng: 119.393, label: 'El Nido' },
-  marinduque: { lat: 13.4017, lng: 121.9694, label: 'Marinduque' },
-  'puerto-galera': { lat: 13.5113, lng: 120.9553, label: 'P. Galera' },
-  manila: { lat: 14.5995, lng: 120.9842, label: 'Manila' },
-  siargao: { lat: 9.8686, lng: 126.049, label: 'Siargao' },
-  bataan: { lat: 14.6417, lng: 120.4818, label: 'Bataan' },
-  banaue: { lat: 16.914, lng: 121.057, label: 'Banaue' },
-  guimaras: { lat: 10.5928, lng: 122.6325, label: 'Guimaras' },
-  batanes: { lat: 18.5, lng: 121.97, label: 'Batanes' },
-  caramoan: { lat: 13.7681, lng: 123.8611, label: 'Caramoan' },
-  tacloban: { lat: 11.2543, lng: 125.0, label: 'Tacloban' },
-  bohol: { lat: 9.65, lng: 123.85, label: 'Bohol' },
-  batangas: { lat: 13.7565, lng: 121.0583, label: 'Batangas' },
-  davao: { lat: 7.0707, lng: 125.6087, label: 'Davao' },
-  coron: { lat: 12.0054, lng: 120.2027, label: 'Coron' },
-  laguna: { lat: 14.2691, lng: 121.4113, label: 'Laguna' },
-  legazpi: { lat: 13.1391, lng: 123.7438, label: 'Legazpi' },
-  camiguin: { lat: 9.1733, lng: 124.7289, label: 'Camiguin' },
-  bacolod: { lat: 10.684, lng: 122.9563, label: 'Bacolod' },
-  dumaguete: { lat: 9.3068, lng: 123.3054, label: 'Dumaguete' },
-  clark: { lat: 15.186, lng: 120.5464, label: 'Clark' },
+  rome: { lat: 41.9028, lng: 12.4964, label: 'Rome' },
+  venice: { lat: 45.4408, lng: 12.3155, label: 'Venice' },
+  florence: { lat: 43.7696, lng: 11.2558, label: 'Florence' },
+  naples: { lat: 40.8518, lng: 14.2681, label: 'Naples' },
+  tuscany: { lat: 43.3188, lng: 11.3308, label: 'Siena' },
+  sicily: { lat: 37.5079, lng: 15.0830, label: 'Catania' },
+  verona: { lat: 45.4384, lng: 10.9916, label: 'Verona' },
+  puglia: { lat: 40.3515, lng: 18.1750, label: 'Lecce' },
+  piedmont: { lat: 44.6940, lng: 8.0353, label: 'Alba' },
+  dolomites: { lat: 46.4983, lng: 11.3548, label: 'Bolzano' },
 };
 
 // Build map markers — group festivals by slug (one marker per location)
@@ -345,14 +287,8 @@ const festMapMarkers = Array.from(festBySlug.entries())
 // Video lookup for festival cards — prefer preview (smallest), then break-1, then hero
 const festCardVideos: Record<string, string> = {};
 // Destinations with preview videos
-['bohol','dumaguete','cebu','boracay','coron','el-nido','siargao','siquijor','bacolod','camiguin','caramoan','davao','donsol','iloilo','legazpi','malapascua','manila','puerto-princesa','sagada','tagaytay','vigan','laoag']
+['rome','venice','florence','naples','sicily','tuscany','puglia','verona','dolomites','piedmont']
   .forEach(s => festCardVideos[s] = `/videos/destinations/${s}-preview.mp4`);
-// Destinations with break clips but no preview
-['baguio','bataan','banaue','guimaras','batanes','batangas','clark']
-  .forEach(s => festCardVideos[s] = `/videos/destinations/${s}-break-1.mp4`);
-// Destinations with hero only
-['marinduque','puerto-galera','tacloban','laguna']
-  .forEach(s => festCardVideos[s] = `/videos/destinations/${s}-hero.mp4`);
 
 // Fallback cycle for any slug not in lookup
 const fallbackVideos = Object.values(festCardVideos);
@@ -377,15 +313,15 @@ const festGenericClips = Array.from({ length: 10 }, (_, i) => `/videos/pillar/fe
 
     <div class="fest-hero-content">
       <h1 class="fest-hero-title">Italian Festival Calendar 2026</h1>
-      <p class="fest-hero-subtitle">From Sinulog's million-strong street dances to Batanes' quiet community gatherings — time your trip to the celebrations that define each destination.</p>
+      <p class="fest-hero-subtitle">From Venice's legendary Carnival to Siena's Palio horse race — time your trip to the festivals and celebrations that define each Italian destination.</p>
       <div class="fest-hero-meta">
         <div class="fest-hero-meta-item">
           <span class="fest-hero-meta-label">Festivals</span>
-          <span class="fest-hero-meta-value">32</span>
+          <span class="fest-hero-meta-value">25</span>
         </div>
         <div class="fest-hero-meta-item">
           <span class="fest-hero-meta-label">Destinations</span>
-          <span class="fest-hero-meta-value">29</span>
+          <span class="fest-hero-meta-value">10+</span>
         </div>
         <div class="fest-hero-meta-item">
           <span class="fest-hero-meta-label">Season</span>
@@ -406,7 +342,7 @@ const festGenericClips = Array.from({ length: 10 }, (_, i) => `/videos/pillar/fe
   <section class="fest-personal reveal">
     <div class="container-content">
       <blockquote class="fest-personal-quote">
-        <p>Italians love to have a good time — and they've built an entire culture around proving it. There are festivals for saints, harvests, historical events, and things that don't need a reason at all. Add in more national holidays than almost any country on earth, and there's always a fiesta happening somewhere. It's part of what makes the Italy feel so alive, and we try to plan around at least one every trip.</p>
+        <p>Italians celebrate everything — patron saints, historical victories, harvests, the changing of seasons, and things that simply deserve a party. Every town has its own sagra (food festival), every city has a patron saint feast day, and the entire country shuts down for Ferragosto in August. We try to plan around at least one festival every trip — they're the fastest way to experience the real Italy, not the tourist version.</p>
         <cite>— Scott &amp; Scott</cite>
       </blockquote>
     </div>
@@ -507,12 +443,12 @@ const festGenericClips = Array.from({ length: 10 }, (_, i) => `/videos/pillar/fe
 
   <!-- FAQ -->
   <FAQ items={[
-    { question: "What are the biggest festivals in the Italy?", answer: "Sinulog (Cebu, January), Ati-Atihan (Aklan, January), and Dinagyang (Iloilo, January) are the 'Big Three' — massive street dance festivals honoring the Santo Niño. MassKara (Bacolod, October) and Panagbenga (Baguio, February) draw huge crowds. Moriones (Marinduque, Holy Week) is the most dramatic. Each attracts hundreds of thousands of visitors." },
-    { question: "When is Sinulog Festival in Cebu?", answer: "Sinulog is held on the third Sunday of January, with a week of celebrations leading up to the grand parade. The main event features street dancing from early morning through the afternoon along the major roads of Cebu City. Book accommodation 2-3 months ahead — Cebu fills up completely during Sinulog week." },
-    { question: "How do I plan a trip around a Italian festival?", answer: "Pick your festival, then book accommodation 2-3 months early (prices double during major festivals). Arrive 2-3 days before the main event — the lead-up street parties and rehearsals are often more fun than the grand parade. Use our AI Trip Planner at /plan/ to build a festival-centered itinerary with hotel and transport bookings." },
-    { question: "Are Italian festivals safe for tourists?", answer: "Italian festivals are very safe and locals are welcoming to foreign visitors. The main risks are pickpockets in dense crowds and sunburn from long outdoor exposure. Keep valuables in a front pocket or neck pouch, stay hydrated, and wear sunscreen. Police presence is heavy during major festivals." },
-    { question: "What should I wear to a festival in the Italy?", answer: "Lightweight, breathable clothing — it's hot and you'll be in crowds for hours. Comfortable closed-toe shoes for dancing and walking on streets. Avoid expensive jewelry or accessories. Bring a small waterproof bag for your phone (water-throwing is common at some festivals). Sunglasses, hat, and reef-safe sunscreen are essential." },
-    { question: "Which Italian festivals happen in January?", answer: "January is peak festival season. Sinulog (Cebu), Ati-Atihan (Kalibo, Aklan), and Dinagyang (Iloilo) all happen in the third or fourth week. These three Santo Niño festivals are the country's biggest and most energetic celebrations, featuring elaborate costumes, street dancing, and all-night parties." },
+    { question: "What are the biggest festivals in Italy?", answer: "Carnevale di Venezia (Venice, February) is the most internationally famous — two weeks of elaborate masks and costume balls. The Palio di Siena (July and August) is a bareback horse race steeped in medieval rivalry. Ferragosto (August 15) is the biggest national holiday. La Notte della Taranta (August, Puglia) is the largest music festival in southern Italy, drawing over 100,000 people." },
+    { question: "When is Venice Carnival?", answer: "Carnevale di Venezia typically runs for two weeks in February, ending on Shrove Tuesday (Martedi Grasso). Exact dates shift yearly based on Easter. The main events are mask parades on Piazza San Marco, the Grand Canal regatta, and masquerade balls in historic palazzi. Book accommodation 3-4 months ahead — Venice fills up and prices double during Carnival." },
+    { question: "How do I plan a trip around an Italian festival?", answer: "Pick your festival, then book accommodation 2-4 months early — prices spike and rooms sell out during major events like Venice Carnival, Palio di Siena, and Ferragosto week. Arrive a day or two before the main event to soak up the atmosphere. Use our AI Trip Planner at /plan/ to build a festival-centered itinerary with transport and hotel bookings." },
+    { question: "Are Italian festivals safe for tourists?", answer: "Italian festivals are very safe and locals welcome foreign visitors warmly. The main concern is pickpocketing in dense crowds — especially in Venice, Rome, and Naples during major events. Keep valuables secure, use a crossbody bag, and stay aware in packed piazzas. Summer festivals require sunscreen, water, and comfortable shoes for hours of standing." },
+    { question: "What is Ferragosto?", answer: "Ferragosto (August 15) is Italy's biggest summer holiday — a national celebration dating back to Emperor Augustus. The entire country heads to the beach or mountains. Cities empty out, most shops and restaurants close, and coastal towns overflow. Book everything months in advance. If you're in Italy during Ferragosto, embrace it: every town has fireworks, beach parties, or communal dinners." },
+    { question: "What is the Palio di Siena?", answer: "A bareback horse race around Siena's shell-shaped Piazza del Campo, held July 2 and August 16. Ten of Siena's 17 contrade (neighborhoods) compete in a race that lasts about 90 seconds — but the pageantry, feasting, and neighborhood rivalry last for days. Standing in the center of the piazza is free but arrives early (by noon for a 7 PM race). It's been running since 1644." },
   ]} />
 
   <!-- Email Capture -->
@@ -521,10 +457,10 @@ const festGenericClips = Array.from({ length: 10 }, (_, i) => `/videos/pillar/fe
       leadMagnet="Get Our Free Festival Trip Planner"
       description="A month-by-month PDF guide to Italian festivals — with travel logistics, accommodation tips, and what to expect at each celebration."
       bullets={[
-        'All 32 festivals with exact dates and locations',
-        'How to get there and where to stay for each event',
+        'All 25 festivals with exact dates and locations',
+        'Train connections and where to stay for each event',
         'Insider tips — best viewing spots, what to wear, what to bring',
-        'Suggested multi-festival itineraries',
+        'Suggested multi-festival itineraries by region',
       ]}
       guideTag="pillar-festivals"
     />
@@ -535,15 +471,15 @@ const festGenericClips = Array.from({ length: 10 }, (_, i) => `/videos/pillar/fe
     <div class="container-content">
       <h3 class="fest-crosslinks-heading">Explore More</h3>
       <div class="fest-crosslinks-grid">
-        <a href="/snorkeling-italy/" class="fest-crosslink-card">
-          <span class="fest-crosslink-icon">&#127754;</span>
-          <span class="fest-crosslink-label">Snorkeling Guide</span>
-          <span class="fest-crosslink-desc">14 destinations ranked by what you'll see in the water</span>
+        <a href="/cuisine/" class="fest-crosslink-card">
+          <span class="fest-crosslink-icon">&#127860;</span>
+          <span class="fest-crosslink-label">Food & Cuisine</span>
+          <span class="fest-crosslink-desc">Regional Italian dishes with where to find the best version</span>
         </a>
         <a href="/destinations/" class="fest-crosslink-card">
           <span class="fest-crosslink-icon">&#127965;</span>
           <span class="fest-crosslink-label">All Destinations</span>
-          <span class="fest-crosslink-desc">Every island we've explored with honest reviews</span>
+          <span class="fest-crosslink-desc">Every city and region we've explored with honest reviews</span>
         </a>
       </div>
     </div>

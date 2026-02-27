@@ -4,8 +4,8 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog', (entry) => {
-    // Exclude translated files (tl/ subdirectory) from English routes
-    return !entry.id.startsWith('tl/');
+    // Exclude translated files (it/ subdirectory) from English routes
+    return !entry.id.startsWith('it/');
   });
   return posts.map((post) => ({
     params: { slug: post.slug || post.id },

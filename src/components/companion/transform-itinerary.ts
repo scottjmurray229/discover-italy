@@ -4,7 +4,7 @@ import type { TripData, TripDay, Activity, WeatherDay, Contact, GroupMember, Not
 interface ApiDayItem {
   time: string;
   description: string;
-  pricePhp?: number;
+  priceEur?: number;
   priceUsd?: number;
   category: 'transport' | 'accommodation' | 'activity' | 'food' | 'ferry';
   affiliateType?: 'hotel' | 'tour' | 'transport' | null;
@@ -24,7 +24,7 @@ interface ApiDay {
 export interface ApiItinerary {
   title: string;
   subtitle: string;
-  totalBudget: { php: number; usd: number };
+  totalBudget: { eur: number; usd: number };
   days: ApiDay[];
 }
 
@@ -74,7 +74,7 @@ function getIcon(category: string, description: string): string {
 }
 
 // Split description into title (short) + detail (full)
-function splitDescription(description: string, pricePhp?: number, priceUsd?: number): { title: string; detail: string } {
+function splitDescription(description: string, priceEur?: number, priceUsd?: number): { title: string; detail: string } {
   // Try splitting on first sentence
   const sentenceEnd = description.match(/^(.+?[.!])(\s|$)/);
   let title: string;
@@ -97,8 +97,8 @@ function splitDescription(description: string, pricePhp?: number, priceUsd?: num
   }
 
   // Append prices to detail if available
-  if (pricePhp && priceUsd) {
-    detail += ` (€${pricePhp.toLocaleString()} / $${priceUsd})`;
+  if (priceEur && priceUsd) {
+    detail += ` (€${priceEur.toLocaleString()} / $${priceUsd})`;
   }
 
   return { title, detail };
@@ -160,7 +160,7 @@ export function transformItinerary(apiItinerary: ApiItinerary): TripData {
     title: apiDay.title,
     location: capitalizeDestination(apiDay.destination),
     items: apiDay.items.map((item, idx): Activity => {
-      const { title, detail } = splitDescription(item.description, item.pricePhp, item.priceUsd);
+      const { title, detail } = splitDescription(item.description, item.priceEur, item.priceUsd);
       return {
         id: `d${apiDay.dayNumber}-${idx + 1}`,
         time: item.time,
