@@ -135,7 +135,7 @@ export default function TripTab({ days, weather, group, selectedDay, setSelected
                 )}
                 {item.type === 'transport' && (
                   <a
-                    href="https://12go.asia/en/travel/italy?z=15062413&sub_id=discoverph-companion"
+                    href="https://12go.asia/en/travel/italy?z=15062413&sub_id=discoveritaly-companion"
                     target="_blank"
                     rel="noopener sponsored"
                     onClick={(e) => e.stopPropagation()}
